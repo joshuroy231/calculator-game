@@ -3,11 +3,11 @@
 
 #define NUM_PHYSICS_ENTITY_SLOTS 16
 
-class PhysicsEngine {
+class PhysicsSystem {
     private:
         Entity* entity_registry;
         int const& num_entities;
     public:
-        PhysicsEngine(Entity* entity_registry, int const& num_entities);
+        PhysicsSystem(Entity* entity_registry, int const& num_entities);
         void simulate();
 };

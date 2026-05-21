@@ -4,7 +4,7 @@
 #include "components.hpp"
 #include "entity-manager.hpp"
 
-class RenderingEngine {
+class RenderingSystem {
     private:
         Entity* entity_registry;
         int const& num_entities;
@@ -12,8 +12,8 @@ class RenderingEngine {
         const static int WIDTH_PIXELS = 320;
         const static int HEIGHT_PIXELS = 240;
 
-        RenderingEngine(Entity* entity_registry, int const& num_entities);
-        ~RenderingEngine();
+        RenderingSystem(Entity* entity_registry, int const& num_entities);
+        ~RenderingSystem();
         void render();
         void renderEntities();
         void renderBackground();

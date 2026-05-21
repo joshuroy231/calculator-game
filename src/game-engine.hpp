@@ -1,14 +1,20 @@
 #pragma once
 
 #include "entity-manager.hpp"
-#include "rendering-engine.hpp"
-#include "physics-engine.hpp"
+#include "rendering-system.hpp"
+#include "physics-system.hpp"
+#include "game.hpp"
 
-class GameEngine {
+class Gamesystem {
     private:
         EntityManager entity_manager;
 
-        RenderingEngine rendering_engine;
-        PhysicsEngine physics_engine;
+        RenderingSystem rendering_system;
+        PhysicsSystem physics_system;
+
+        Game* game;
     public:
+        Gamesystem(Game* game);
+        void playGame();
+        void playScene(Scene* scene);
 };

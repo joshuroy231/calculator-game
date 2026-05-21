@@ -1,11 +1,11 @@
-#include "physics-engine.hpp"
+#include "physics-system.hpp"
 
-PhysicsEngine::PhysicsEngine(Entity* entity_registry, int const& num_entities)
+PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities)
 : entity_registry(entity_registry)
 , num_entities(num_entities) {}
 
 
-void PhysicsEngine::simulate() {
+void PhysicsSystem::simulate() {
     for (int i = 0; i < this->num_entities; i++) {
         Entity entity = this->entity_registry[i];
 

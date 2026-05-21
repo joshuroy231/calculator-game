@@ -1,19 +1,19 @@
 #include <graphx.h>
 
-#include "rendering-engine.hpp"
+#include "rendering-system.hpp"
 #include "entity-manager.hpp"
 
-RenderingEngine::RenderingEngine(Entity* entity_registry, int const& num_entities)
+RenderingSystem::RenderingSystem(Entity* entity_registry, int const& num_entities)
 : num_entities(num_entities) {
     this->entity_registry = entity_registry;
     gfx_Begin();
 }
 
-RenderingEngine::~RenderingEngine() {
+RenderingSystem::~RenderingSystem() {
     gfx_End();
 }
 
-void RenderingEngine::renderEntities() {
+void RenderingSystem::renderEntities() {
     for (int i = 0; i < this->num_entities; i++) {
         Entity entity = this->entity_registry[i];
         gfx_SetColor(entity.color.color);
@@ -26,11 +26,11 @@ void RenderingEngine::renderEntities() {
     }
 }
 
-void RenderingEngine::renderBackground() {
+void RenderingSystem::renderBackground() {
     gfx_FillScreen(0);
 }
 
-void RenderingEngine::render() {
+void RenderingSystem::render() {
     this->renderBackground();
     this->renderEntities();
 }

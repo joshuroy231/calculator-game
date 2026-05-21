@@ -1,16 +1,7 @@
 #pragma once
 
 #include <stdint.h>
-
-enum Availability {
-    AVAILABLE,
-    UNAVAILABLE
-};
-
-enum Result {
-    SUCCESS,
-    FAILURE
-};
+#include "controller.hpp"
 
 struct Position {
     int x = 0;
@@ -44,4 +35,9 @@ struct Velocity {
     Velocity(int x, int y)
     : x(x)
     , y(y) {}
+};
+
+struct Control {
+    Controller* controller;
+    void (*control)(Entity*);
 };
