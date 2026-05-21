@@ -1,28 +1,27 @@
-#include "rendering-engine.hpp"
-#include "entity-manager.hpp"
 #include <graphx.h>
 
-RenderingEngine::RenderingEngine() {
+#include "rendering-engine.hpp"
+#include "entity-manager.hpp"
+
+RenderingEngine::RenderingEngine(Entity* entity_registry, int const& num_entities)
+: num_entities(num_entities) {
+    this->entity_registry = entity_registry;
     gfx_Begin();
-    for (int i = 0; i < NUM_RENDERING_ENTITY_SLOTS; i++) {
-        this->available_slots[i] = AVAILABLE;
-    }
 }
 
 RenderingEngine::~RenderingEngine() {
     gfx_End();
 }
 
-void RenderingEngine::renderRenderingEntities() {
-    for (int i = 0; i < NUM_RENDERING_ENTITY_SLOTS; i++) {
-        if (this->available_slots[i] == AVAILABLE) continue;
-        RenderingEntity rendering_entity = this->entity_register[i];
-        gfx_SetColor(rendering_entity.color->color);
+void RenderingEngine::renderEntities() {
+    for (int i = 0; i < this->num_entities; i++) {
+        Entity entity = this->entity_registry[i];
+        gfx_SetColor(entity.color.color);
         gfx_FillRectangle(
-            rendering_entity.position->x,
-            rendering_entity.position->y,
-            rendering_entity.dimensions->w,
-            rendering_entity.dimensions->h
+            entity.position.x,
+            entity.position.y,
+            entity.dimensions.w,
+            entity.dimensions.h
         );
     }
 }
@@ -32,6 +31,6 @@ void RenderingEngine::renderBackground() {
 }
 
 void RenderingEngine::render() {
-    RenderingEngine::renderBackground();
-    RenderingEngine::renderRenderingEntities();
+    this->renderBackground();
+    this->renderEntities();
 }

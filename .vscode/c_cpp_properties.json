@@ -1,0 +1,18 @@
+{
+  "configurations": [
+    {
+      "name": "CEdev",
+      "includePath": [
+        "${workspaceFolder}/**",
+
+        "/home/jpalmer/Personal/CEdev-Linux/CEdev/include",
+        "/home/jpalmer/Personal/CEdev-Linux/CEdev/binutils/include"
+      ],
+      "compilerPath": "/home/jpalmer/Personal/CEdev-Linux/CEdev/bin/ez80-clang",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
+}

@@ -2,23 +2,19 @@
 #include <stdint.h>
 
 #include "components.hpp"
-
-#define NUM_RENDERING_ENTITY_SLOTS 16
-#define ENTITY_REGISTER_FULL -1
-
-class EntityManager;
+#include "entity-manager.hpp"
 
 class RenderingEngine {
     private:
-        EntityManager* entity_manager;
+        Entity* entity_registry;
+        int const& num_entities;
     public:
         const static int WIDTH_PIXELS = 320;
         const static int HEIGHT_PIXELS = 240;
 
-        RenderingEngine(EntityManager* entity_manager)
-        : entity_manager(entity_manager) {}
+        RenderingEngine(Entity* entity_registry, int const& num_entities);
         ~RenderingEngine();
         void render();
-        void renderRenderingEntities();
+        void renderEntities();
         void renderBackground();
 };
