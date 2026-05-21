@@ -9,9 +9,9 @@
 
 int main() {
     Scene scene = Scene(
-        1,
-        &player,
-        1,
+        num_entities,
+        entities,
+        num_entities,
         tilemap
     );
 

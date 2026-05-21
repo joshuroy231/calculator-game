@@ -31,3 +31,8 @@ EntityConfiguration player = {
     true,
     true
 };
+
+const int num_entities = 1;
+EntityConfiguration entities[num_entities] = {
+    player
+};
