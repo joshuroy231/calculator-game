@@ -4,8 +4,7 @@
 #include "entity-manager.hpp"
 
 RenderingSystem::RenderingSystem(Entity* entity_registry, int const& num_entities)
-: num_entities(num_entities) {
-    this->entity_registry = entity_registry;
+: System(entity_registry, num_entities) {
     gfx_Begin();
 }
 
@@ -30,7 +29,7 @@ void RenderingSystem::renderBackground() {
     gfx_FillScreen(0);
 }
 
-void RenderingSystem::render() {
+void RenderingSystem::update() {
     this->renderBackground();
     this->renderEntities();
 }

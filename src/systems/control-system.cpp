@@ -1,12 +1,12 @@
-#include "physics-system.hpp"
+#include "control-system.hpp"
 
-PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities)
+ControlSystem::ControlSystem(Entity* entity_registry, int const& num_entities)
 : System(entity_registry, num_entities) {}
 
 
-void PhysicsSystem::update() {
+void ControlSystem::update() {
     for (int i = 0; i < this->num_entities; i++) {
-        if (!entity_registry[i].has_physics) continue;
+        if (!this->entity_registry[i].has_control) continue;
         Entity entity = this->entity_registry[i];
 
         if (entity.velocity.x < entity.target_velocity.x) entity.velocity.x += 1;

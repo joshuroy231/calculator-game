@@ -5,16 +5,17 @@
 #include "physics-system.hpp"
 #include "game.hpp"
 
-class Gamesystem {
+class GameEngine {
     private:
         EntityManager entity_manager;
 
         RenderingSystem rendering_system;
         PhysicsSystem physics_system;
+        System* systems;
 
         Game* game;
     public:
-        Gamesystem(Game* game);
+        GameEngine(Game* game);
         void playGame();
         void playScene(Scene* scene);
 };
