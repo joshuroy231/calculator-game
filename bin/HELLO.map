@@ -1,0 +1,271 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+                              obj/HELLO.o (_malloc)
+/home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/libc_os.a(memcpy.ce.o)
+                              /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o) (_memcpy)
+
+Merging object attributes
+
+
+Discarded input sections
+
+ .comment       0x00000000      0x1be obj/HELLO.o
+ .note.GNU-stack
+                0x00000000        0x0 obj/HELLO.o
+ .init.weak_crt
+                0x00000000       0x10 obj/HELLO.o
+ .text          0x00000000        0x0 obj/crt0.o
+ .data          0x00000000        0x0 obj/crt0.o
+ .bss           0x00000000        0x0 obj/crt0.o
+ .text          0x00000000        0x0 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .data          0x00000000        0x0 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .bss           0x00000000        0x0 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .text._free    0x00000000       0xbd /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .text._realloc
+                0x00000000       0x7c /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .comment       0x00000000       0x70 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .note.GNU-stack
+                0x00000000        0x0 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ .text          0x00000000       0x21 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/libc_os.a(memcpy.ce.o)
+ .data          0x00000000        0x0 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/libc_os.a(memcpy.ce.o)
+ .bss           0x00000000        0x0 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/libc_os.a(memcpy.ce.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+prgm             0x00d1a87f         0x00400000
+bss              0x00d052c6         0x0000ed12
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00d1a87f                        LOAD_ADDR = 0xd1a87f
+                0x00d052c6                        BSSHEAP_LOW = 0xd052c6
+                0x00d13fd8                        BSSHEAP_HIGH = 0xd13fd8
+                0x00d1a87e                        STACK_HIGH = 0xd1a87e
+                0x00000001                        __TICE__ = 0x1
+                0x00d1a87f                        . = LOAD_ADDR
+
+.header         0x00d1a87f       0x14
+ *(.header)
+ .header        0x00d1a87f        0x3 obj/crt0.o
+ *(.header.icon)
+ .header.icon   0x00d1a882       0x11 obj/HELLO.o
+                0x00d1a887                ___description
+
+.init           0x00d1a893       0xef
+ *(.init)
+ .init          0x00d1a893       0xef obj/crt0.o
+                0x00d1a893                __start
+                0x00d1a8f0                __libload_library_GRAPHX
+                0x00d1a8f9                _gfx_Begin
+                0x00d1a8fd                _gfx_End
+                0x00d1a901                _gfx_SetColor
+                0x00d1a905                _gfx_FillScreen
+                0x00d1a909                _gfx_FillRectangle
+                0x00d1a946                ___exithl
+                0x00d1a947                _exit.sp
+
+.text           0x00d1a982      0x3a9
+ *(.text.unlikely .text.*_unlikely .text.unlikely.*)
+ *(.text.exit .text.exit.*)
+ *(.text.startup .text.startup.*)
+ *(.text.hot .text.hot.*)
+ *(SORT_BY_NAME(.text.sorted.*))
+ *(.text .stub .text.* .gnu.linkonce.t.*)
+ .text          0x00d1a982       0x1a obj/HELLO.o
+                0x00d1a982                __frameset
+                0x00d1a990                __frameset0
+                0x00d1a99b                __indcallhl
+ .text.__ZN6KeypadC2Ev
+                0x00d1a99c       0x64 obj/HELLO.o
+                0x00d1a99c                __ZN6KeypadC2Ev
+                0x00d1a99c                __ZN6KeypadC1Ev
+ .text._main    0x00d1aa00       0xc4 obj/HELLO.o
+                0x00d1aa00                _main
+ .text.__ZN8RendererC2Ev
+                0x00d1aac4       0x4b obj/HELLO.o
+                0x00d1aac4                __ZN8RendererC2Ev
+                0x00d1aac4                __ZN8RendererC1Ev
+ .text.__ZN8Renderer23registerRenderingEntityEP8PositionP10Dimensions
+                0x00d1ab0f       0x7c obj/HELLO.o
+                0x00d1ab0f                __ZN8Renderer23registerRenderingEntityEP8PositionP10Dimensions
+ .text.__ZN8Renderer23renderRenderingEntitiesEv
+                0x00d1ab8b       0x97 obj/HELLO.o
+                0x00d1ab8b                __ZN8Renderer23renderRenderingEntitiesEv
+ .text.__Znwj   0x00d1ac22       0x47 obj/HELLO.o
+                0x00d1ac22                __Znwj
+ .text._malloc  0x00d1ac69       0xc2 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+                0x00d1ac69                _malloc
+ *(.gnu.warning)
+
+.rodata         0x00d1ad2b       0x22
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.libload
+                0x00d1ad2b       0x22 obj/crt0.o
+
+.init_array     0x00d1ad4d        0x0
+                [!provide]                        PROVIDE (__init_array_start = .)
+ *(.preinit_array)
+ *(SORT_BY_INIT_PRIORITY(.init_array.*))
+ *(.init_array)
+                [!provide]                        PROVIDE (__init_array_end = .)
+
+.fini_array     0x00d1ad4d        0x0
+                [!provide]                        PROVIDE (__fini_array_start = .)
+ *(SORT_BY_INIT_PRIORITY(.fini_array.*))
+ *(.fini_array)
+                [!provide]                        PROVIDE (__fini_array_end = .)
+                0x00d1ad4d                        ___data_low = .
+
+.data           0x00d1ad4d        0x3
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data._heap_ptr
+                0x00d1ad4d        0x3 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ *(.data1)
+                0x00d1ad50                        ___runprgm_reloc_start = .
+ *(.runprgm.reloc)
+                0x00d1ad50                        ___runprgm_reloc_end = .
+                0x00d1ad50                        ___data_high = .
+                0x00000003                        ___data_len = (___data_high - ___data_low)
+                0x00d052c6                        . = BSSHEAP_LOW
+                0x00d052c6                        ___bss_low = .
+
+.bss            0x00d052c6       0x13
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss._keymap   0x00d052c6        0xa obj/HELLO.o
+                0x00d052c6                _keymap
+ .bss.__ZNSt12_GLOBAL__N_113__new_handlerE
+                0x00d052d0        0x3 obj/HELLO.o
+ .bss.__alloc_base
+                0x00d052d3        0x6 /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a(allocator_standard.o)
+ *(COMMON)
+                0x00d052d9                        ___bss_high = .
+                0x00000013                        ___bss_len = (___bss_high - ___bss_low)
+                0x00000001                        ASSERT ((. <= BSSHEAP_HIGH), Error: BSS exceed BSSHEAP_HIGH limit)
+                0x00d052d9                        ___heap_low = .
+                0x00d13fd8                        . = BSSHEAP_HIGH
+                0x00d13fd8                        ___heap_high = .
+
+.runprgm
+ *(.runprgm.reloc)
+
+.debug_info
+ *(.debug_info .debug_info.*)
+
+.debug_abbrev
+ *(.debug_abbrev .debug_abbrev.*)
+
+.debug_line
+ *(.debug_line .debug_line.*)
+
+.debug_line_str
+ *(.debug_line_str .debug_line_str.*)
+
+.debug_str
+ *(.debug_str .debug_str.*)
+
+.debug_str_offsets
+ *(.debug_str_offsets .debug_str_offsets.*)
+
+.debug_addr
+ *(.debug_addr .debug_addr.*)
+
+.debug_aranges
+ *(.debug_aranges .debug_aranges.*)
+
+.debug_ranges
+ *(.debug_ranges .debug_ranges.*)
+
+.debug_rnglists
+ *(.debug_rnglists .debug_rnglists.*)
+
+.debug_loc
+ *(.debug_loc .debug_loc.*)
+
+.debug_loclists
+ *(.debug_loclists .debug_loclists.*)
+
+.debug_frame
+ *(.debug_frame .debug_frame.*)
+
+.debug_macro
+ *(.debug_macro .debug_macro.*)
+
+.debug_macinfo
+ *(.debug_macinfo .debug_macinfo.*)
+
+.debug_names
+ *(.debug_names .debug_names.*)
+
+.debug_pubnames
+ *(.debug_pubnames .debug_pubnames.*)
+
+.debug_pubtypes
+ *(.debug_pubtypes .debug_pubtypes.*)
+
+.debug_types
+ *(.debug_types .debug_types.*)
+
+.debug_sup
+ *(.debug_sup .debug_sup.*)
+
+.debug_cu_index
+ *(.debug_cu_index .debug_cu_index.*)
+
+.debug_tu_index
+ *(.debug_tu_index .debug_tu_index.*)
+
+.gdb_index
+ *(.gdb_index)
+
+.debug_gdb_scripts
+ *(.debug_gdb_scripts)
+
+.debug_abbrev.dwo
+ *(.debug_abbrev.dwo .debug_abbrev.dwo.*)
+
+.debug_info.dwo
+ *(.debug_info.dwo .debug_info.dwo.*)
+
+.debug_line.dwo
+ *(.debug_line.dwo .debug_line.dwo.*)
+
+.debug_loclists.dwo
+ *(.debug_loclists.dwo .debug_loclists.dwo.*)
+
+.debug_macro.dwo
+ *(.debug_macro.dwo .debug_macro.dwo.*)
+
+.debug_rnglists.dwo
+ *(.debug_rnglists.dwo .debug_rnglists.dwo.*)
+
+.debug_str.dwo
+ *(.debug_str.dwo .debug_str.dwo.*)
+
+.debug_str_offsets.dwo
+ *(.debug_str_offsets.dwo .debug_str_offsets.dwo.*)
+
+.eh_frame
+ *(.eh_frame)
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+/DISCARD/
+ *(.comment)
+ *(.note*)
+                [!provide]                        PROVIDE (___runprgm_reloc_len = (___runprgm_reloc_end - ___runprgm_reloc_start))
+LOAD obj/HELLO.o
+LOAD obj/crt0.o
+START GROUP
+LOAD /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/allocator_standard.a
+LOAD /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/crt/libcrt.a
+LOAD /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/ce/libce.a
+LOAD /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/softfloat/libsoftfloat.a
+LOAD /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libc/libc_os.a
+LOAD /home/jpalmer/Personal/CEdev-Linux/CEdev/lib/libcxx/libcxx.a
+END GROUP
+OUTPUT(bin/HELLO.obj elf32-z80)
