@@ -8,5 +8,6 @@ class Keypad : public Controller {
     public:
         Keypad();
         ButtonState getButtonState(Button) override;
+        ButtonState* getButtonStates() override;
         void scan();
 };

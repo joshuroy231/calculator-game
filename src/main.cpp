@@ -6,8 +6,19 @@
 #include "game.hpp"
 
 void controlImpl(Entity* entity) {
-    if (entity->control.controller->getButtonState(UP) == HIGH) {
-        entity->target_velocity.x = 5;
+    ButtonState* button_states = entity->control.controller->getButtonStates();
+    Velocity target_velocity = Velocity(0,0);
+    if (button_states[UP] == HIGH || button_states[UP] == RISING_EDGE) {
+        target_velocity.x -= 5;
+    }
+    if (button_states[DOWN] == HIGH || button_states[DOWN] == RISING_EDGE) {
+        target_velocity.x += 5;
+    }
+    if (button_states[LEFT] == HIGH || button_states[LEFT] == RISING_EDGE) {
+        target_velocity.x -= 5;
+    }
+    if (button_states[RIGHT] == HIGH || button_states[RIGHT] == RISING_EDGE) {
+        target_velocity.x += 5;
     }
 }
 int main() {

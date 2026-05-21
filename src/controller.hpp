@@ -18,4 +18,5 @@ enum ButtonState {
 class Controller {
     public:
         virtual ButtonState getButtonState(Button) = 0;
+        virtual ButtonState* getButtonStates() = 0;
 };

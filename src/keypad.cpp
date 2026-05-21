@@ -17,6 +17,9 @@ Keypad::Keypad() {
 ButtonState Keypad::getButtonState(Button button) {
     return key_states[button];
 }
+ButtonState* Keypad::getButtonStates() {
+    return key_states;
+}
 
 void Keypad::scan() {
     kb_Scan();
