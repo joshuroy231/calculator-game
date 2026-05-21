@@ -9,7 +9,6 @@ void controlImpl(Entity* entity) {
     if (entity->control.controller->getButtonState(UP) == HIGH) {
         entity->target_velocity.x = 5;
     }
-
 }
 int main() {
     EntityConfiguration player = EntityConfiguration();
