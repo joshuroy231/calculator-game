@@ -25,7 +25,7 @@ EntityConfiguration player = {
     Dimensions(16, 16),
     Velocity(0, 0),
     Velocity(0, 0),
-    Color(1),
+    Color(255),
     Control(&keypad, controlImpl),
     true,
     true,
