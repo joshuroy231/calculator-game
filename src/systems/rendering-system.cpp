@@ -14,6 +14,7 @@ RenderingSystem::~RenderingSystem() {
 
 void RenderingSystem::renderEntities() {
     for (int i = 0; i < this->num_entities; i++) {
+        if (!entity_registry[i].has_rendering) continue;
         Entity entity = this->entity_registry[i];
         gfx_SetColor(entity.color.color);
         gfx_FillRectangle(

@@ -11,11 +11,11 @@ class GameEngine {
 
         RenderingSystem rendering_system;
         PhysicsSystem physics_system;
-        System* systems;
 
         Game* game;
+
+        void playScene(Scene* scene);
     public:
         GameEngine(Game* game);
         void playGame();
-        void playScene(Scene* scene);
 };

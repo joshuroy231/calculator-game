@@ -38,6 +38,10 @@ struct Velocity {
 };
 
 struct Control {
-    Controller* controller;
-    void (*control)(Entity*);
+    Controller* controller = nullptr;
+    void (*control)(Entity*) = nullptr;
+    Control() = default;
+    Control(Controller* controller, void (*control)(Entity*))
+    : controller(controller)
+    , control(control) {}
 };

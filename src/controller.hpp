@@ -6,9 +6,11 @@ enum Button {
     RIGHT,
 };
 
-class ButtonState {
-    bool is_on;
-    bool is_transition;
+enum ButtonState {
+    ON,
+    OFF,
+    PRESS,
+    RELEASE,
 };
 
 class Controller {

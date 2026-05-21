@@ -7,14 +7,6 @@ ControlSystem::ControlSystem(Entity* entity_registry, int const& num_entities)
 void ControlSystem::update() {
     for (int i = 0; i < this->num_entities; i++) {
         if (!this->entity_registry[i].has_control) continue;
-        Entity entity = this->entity_registry[i];
-
-        if (entity.velocity.x < entity.target_velocity.x) entity.velocity.x += 1;
-        else if (entity.velocity.x > entity.target_velocity.x) entity.velocity.x -= 1;
-        if (entity.velocity.y < entity.target_velocity.y) entity.velocity.y += 1;
-        else if (entity.velocity.y > entity.target_velocity.y) entity.velocity.y -= 1;
-
-        entity.position.x += entity.velocity.x;
-        entity.position.y += entity.velocity.y;
+        entity_registry[i].control.control(entity_registry + i);
     }
 }
