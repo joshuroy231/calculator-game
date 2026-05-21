@@ -1,3 +1,5 @@
+#pragma once
+
 #include "components.hpp"
 #include "entity-configuration.hpp"
 
@@ -33,6 +35,7 @@ class EntityManager {
         int num_entity_registers;
 
         EntityManager(int num_entity_registers);
+        ~EntityManager();
 
         int conceiveEntity(const EntityConfiguration entity_configuration);
         void condemnEntity(int entity_id);

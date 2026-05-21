@@ -1,25 +1,12 @@
-enum Key {
-    LEFT,
-    RIGHT,
-    UP,
-    DOWN,
-    ENTER,
-};
+#pragma once
 
-const int NUM_KEYS = 5;
+#include "controller.hpp"
 
-enum KeyState {
-    OFF,
-    ON,
-    PRESS,
-    RELEASE,
-};
-
-class Keypad {
+class Keypad : public Controller {
     private:
-        KeyState key_states[NUM_KEYS];
+        ButtonState key_states[NUM_BUTTONS];
     public:
         Keypad();
-        KeyState* getKeyStates();
+        ButtonState getButtonState(Button) override;
         void scan();
 };

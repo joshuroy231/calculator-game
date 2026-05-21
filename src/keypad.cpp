@@ -1,31 +1,31 @@
 #include <keypadc.h>
 #include "keypad.hpp"
 
-kb_lkey_t keymap[NUM_KEYS];
+kb_lkey_t keymap[NUM_BUTTONS];
 
 Keypad::Keypad() {
     keymap[LEFT] = kb_Left;
     keymap[RIGHT] = kb_Right;
     keymap[UP] = kb_Up;
     keymap[DOWN] = kb_Down;
-    keymap[ENTER] = kb_Enter;
 
-    for (int i = 0; i < NUM_KEYS; i++) {
-        this->key_states[i] = OFF;
+    for (int i = 0; i < NUM_BUTTONS; i++) {
+        this->key_states[i] = LOW;
     }
 }
 
-KeyState* Keypad::getKeyStates() {
-    return this->key_states;
+ButtonState Keypad::getButtonState(Button button) {
+    return key_states[button];
 }
 
 void Keypad::scan() {
-    for (int i = 0; i < NUM_KEYS; i++) {
+    kb_Scan();
+    for (int i = 0; i < NUM_BUTTONS; i++) {
         if (kb_IsDown(keymap[i])) {
-            this->key_states[i] = (this->key_states[i] == OFF) ? PRESS : ON;
+            key_states[i] = (key_states[i] == LOW) ? RISING_EDGE : HIGH;
         }
         else {
-            this->key_states[i] = (this->key_states[i] == ON) ? RELEASE : OFF;
+            key_states[i] = (key_states[i] == HIGH) ? FALLING_EDGE : LOW;
         }
     }
 }

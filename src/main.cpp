@@ -1,18 +1,12 @@
 #include <stdint.h>
 
+#include "keypad.hpp"
 #include "entity-manager.hpp"
 #include "game-engine.hpp"
 #include "game.hpp"
 
-class DumbController : public Controller {
-    ButtonState getButtonState(Button button) override {
-        if (button == RIGHT) return ON;
-        else return OFF;
-    }
-};
-
 void controlImpl(Entity* entity) {
-    if (entity->control.controller->getButtonState(RIGHT) == ON) {
+    if (entity->control.controller->getButtonState(UP) == HIGH) {
         entity->target_velocity.x = 5;
     }
 
@@ -25,8 +19,8 @@ int main() {
     player.position = Position(100, 100);
     player.dimensions = Dimensions(16, 16);
     player.color = Color(1);
-    DumbController dumb_controller = DumbController();
-    player.control = Control(&dumb_controller, controlImpl);
+    Keypad keypad = Keypad();
+    player.control = Control(&keypad, controlImpl);
 
     Scene scene = Scene(1, &player, 1);
     Game game = Game(&scene);

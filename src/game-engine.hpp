@@ -1,8 +1,8 @@
 #pragma once
 
 #include "entity-manager.hpp"
-#include "rendering-system.hpp"
-#include "physics-system.hpp"
+#include "systems/rendering-system.hpp"
+#include "systems/physics-system.hpp"
 #include "game.hpp"
 
 class GameEngine {

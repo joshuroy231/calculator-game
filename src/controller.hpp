@@ -1,3 +1,5 @@
+#pragma once
+
 #define NUM_BUTTONS 4
 enum Button {
     UP,
@@ -7,10 +9,10 @@ enum Button {
 };
 
 enum ButtonState {
-    ON,
-    OFF,
-    PRESS,
-    RELEASE,
+    HIGH,
+    LOW,
+    RISING_EDGE,
+    FALLING_EDGE,
 };
 
 class Controller {

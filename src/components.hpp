@@ -37,6 +37,8 @@ struct Velocity {
     , y(y) {}
 };
 
+class Entity;
+
 struct Control {
     Controller* controller = nullptr;
     void (*control)(Entity*) = nullptr;
