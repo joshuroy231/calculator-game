@@ -1,6 +1,6 @@
 #pragma once
 
-#include "entity-manager.hpp"
+#include "entities/entity-manager.hpp"
 #include "systems/rendering-system.hpp"
 #include "systems/physics-system.hpp"
 #include "game.hpp"

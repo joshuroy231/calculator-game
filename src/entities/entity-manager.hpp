@@ -1,7 +1,7 @@
 #pragma once
 
 #include "components.hpp"
-#include "entity-configuration.hpp"
+#include "entity-profile.hpp"
 
 class Entity {
     friend class EntityManager;
@@ -9,16 +9,11 @@ class Entity {
         bool is_condemned = false;
         int entity_id;
     public:
+        const EntityProfile* entity_profile;
+
         Position position;
-        Dimensions dimensions;
         Velocity velocity;
         Velocity target_velocity;
-        Color color;
-        Control control;
-
-        bool has_rendering;
-        bool has_physics;
-        bool has_control;
 
         Entity() = default;
         Entity(int entity_id)

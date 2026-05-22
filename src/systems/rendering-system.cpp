@@ -1,7 +1,6 @@
 #include <graphx.h>
 
 #include "rendering-system.hpp"
-#include "entity-manager.hpp"
 
 RenderingSystem::RenderingSystem(Entity* entity_registry, int const& num_entities)
 : System(entity_registry, num_entities) {
@@ -14,14 +13,14 @@ RenderingSystem::~RenderingSystem() {
 
 void RenderingSystem::renderEntities() {
     for (int i = 0; i < this->num_entities; i++) {
-        if (!entity_registry[i].has_rendering) continue;
+        if (!entity_registry[i].entity_profile->has_rendering) continue;
         Entity entity = this->entity_registry[i];
-        gfx_SetColor(entity.color.color);
+        gfx_SetColor(entity.entity_profile->color.color);
         gfx_FillRectangle(
             entity.position.x,
             entity.position.y,
-            entity.dimensions.w,
-            entity.dimensions.h
+            entity.entity_profile->dimensions.w,
+            entity.entity_profile->dimensions.h
         );
     }
 }

@@ -12,16 +12,11 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
 
     Entity new_entity = Entity(next_entity_id);
 
-    new_entity.position = entity_configuration.position;
-    new_entity.dimensions = entity_configuration.dimensions;
-    new_entity.velocity = entity_configuration.velocity;
-    new_entity.target_velocity = entity_configuration.target_velocity;
-    new_entity.color = entity_configuration.color;
-    new_entity.control = entity_configuration.control;
+    new_entity.position = entity_configuration.initial_position;
+    new_entity.velocity = entity_configuration.initial_velocity;
+    new_entity.target_velocity = entity_configuration.initial_target_velocity;
 
-    new_entity.has_rendering = entity_configuration.has_rendering;
-    new_entity.has_physics = entity_configuration.has_physics;
-    new_entity.has_control = entity_configuration.has_control;
+    new_entity.entity_profile = entity_configuration.entity_profile;
 
     entity_registry[num_entities + num_conceived_entities] = new_entity;
     num_conceived_entities++;

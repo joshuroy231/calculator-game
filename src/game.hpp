@@ -1,6 +1,7 @@
 #pragma once
 
-#include "entity-configuration.hpp"
+#include <stdint.h>
+#include "entities/entity-profile.hpp"
 
 class Tilemap {
     private:

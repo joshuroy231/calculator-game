@@ -1,4 +1,4 @@
-#include "entity-manager.hpp"
+#include "entities/entity-manager.hpp"
 
-extern EntityConfiguration* entities;
+extern EntityConfiguration entities[1];
 extern const int num_entities;

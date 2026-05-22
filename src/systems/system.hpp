@@ -1,6 +1,6 @@
 #pragma once
 
-#include "entity-manager.hpp"
+#include "entities/entity-manager.hpp"
 
 class System {
     protected:
