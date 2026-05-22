@@ -6,15 +6,20 @@
 #include "system.hpp"
 #include "components.hpp"
 #include "entities/entity-manager.hpp"
+#include "game.hpp"
 
 class RenderingSystem : System {
+    private:
+        Tilemap* tilemap;
     public:
-        const static int WIDTH_PIXELS = 320;
-        const static int HEIGHT_PIXELS = 240;
-
-        RenderingSystem(Entity* entity_registry, int const& num_entities);
+        RenderingSystem(
+            Entity* entity_registry,
+            int const& num_entities,
+            Tilemap* tilemap
+        );
         ~RenderingSystem();
         void update() override;
-        void renderEntities();
         void renderBackground();
+        void renderTiles();
+        void renderEntities();
 };
