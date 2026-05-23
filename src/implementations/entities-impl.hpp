@@ -1,6 +1,9 @@
 #pragma once
 
 #include "entities/entity.hpp"
+#include "keypad.hpp"
 
-extern EntityConfiguration entities[1];
+extern Keypad keypad;
+
 extern const int num_entities;
+extern EntityConfiguration entities[2];

@@ -9,6 +9,7 @@ Keypad::Keypad() {
     keymap[RIGHT] = kb_KeyRight;
     keymap[UP] = kb_KeyUp;
     keymap[DOWN] = kb_KeyDown;
+    keymap[QUIT] = kb_KeyClear;
 
     for (int i = 0; i < NUM_BUTTONS; i++) {
         this->key_states[i] = LOW;
@@ -16,11 +17,9 @@ Keypad::Keypad() {
 }
 
 ButtonState Keypad::getButtonState(Button button) {
-    scan();
     return key_states[button];
 }
 ButtonState* Keypad::getButtonStates() {
-    scan();
     return key_states;
 }
 

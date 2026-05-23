@@ -4,6 +4,7 @@
 #include "systems/rendering-system.hpp"
 #include "systems/physics-system.hpp"
 #include "systems/control-system.hpp"
+#include "keypad.hpp"
 #include "game.hpp"
 
 class GameEngine {
@@ -14,10 +15,13 @@ class GameEngine {
         PhysicsSystem physics_system;
         ControlSystem control_system;
 
+        Keypad* keypad = nullptr;
+
         Game* game;
 
         void playScene(Scene* scene);
     public:
         GameEngine(Game* game);
+        void registerKeypad(Keypad* keypad);
         void playGame();
 };

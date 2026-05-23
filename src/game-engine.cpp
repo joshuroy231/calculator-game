@@ -11,6 +11,10 @@ GameEngine::GameEngine(Game* game)
     , game(game)
     {}
 
+void GameEngine::registerKeypad(Keypad* keypad) {
+    this->keypad = keypad;
+}
+
 void GameEngine::playGame() {
     dbg_printf("Num initial entities 6: %d\n", game->scene->num_initial_entities);
     playScene(game->scene);
@@ -26,6 +30,10 @@ void GameEngine::playScene(Scene* scene) {
         uint32_t start = timer_Get(1);
 
         entity_manager.updateEntities();
+        if (keypad != nullptr) {
+            keypad->scan();
+            if (keypad->getButtonState(QUIT) == RISING_EDGE) break;
+        }
 
         control_system.update();
         physics_system.update();

@@ -35,8 +35,15 @@ EntityConfiguration player_configuration = EntityConfiguration(
     Velocity(0, 40),
     &player_profile
 );
+EntityConfiguration player2_configuration = EntityConfiguration(
+    Position(96, 96),
+    Velocity(0, 0),
+    Velocity(0, 40),
+    &player_profile
+);
 
-const int num_entities = 1;
+const int num_entities = 2;
 EntityConfiguration entities[num_entities] = {
-    player_configuration
+    player_configuration,
+    player2_configuration
 };
