@@ -2,7 +2,7 @@
 #include <debug.h>
 
 #include "keypad.hpp"
-#include "entity-manager.hpp"
+#include "entities/entity-manager.hpp"
 #include "game-engine.hpp"
 #include "game.hpp"
 #include "implementations/tilemap-impl.hpp"

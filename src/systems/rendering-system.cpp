@@ -2,10 +2,14 @@
 #include <debug.h>
 
 #include "rendering-system.hpp"
-#include "entity-manager.hpp"
 
-RenderingSystem::RenderingSystem(Entity* entity_registry, int const& num_entities)
-: System(entity_registry, num_entities) {
+RenderingSystem::RenderingSystem(
+    Entity* entity_registry,
+    int const& num_entities,
+    Tilemap* tilemap
+)
+: System(entity_registry, num_entities)
+, tilemap(tilemap) {
     gfx_Begin();
 }
 
@@ -15,14 +19,14 @@ RenderingSystem::~RenderingSystem() {
 
 void RenderingSystem::renderEntities() {
     for (int i = 0; i < this->num_entities; i++) {
-        if (!entity_registry[i].has_rendering) continue;
+        if (!entity_registry[i].entity_profile->has_rendering) continue;
         Entity entity = this->entity_registry[i];
-        gfx_SetColor(entity.color.color);
+        gfx_SetColor(entity.entity_profile->color.color);
         gfx_FillRectangle(
             entity.position.x,
             entity.position.y,
-            entity.dimensions.w,
-            entity.dimensions.h
+            entity.entity_profile->dimensions.w,
+            entity.entity_profile->dimensions.h
         );
     }
 }
@@ -31,8 +35,25 @@ void RenderingSystem::renderBackground() {
     gfx_FillScreen(110);
 }
 
+void RenderingSystem::renderTiles() {
+    gfx_SetColor(255);
+    for (int i = 0; i < 15; i++) {
+        for (int j = 0; j < 20; j++) {
+            if (tilemap->data[20*i + j] == 1) {
+                gfx_FillRectangle(
+                    j*16,
+                    i*16,
+                    16,
+                    16
+                );
+            }
+        }
+    }
+}
+
 void RenderingSystem::update() {
     this->renderBackground();
+    this->renderTiles();
     this->renderEntities();
     gfx_SwapDraw();
 }

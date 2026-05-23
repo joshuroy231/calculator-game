@@ -2,7 +2,7 @@
 
 #include "system.hpp"
 #include "components.hpp"
-#include "entity-manager.hpp"
+#include "entities/entity-manager.hpp"
 
 class PhysicsSystem : System {
     public:

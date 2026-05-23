@@ -1,0 +1,43 @@
+#pragma once
+
+#include "components.hpp"
+
+struct EntityProfile {
+    const Dimensions dimensions;
+    const Color color;
+    const Control control;
+
+    const bool has_rendering;
+    const bool has_physics;
+    const bool has_control;
+    EntityProfile(
+        Dimensions dimensions,
+        Color color,
+        Control control,
+        bool has_rendering,
+        bool has_physics,
+        bool has_control
+    )
+    : dimensions(dimensions)
+    , color(color)
+    , control(control)
+    , has_rendering(has_rendering)
+    , has_physics(has_physics)
+    , has_control(has_control) {}
+};
+struct EntityConfiguration {
+    const Position initial_position;
+    const Velocity initial_velocity;
+    const Velocity initial_target_velocity;
+    const EntityProfile* entity_profile;
+    EntityConfiguration(
+        Position initial_position,
+        Velocity initial_velocity,
+        Velocity initial_target_velocity,
+        EntityProfile* entity_profile
+    )
+    : initial_position(initial_position)
+    , initial_velocity(initial_velocity)
+    , initial_target_velocity(initial_target_velocity)
+    , entity_profile(entity_profile) {}
+};

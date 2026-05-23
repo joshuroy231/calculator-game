@@ -6,7 +6,7 @@ PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities)
 
 void PhysicsSystem::update() {
     for (int i = 0; i < this->num_entities; i++) {
-        if (!entity_registry[i].has_physics) continue;
+        if (!entity_registry[i].entity_profile->has_physics) continue;
         Entity& entity = this->entity_registry[i];
 
         if (entity.velocity.x < entity.target_velocity.x) entity.velocity.x += 1;
