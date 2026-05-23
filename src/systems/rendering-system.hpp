@@ -7,11 +7,13 @@
 class RenderingSystem : System {
     private:
         Tilemap* tilemap;
+        Color background_color;
     public:
         RenderingSystem(
             Entity* entity_registry,
             int const& num_entities,
-            Tilemap* tilemap
+            Tilemap* tilemap,
+            Color background_color
         );
         ~RenderingSystem();
         void update() override;

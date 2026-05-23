@@ -5,7 +5,7 @@
 
 GameEngine::GameEngine(Game* game)
     : entity_manager(game->scene->entity_pool_size)
-    , rendering_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap)
+    , rendering_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap, game->scene->background_color)
     , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap)
     , control_system(entity_manager.entity_registry, entity_manager.num_entities)
     , game(game)
@@ -34,6 +34,6 @@ void GameEngine::playScene(Scene* scene) {
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;
 
-        if (processing_time < 30) delay(30 - processing_time);
+        if (processing_time < 32) delay(32 - processing_time);
     }
 }

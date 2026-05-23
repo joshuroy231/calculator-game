@@ -6,10 +6,13 @@
 RenderingSystem::RenderingSystem(
     Entity* entity_registry,
     int const& num_entities,
-    Tilemap* tilemap
+    Tilemap* tilemap,
+    Color background_color
 )
 : System(entity_registry, num_entities)
-, tilemap(tilemap) {
+, tilemap(tilemap)
+, background_color(background_color)
+{
     gfx_Begin();
 }
 
@@ -32,7 +35,7 @@ void RenderingSystem::renderEntities() {
 }
 
 void RenderingSystem::renderBackground() {
-    gfx_FillScreen(110);
+    gfx_FillScreen(background_color.color);
 }
 
 void RenderingSystem::renderTiles() {
