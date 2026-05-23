@@ -25,10 +25,10 @@ void controlImpl(Entity* entity) {
 }
 
 EntityConfiguration player = {
-    Position(100, 100),
+    Position(0, 0),
     Dimensions(16, 16),
-    Velocity(0, 1),
-    Velocity(0, 1),
+    Velocity(10, 10),
+    Velocity(0, 0),
     Color(255),
     Control(&keypad, controlImpl),
     true,
