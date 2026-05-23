@@ -1,4 +1,5 @@
 #include <graphx.h>
+#include <debug.h>
 
 #include "rendering-system.hpp"
 #include "entity-manager.hpp"
@@ -27,10 +28,11 @@ void RenderingSystem::renderEntities() {
 }
 
 void RenderingSystem::renderBackground() {
-    gfx_FillScreen(0);
+    gfx_FillScreen(110);
 }
 
 void RenderingSystem::update() {
     this->renderBackground();
     this->renderEntities();
+    gfx_SwapDraw();
 }

@@ -1,13 +1,14 @@
 #include <keypadc.h>
+#include <debug.h>
 #include "keypad.hpp"
 
 kb_lkey_t keymap[NUM_BUTTONS];
 
 Keypad::Keypad() {
-    keymap[LEFT] = kb_Left;
-    keymap[RIGHT] = kb_Right;
-    keymap[UP] = kb_Up;
-    keymap[DOWN] = kb_Down;
+    keymap[LEFT] = kb_KeyLeft;
+    keymap[RIGHT] = kb_KeyRight;
+    keymap[UP] = kb_KeyUp;
+    keymap[DOWN] = kb_KeyDown;
 
     for (int i = 0; i < NUM_BUTTONS; i++) {
         this->key_states[i] = LOW;
@@ -15,9 +16,11 @@ Keypad::Keypad() {
 }
 
 ButtonState Keypad::getButtonState(Button button) {
+    scan();
     return key_states[button];
 }
 ButtonState* Keypad::getButtonStates() {
+    scan();
     return key_states;
 }
 
@@ -31,4 +34,6 @@ void Keypad::scan() {
             key_states[i] = (key_states[i] == HIGH) ? FALLING_EDGE : LOW;
         }
     }
+    dbg_printf("Button states: [UP: %d, DOWN: %d, LEFT: %d, RIGHT: %d]\n",
+        key_states[UP], key_states[DOWN], key_states[LEFT], key_states[RIGHT]);
 }
