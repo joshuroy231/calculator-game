@@ -10,8 +10,8 @@ enum Button {
 };
 
 enum ButtonState {
-    HIGH,
     LOW,
+    HIGH,
     RISING_EDGE,
     FALLING_EDGE,
 };
