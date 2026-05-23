@@ -20,13 +20,20 @@ void GameEngine::playScene(Scene* scene) {
     for (int i = 0; i < scene->num_initial_entities; i++) {
         entity_manager.conceiveEntity(scene->initial_entities[i]);
     }
+    timer_Enable(1, TIMER_32K, TIMER_NOINT, TIMER_UP);
+
     while (true) {
+        uint32_t start = timer_Get(1);
+
         entity_manager.updateEntities();
 
         control_system.update();
         physics_system.update();
         rendering_system.update();
 
-        delay(16);
+        uint32_t end = timer_Get(1);
+        uint32_t processing_time = (end - start)/32;
+
+        if (processing_time < 30) delay(30 - processing_time);
     }
 }

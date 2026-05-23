@@ -1,4 +1,5 @@
 #include "entity-manager.hpp"
+#include "entity.hpp"
 
 EntityManager::EntityManager(int num_entity_registers) {
     this->num_entity_registers = num_entity_registers;

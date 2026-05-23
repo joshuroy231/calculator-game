@@ -34,6 +34,4 @@ void Keypad::scan() {
             key_states[i] = (key_states[i] == HIGH) ? FALLING_EDGE : LOW;
         }
     }
-    dbg_printf("Button states: [UP: %d, DOWN: %d, LEFT: %d, RIGHT: %d]\n",
-        key_states[UP], key_states[DOWN], key_states[LEFT], key_states[RIGHT]);
 }

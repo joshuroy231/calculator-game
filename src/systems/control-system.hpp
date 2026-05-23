@@ -1,6 +1,7 @@
 #pragma once
 
 #include "system.hpp"
+#include "entities/entity.hpp"
 
 class ControlSystem : System {
     public:

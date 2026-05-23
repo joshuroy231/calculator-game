@@ -1,12 +1,8 @@
 #pragma once
 
-#include <stdbool.h>
-#include <stdint.h>
-
 #include "system.hpp"
-#include "components.hpp"
-#include "entities/entity-manager.hpp"
-#include "game.hpp"
+#include "entities/entity.hpp"
+#include "tilemap.hpp"
 
 class RenderingSystem : System {
     private:

@@ -1,9 +1,8 @@
 #pragma once
 
 #include "system.hpp"
-#include "components.hpp"
-#include "entities/entity-manager.hpp"
-#include "game.hpp"
+#include "entities/entity.hpp"
+#include "tilemap.hpp"
 
 class PhysicsSystem : System {
     private:
