@@ -16,11 +16,9 @@ void GameEngine::registerKeypad(Keypad* keypad) {
 }
 
 void GameEngine::playGame() {
-    dbg_printf("Num initial entities 6: %d\n", game->scene->num_initial_entities);
     playScene(game->scene);
 }
 void GameEngine::playScene(Scene* scene) {
-    dbg_printf("Num initial entities 7: %d\n", scene->num_initial_entities);
     for (int i = 0; i < scene->num_initial_entities; i++) {
         entity_manager.conceiveEntity(scene->initial_entities[i]);
     }
