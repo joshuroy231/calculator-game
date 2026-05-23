@@ -1,4 +1,4 @@
-NAME = GameEngine
+NAME = Gengine
 ICON = icon.png
 DESCRIPTION = "Hello world"
 

@@ -5,8 +5,8 @@
 
 GameEngine::GameEngine(Game* game)
     : entity_manager(game->scene->entity_pool_size)
-    , rendering_system(entity_manager.entity_registry, entity_manager.num_entities)
-    , physics_system(entity_manager.entity_registry, entity_manager.num_entities)
+    , rendering_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap)
+    , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap)
     , control_system(entity_manager.entity_registry, entity_manager.num_entities)
     , game(game)
     {}

@@ -7,21 +7,17 @@ Keypad keypad = Keypad();
 
 void controlImpl(Entity* entity) {
     ButtonState* button_states = entity->entity_profile->control.controller->getButtonStates();
-    Velocity target_velocity = Velocity(0,0);
-    if (button_states[UP] == HIGH || button_states[UP] == RISING_EDGE) {
-        target_velocity.y -= 5;
-    }
-    if (button_states[DOWN] == HIGH || button_states[DOWN] == RISING_EDGE) {
-        target_velocity.y += 5;
-    }
+    int target_velocity_x = 0;
     if (button_states[LEFT] == HIGH || button_states[LEFT] == RISING_EDGE) {
-        target_velocity.x -= 5;
+        target_velocity_x -= 20;
     }
     if (button_states[RIGHT] == HIGH || button_states[RIGHT] == RISING_EDGE) {
-        target_velocity.x += 5;
+        target_velocity_x += 20;
     }
-    dbg_printf("Target velocity: (%d, %d)\n", target_velocity.x, target_velocity.y);
-    entity->target_velocity = target_velocity;
+    if (button_states[UP] == RISING_EDGE) {
+        entity->velocity.y = -20;
+    }
+    entity->target_velocity.x = target_velocity_x;
 }
 
 EntityProfile player_profile = EntityProfile(
@@ -36,7 +32,7 @@ EntityProfile player_profile = EntityProfile(
 EntityConfiguration player_configuration = EntityConfiguration(
     Position(32, 32),
     Velocity(0, 0),
-    Velocity(0, 0),
+    Velocity(0, 40),
     &player_profile
 );
 
