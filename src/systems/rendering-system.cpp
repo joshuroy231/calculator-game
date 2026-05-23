@@ -39,10 +39,11 @@ void RenderingSystem::renderBackground() {
 }
 
 void RenderingSystem::renderTiles() {
-    gfx_SetColor(255);
     for (int i = 0; i < tilemap->num_rows; i++) {
         for (int j = 0; j < tilemap->num_cols; j++) {
-            if (tilemap->data[tilemap->num_cols*i + j] == 1) {
+            int tile_value = tilemap->data[tilemap->num_cols*i + j];
+            if (tile_value != 0) {
+                gfx_SetColor(tilemap->tile_types[tile_value].color.color);
                 gfx_FillRectangle(
                     j*TILE_PIXELS,
                     i*TILE_PIXELS,
