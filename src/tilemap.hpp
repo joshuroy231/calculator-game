@@ -7,13 +7,17 @@
 
 class Tilemap {
     private:
-        int num_cols = SCREEN_WIDTH_PIXELS/TILE_PIXELS;
-        int num_rows = SCREEN_HEIGHT_PIXELS/TILE_PIXELS;
     public:
+        const int num_cols;
+        const int num_rows;
         uint8_t* data;
 
-        Tilemap();
-        Tilemap(uint8_t* data)
-        : data(data) {}
-        uint8_t at(int col, int row);
+        Tilemap(
+            int num_cols,
+            int num_rows,
+            uint8_t* data
+        )
+        : num_cols(num_cols)
+        , num_rows(num_rows)
+        , data(data) {}
 };

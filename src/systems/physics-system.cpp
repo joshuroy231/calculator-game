@@ -12,17 +12,17 @@ void resolveXCollision(Entity& entity, Tilemap* tilemap) {
     if (entity.velocity.x > 0) {
         int right_index = (entity.position.x + entity.entity_profile->dimensions.w) / TILE_PIXELS;
         for (int i = top_index; i <= bottom_index; i++) {
-            if (tilemap->data[i*20 + right_index] != 0) {
+            if (tilemap->data[i*tilemap->num_cols + right_index] != 0) {
                 entity.position.x -= entity.position.x % TILE_PIXELS;
                 entity.velocity.x = 0;
                 break;
             }
         }
-}
-if (entity.velocity.x < 0) {
-    int left_index = (entity.position.x) / TILE_PIXELS;
-    for (int i = top_index; i <= bottom_index; i++) {
-            if (tilemap->data[i*20 + left_index] != 0) {
+    }
+    if (entity.velocity.x < 0) {
+        int left_index = (entity.position.x) / TILE_PIXELS;
+        for (int i = top_index; i <= bottom_index; i++) {
+            if (tilemap->data[i*tilemap->num_cols + left_index] != 0) {
                 entity.position.x += TILE_PIXELS;
                 entity.position.x -= entity.position.x % TILE_PIXELS;
                 entity.velocity.x = 0;
@@ -38,7 +38,7 @@ void resolveYCollision(Entity& entity, Tilemap* tilemap) {
     if (entity.velocity.y > 0) {
         int bottom_index = (entity.position.y + entity.entity_profile->dimensions.h) / TILE_PIXELS;
         for (int i = left_index; i <= right_index; i++) {
-            if (tilemap->data[bottom_index*20 + i] != 0) {
+            if (tilemap->data[bottom_index*tilemap->num_cols + i] != 0) {
                 entity.position.y -= entity.position.y % TILE_PIXELS;
                 entity.velocity.y = 0;
                 break;
@@ -48,7 +48,7 @@ void resolveYCollision(Entity& entity, Tilemap* tilemap) {
     if (entity.velocity.y < 0) {
         int top_index = (entity.position.y) / TILE_PIXELS;
         for (int i = left_index; i <= right_index; i++) {
-            if (tilemap->data[top_index*20 + i] != 0) {
+            if (tilemap->data[top_index*tilemap->num_cols + i] != 0) {
                 entity.position.y += TILE_PIXELS;
                 entity.position.y -= entity.position.y % TILE_PIXELS;
                 entity.velocity.y = 0;

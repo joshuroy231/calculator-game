@@ -1,6 +1,9 @@
 #include "tilemap-impl.hpp"
 
-uint8_t data[20*15] = {
+#define IMPL_NUM_COLS 20
+#define IMPL_NUM_ROWS 15
+
+uint8_t data[IMPL_NUM_ROWS*IMPL_NUM_COLS] = {
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -18,4 +21,4 @@ uint8_t data[20*15] = {
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 };
 
-Tilemap tilemap = Tilemap(data);
+Tilemap tilemap = Tilemap(IMPL_NUM_COLS, IMPL_NUM_ROWS, data);

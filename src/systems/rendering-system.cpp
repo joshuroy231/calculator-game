@@ -40,14 +40,14 @@ void RenderingSystem::renderBackground() {
 
 void RenderingSystem::renderTiles() {
     gfx_SetColor(255);
-    for (int i = 0; i < 15; i++) {
-        for (int j = 0; j < 20; j++) {
-            if (tilemap->data[20*i + j] == 1) {
+    for (int i = 0; i < tilemap->num_rows; i++) {
+        for (int j = 0; j < tilemap->num_cols; j++) {
+            if (tilemap->data[tilemap->num_cols*i + j] == 1) {
                 gfx_FillRectangle(
-                    j*16,
-                    i*16,
-                    16,
-                    16
+                    j*TILE_PIXELS,
+                    i*TILE_PIXELS,
+                    TILE_PIXELS,
+                    TILE_PIXELS
                 );
             }
         }
