@@ -22,7 +22,7 @@ void controlImpl(Entity* entity) {
 
 EntityProfile player_profile = EntityProfile(
     Dimensions(16, 16),
-    Color(255),
+    Color(RED),
     Control(&keypad, controlImpl),
     true,
     true,

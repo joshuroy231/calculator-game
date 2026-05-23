@@ -8,7 +8,7 @@ Scene* scene = new Scene(
     entities,
     num_entities,
     tilemap,
-    Color(31)
+    Color(LIGHT_BLUE)
 );
 
 Game game = Game(scene);
