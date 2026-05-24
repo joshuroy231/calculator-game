@@ -42,8 +42,7 @@ EntityConfiguration player2_configuration = EntityConfiguration(
     &player_profile
 );
 
-const int num_entities = 2;
+const int num_entities = 1;
 EntityConfiguration entities[num_entities] = {
     player_configuration,
-    player2_configuration
 };
