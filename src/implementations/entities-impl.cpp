@@ -15,7 +15,7 @@ void controlImpl(Entity* entity) {
         target_velocity_x += entity->entity_profile->walking_target_velocity;
     }
     if (button_states[UP] == RISING_EDGE) {
-        entity->velocity.y = -192;
+        entity->velocity.y = -entity->entity_profile->jumping_velocity;
     }
     entity->target_velocity.x = target_velocity_x;
 }
@@ -26,6 +26,7 @@ EntityProfile player_profile = EntityProfile(
     Control(&keypad, controlImpl),
     512,
     160,
+    256,
     true,
     true,
     true
