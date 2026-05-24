@@ -1,32 +1,18 @@
 #include "entities-impl.hpp"
 #include "keypad.hpp"
+#include "actuators/standard-actuator.hpp"
 
 #include <debug.h>
 
 Keypad keypad = Keypad();
 
-void controlImpl(Entity* entity) {
-    ButtonState* button_states = entity->entity_profile->control.controller->getButtonStates();
-    int target_velocity_x = 0;
-    if (button_states[LEFT] == HIGH || button_states[LEFT] == RISING_EDGE) {
-        target_velocity_x -= entity->entity_profile->walking_target_velocity;
-    }
-    if (button_states[RIGHT] == HIGH || button_states[RIGHT] == RISING_EDGE) {
-        target_velocity_x += entity->entity_profile->walking_target_velocity;
-    }
-    if (button_states[UP] == RISING_EDGE) {
-        entity->velocity.y = -entity->entity_profile->jumping_velocity;
-    }
-    entity->target_velocity.x = target_velocity_x;
-}
+StandardActuator actuator = StandardActuator(160, 256);
 
 EntityProfile player_profile = EntityProfile(
     Dimensions(16, 16),
     Color(RED),
-    Control(&keypad, controlImpl),
+    Control(&keypad, &actuator),
     512,
-    160,
-    256,
     true,
     true,
     true

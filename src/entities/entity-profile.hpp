@@ -8,8 +8,6 @@ struct EntityProfile {
     const Control control;
 
     const int walking_acceleration;
-    const int walking_target_velocity;
-    const int jumping_velocity;
 
     const bool has_rendering;
     const bool has_physics;
@@ -19,8 +17,6 @@ struct EntityProfile {
         Color color,
         Control control,
         int walking_acceleration,
-        int walking_target_velocity,
-        int jumping_velocity,
         bool has_rendering,
         bool has_physics,
         bool has_control
@@ -29,8 +25,6 @@ struct EntityProfile {
     , color(color)
     , control(control)
     , walking_acceleration(walking_acceleration)
-    , walking_target_velocity(walking_target_velocity)
-    , jumping_velocity(jumping_velocity)
     , has_rendering(has_rendering)
     , has_physics(has_physics)
     , has_control(has_control) {}

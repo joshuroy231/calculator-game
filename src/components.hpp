@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include "controller.hpp"
+#include "actuators/actuator.hpp"
 
 struct Position {
     int x = 0;
@@ -56,9 +57,9 @@ class Entity;
 
 struct Control {
     Controller* controller = nullptr;
-    void (*control)(Entity*) = nullptr;
+    Actuator* actuator;
     Control() = default;
-    Control(Controller* controller, void (*control)(Entity*))
+    Control(Controller* controller, Actuator* actuator)
     : controller(controller)
-    , control(control) {}
+    , actuator(actuator) {}
 };
