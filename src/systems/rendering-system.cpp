@@ -7,11 +7,13 @@ RenderingSystem::RenderingSystem(
     Entity* entity_registry,
     int const& num_entities,
     Tilemap* tilemap,
-    Color background_color
+    Color background_color,
+    const Position& camera_position
 )
 : System(entity_registry, num_entities)
 , tilemap(tilemap)
 , background_color(background_color)
+, camera_position(camera_position)
 {
     gfx_Begin();
 }
@@ -26,8 +28,8 @@ void RenderingSystem::renderEntities() {
         Entity entity = this->entity_registry[i];
         gfx_SetColor(entity.entity_profile->color.color);
         gfx_FillRectangle(
-            entity.position.x,
-            entity.position.y,
+            entity.position.x - camera_position.x,
+            entity.position.y - camera_position.y,
             entity.entity_profile->dimensions.w,
             entity.entity_profile->dimensions.h
         );
@@ -45,8 +47,8 @@ void RenderingSystem::renderTiles() {
             if (tile_value != 0) {
                 gfx_SetColor(tilemap->tile_types[tile_value].color.color);
                 gfx_FillRectangle(
-                    j*TILE_PIXELS,
-                    i*TILE_PIXELS,
+                    j*TILE_PIXELS - camera_position.x,
+                    i*TILE_PIXELS - camera_position.y,
                     TILE_PIXELS,
                     TILE_PIXELS
                 );
