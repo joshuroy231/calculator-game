@@ -8,7 +8,7 @@ RenderingSystem::RenderingSystem(
     int const& num_entities,
     Tilemap* tilemap,
     Color background_color,
-    const Position& camera_position
+    const Vec2<int>& camera_position
 )
 : System(entity_registry, num_entities)
 , tilemap(tilemap)
@@ -30,8 +30,8 @@ void RenderingSystem::renderEntities() {
         gfx_FillRectangle(
             entity.position.x - camera_position.x,
             entity.position.y - camera_position.y,
-            entity.entity_profile->dimensions.w,
-            entity.entity_profile->dimensions.h
+            entity.entity_profile->dimensions.x,
+            entity.entity_profile->dimensions.y
         );
     }
 }

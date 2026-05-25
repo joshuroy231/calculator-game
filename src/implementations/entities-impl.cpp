@@ -9,7 +9,7 @@ Keypad keypad = Keypad();
 StandardActuator actuator = StandardActuator(160, 256);
 
 EntityProfile player_profile = EntityProfile(
-    Dimensions(16, 16),
+    Vec2<int>(16, 16),
     Color(RED),
     Control(&keypad, &actuator),
     512,
@@ -19,15 +19,9 @@ EntityProfile player_profile = EntityProfile(
 );
 
 EntityConfiguration player_configuration = EntityConfiguration(
-    Position(32, 32),
-    Velocity(0, 0),
-    Velocity(0, 320),
-    &player_profile
-);
-EntityConfiguration player2_configuration = EntityConfiguration(
-    Position(96, 96),
-    Velocity(0, 0),
-    Velocity(0, 40),
+    Vec2<int>(32, 32),
+    Vec2<int>(0, 0),
+    Vec2<int>(0, 320),
     &player_profile
 );
 

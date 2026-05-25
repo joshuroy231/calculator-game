@@ -1,9 +1,10 @@
 #pragma once
 
 #include "components.hpp"
+#include "utilities/vec2.hpp"
 
 struct EntityProfile {
-    const Dimensions dimensions;
+    const Vec2<int> dimensions;
     const Color color;
     const Control control;
 
@@ -13,7 +14,7 @@ struct EntityProfile {
     const bool has_physics;
     const bool has_control;
     EntityProfile(
-        Dimensions dimensions,
+        Vec2<int> dimensions,
         Color color,
         Control control,
         int walking_acceleration,
@@ -30,14 +31,14 @@ struct EntityProfile {
     , has_control(has_control) {}
 };
 struct EntityConfiguration {
-    const Position initial_position;
-    const Velocity initial_velocity;
-    const Velocity initial_target_velocity;
+    const Vec2<int> initial_position;
+    const Vec2<int> initial_velocity;
+    const Vec2<int> initial_target_velocity;
     const EntityProfile* entity_profile;
     EntityConfiguration(
-        Position initial_position,
-        Velocity initial_velocity,
-        Velocity initial_target_velocity,
+        Vec2<int> initial_position,
+        Vec2<int> initial_velocity,
+        Vec2<int> initial_target_velocity,
         EntityProfile* entity_profile
     )
     : initial_position(initial_position)

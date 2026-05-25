@@ -10,7 +10,7 @@ Scene* scene = new Scene(
     num_entities,
     tilemap,
     Color(LIGHT_BLUE),
-    Camera(Position(0,0))
+    Camera(Vec2<int>(0,0))
 );
 
 Game game = Game(scene);

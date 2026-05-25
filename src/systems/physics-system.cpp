@@ -20,17 +20,17 @@ void checkXCollision(Entity& entity, Tilemap* tilemap) {
         return;
     }
     // check right boundary collision
-    if (entity.position.x + entity.entity_profile->dimensions.w > tilemap->num_cols*TILE_PIXELS) {
-        entity.position.x = tilemap->num_cols*TILE_PIXELS - entity.entity_profile->dimensions.w;
+    if (entity.position.x + entity.entity_profile->dimensions.x > tilemap->num_cols*TILE_PIXELS) {
+        entity.position.x = tilemap->num_cols*TILE_PIXELS - entity.entity_profile->dimensions.x;
         entity.velocity.x = 0;
         return;
     }
     int top_row = entity.position.y / TILE_PIXELS;
-    int bottom_coord = entity.position.y + entity.entity_profile->dimensions.h;
+    int bottom_coord = entity.position.y + entity.entity_profile->dimensions.y;
     int bottom_row = (bottom_coord % TILE_PIXELS == 0) ? (bottom_coord / TILE_PIXELS - 1) : (bottom_coord / TILE_PIXELS);
     bool moving_right = (entity.velocity.x > 0);
     int column = (moving_right)
-        ? (entity.position.x + entity.entity_profile->dimensions.w) / TILE_PIXELS
+        ? (entity.position.x + entity.entity_profile->dimensions.x) / TILE_PIXELS
         : (entity.position.x) / TILE_PIXELS;
     for (int i = top_row; i <= bottom_row; i++) {
         if (tilemap->data[i*tilemap->num_cols + column] != 0) {
@@ -55,16 +55,16 @@ void checkYCollision(Entity& entity, Tilemap* tilemap) {
         return;
     }
     // resolve bottom collision
-    if (entity.position.y + entity.entity_profile->dimensions.h > tilemap->num_rows*TILE_PIXELS) {
-        entity.position.y = tilemap->num_rows*TILE_PIXELS - entity.entity_profile->dimensions.h;
+    if (entity.position.y + entity.entity_profile->dimensions.y > tilemap->num_rows*TILE_PIXELS) {
+        entity.position.y = tilemap->num_rows*TILE_PIXELS - entity.entity_profile->dimensions.y;
         return;
     }
     int left_index = entity.position.x / TILE_PIXELS;
-    int right_coord = entity.position.x + entity.entity_profile->dimensions.w;
+    int right_coord = entity.position.x + entity.entity_profile->dimensions.x;
     int right_index = (right_coord % TILE_PIXELS == 0) ? (right_coord / TILE_PIXELS - 1) : (right_coord / TILE_PIXELS);
     bool moving_down = (entity.velocity.y > 0);
     int row = (moving_down)
-        ? (entity.position.y + entity.entity_profile->dimensions.h) / TILE_PIXELS
+        ? (entity.position.y + entity.entity_profile->dimensions.y) / TILE_PIXELS
         : (entity.position.y) / TILE_PIXELS;
     for (int i = left_index; i <= right_index; i++) {
         if (tilemap->data[row*tilemap->num_cols + i] != 0) {

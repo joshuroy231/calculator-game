@@ -2,6 +2,7 @@
 
 #include "entity-profile.hpp"
 #include "components.hpp"
+#include "utilities/vec2.hpp"
 
 class Entity {
     friend class EntityManager;
@@ -11,9 +12,9 @@ class Entity {
     public:
         const EntityProfile* entity_profile;
 
-        Position position;
-        Velocity velocity;
-        Velocity target_velocity;
+        Vec2<int> position;
+        Vec2<int> velocity;
+        Vec2<int> target_velocity;
 
         Entity() = default;
         Entity(int entity_id)
