@@ -19,13 +19,13 @@ class Tilemap {
     public:
         const int num_cols;
         const int num_rows;
-        uint8_t* data;
+        const uint8_t* const data;
         const TileType* const tile_types;
 
         Tilemap(
             int num_cols,
             int num_rows,
-            uint8_t* data,
+            const uint8_t* const data,
             const TileType* const tile_types
         )
         : num_cols(num_cols)

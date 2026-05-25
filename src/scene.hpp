@@ -2,7 +2,7 @@
 
 #include "entities/entity-profile.hpp"
 #include "tilemap.hpp"
-#include "camera.hpp"
+#include "cameras/camera.hpp"
 
 class Scene {
     public:

@@ -2,6 +2,7 @@
 #include "entities/entity-manager.hpp"
 #include "entities-impl.hpp"
 #include "tilemap-impl.hpp"
+#include "cameras/camera.hpp"
 
 Scene* scene = new Scene(
     num_entities,

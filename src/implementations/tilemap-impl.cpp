@@ -3,7 +3,7 @@
 #define IMPL_NUM_COLS 20
 #define IMPL_NUM_ROWS 15
 
-uint8_t data[IMPL_NUM_ROWS*IMPL_NUM_COLS] = {
+const uint8_t data[IMPL_NUM_ROWS*IMPL_NUM_COLS] = {
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
     0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
