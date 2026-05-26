@@ -19,7 +19,7 @@ class Vec2 {
             else return this->y;
         }
         void setComponent(Component component, T value) {
-            if (component = X) this->x = value;
+            if (component == X) this->x = value;
             else this->y = value;
         }
         Vec2 operator+(const Vec2& other) const {
