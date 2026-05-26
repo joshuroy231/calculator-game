@@ -7,33 +7,38 @@
 Keypad keypad = Keypad();
 
 StandardActuator actuator = StandardActuator();
-
-EntityProfile player_profile = EntityProfile(
-    Vec2<int>(16, 16),
-    Color(RED),
-    Control(&keypad, &actuator),
-    512,
-    160,
-    320,
-    Vec2<int>(0, -256),
-    true,
-    true,
-    true,
-    true
-);
-EntityProfile mystery_block_profile = EntityProfile(
-    Vec2<int>(16, 16),
-    Color(YELLOW),
-    Control(),
-    0,
-    160,
-    320,
-    Vec2<int>(0, 0),
-    true,
-    true,
-    false,
-    true
-);
+enum EntityProfileId {
+    PLAYER,
+    MYSTERY_BOX
+};
+EntityProfile entity_profiles[] = {
+    EntityProfile(
+        Vec2<int>(16, 16),
+        Color(RED),
+        Control(&keypad, &actuator),
+        512,
+        160,
+        320,
+        Vec2<int>(0, -256),
+        true,
+        true,
+        true,
+        true
+    ),
+    EntityProfile(
+        Vec2<int>(16, 16),
+        Color(YELLOW),
+        Control(),
+        0,
+        160,
+        320,
+        Vec2<int>(0, 0),
+        true,
+        true,
+        false,
+        true
+    )
+};
 
 EntityState player_initial_state = EntityState(
     Vec2<int>(32, 32),
@@ -46,19 +51,14 @@ EntityState mystery_box_initial_state = EntityState(
     Vec2<int>()
 );
 
-EntityConfiguration player_configuration = EntityConfiguration(
-    player_initial_state,
-    &player_profile
-);
-
 EntityConfiguration entities[] = {
     EntityConfiguration(
         player_initial_state,
-        &player_profile
+        &entity_profiles[PLAYER]
     ),
     EntityConfiguration(
         mystery_box_initial_state,
-        &mystery_block_profile
+        &entity_profiles[MYSTERY_BOX]
     )
 };
 const int num_entities = 2;
