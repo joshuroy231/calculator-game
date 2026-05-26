@@ -40,17 +40,18 @@ struct EntityProfile {
     , has_control(has_control) {}
 };
 struct EntityState {
-    Vec2<int> initial_position;
-    Vec2<int> initial_velocity;
-    Vec2<int> initial_acceleration;
+    Vec2<int> position;
+    Vec2<int> velocity;
+    Vec2<int> acceleration;
+    EntityState() = default;
     EntityState(
         Vec2<int> initial_position,
         Vec2<int> initial_velocity,
         Vec2<int> initial_acceleration
     )
-    : initial_position(initial_position)
-    , initial_velocity(initial_velocity)
-    , initial_acceleration(initial_acceleration) {}
+    : position(initial_position)
+    , velocity(initial_velocity)
+    , acceleration(initial_acceleration) {}
 };
 struct EntityConfiguration {
     EntityState initial_state;

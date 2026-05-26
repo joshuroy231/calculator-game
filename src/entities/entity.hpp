@@ -10,11 +10,8 @@ class Entity {
         bool is_condemned = false;
         int entity_id;
     public:
-        const EntityProfile* entity_profile;
-
-        Vec2<int> position;
-        Vec2<int> velocity;
-        Vec2<int> acceleration;
+        const EntityProfile* profile;
+        EntityState state;
 
         Entity() = default;
         Entity(int entity_id)

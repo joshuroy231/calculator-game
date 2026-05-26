@@ -12,12 +12,8 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
     if (num_entities + num_conceived_entities == num_entity_registers) return -1;
 
     Entity new_entity = Entity(next_entity_id);
-
-    new_entity.position = entity_configuration.initial_state.initial_position;
-    new_entity.velocity = entity_configuration.initial_state.initial_velocity;
-    new_entity.acceleration = entity_configuration.initial_state.initial_acceleration;
-
-    new_entity.entity_profile = entity_configuration.profile;
+    new_entity.state = entity_configuration.initial_state;
+    new_entity.profile = entity_configuration.profile;
 
     entity_registry[num_entities + num_conceived_entities] = new_entity;
     num_conceived_entities++;

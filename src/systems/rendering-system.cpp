@@ -24,14 +24,14 @@ RenderingSystem::~RenderingSystem() {
 
 void RenderingSystem::renderEntities() {
     for (int i = 0; i < this->num_entities; i++) {
-        if (!entity_registry[i].entity_profile->has_rendering) continue;
+        if (!entity_registry[i].profile->has_rendering) continue;
         Entity entity = this->entity_registry[i];
-        gfx_SetColor(entity.entity_profile->color.color);
+        gfx_SetColor(entity.profile->color.color);
         gfx_FillRectangle(
-            entity.position.x - camera_position.x,
-            entity.position.y - camera_position.y,
-            entity.entity_profile->dimensions.x,
-            entity.entity_profile->dimensions.y
+            entity.state.position.x - camera_position.x,
+            entity.state.position.y - camera_position.y,
+            entity.profile->dimensions.x,
+            entity.profile->dimensions.y
         );
     }
 }
