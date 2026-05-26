@@ -14,7 +14,7 @@ class Entity {
 
         Vec2<int> position;
         Vec2<int> velocity;
-        Vec2<int> target_velocity;
+        Vec2<int> acceleration;
 
         Entity() = default;
         Entity(int entity_id)

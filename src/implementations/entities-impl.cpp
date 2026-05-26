@@ -6,13 +6,16 @@
 
 Keypad keypad = Keypad();
 
-StandardActuator actuator = StandardActuator(160, 256);
+StandardActuator actuator = StandardActuator();
 
 EntityProfile player_profile = EntityProfile(
     Vec2<int>(16, 16),
     Color(RED),
     Control(&keypad, &actuator),
     512,
+    160,
+    320,
+    Vec2<int>(0, -256),
     true,
     true,
     true

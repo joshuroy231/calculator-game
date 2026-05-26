@@ -15,7 +15,7 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
 
     new_entity.position = entity_configuration.initial_state.initial_position;
     new_entity.velocity = entity_configuration.initial_state.initial_velocity;
-    new_entity.target_velocity = entity_configuration.initial_state.initial_target_velocity;
+    new_entity.acceleration = entity_configuration.initial_state.initial_acceleration;
 
     new_entity.entity_profile = entity_configuration.profile;
 

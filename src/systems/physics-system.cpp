@@ -81,9 +81,12 @@ void PhysicsSystem::update() {
         Entity& entity = this->entity_registry[i];
 
         entity.velocity += this->gravity/FPS;
+        entity.velocity += entity.acceleration/FPS;
 
-        if (entity.velocity.x < entity.target_velocity.x) entity.velocity.x += entity.entity_profile->walking_acceleration / FPS;
-        else if (entity.velocity.x > entity.target_velocity.x) entity.velocity.x -= entity.entity_profile->walking_acceleration / FPS;
+        if (entity.velocity.x > entity.entity_profile->terminal_velocity_x) entity.velocity.x = entity.entity_profile->terminal_velocity_x;
+        else if (entity.velocity.x < -entity.entity_profile->terminal_velocity_x) entity.velocity.x = -entity.entity_profile->terminal_velocity_x;
+        if (entity.velocity.y > entity.entity_profile->terminal_velocity_y) entity.velocity.y = entity.entity_profile->terminal_velocity_y;
+        else if (entity.velocity.y < -entity.entity_profile->terminal_velocity_y) entity.velocity.y = -entity.entity_profile->terminal_velocity_y;
 
         entity.position.x += entity.velocity.x / FPS;
         checkXCollision(entity, tilemap);
