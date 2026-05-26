@@ -6,4 +6,4 @@
 extern Keypad keypad;
 
 extern const int num_entities;
-extern EntityConfiguration entities[1];
+extern EntityConfiguration entities[];

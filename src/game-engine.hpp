@@ -4,6 +4,7 @@
 #include "systems/rendering-system.hpp"
 #include "systems/physics-system.hpp"
 #include "systems/control-system.hpp"
+#include "systems/entity-collision-system.hpp"
 #include "keypad.hpp"
 #include "game.hpp"
 
@@ -14,6 +15,7 @@ class GameEngine {
         RenderingSystem rendering_system;
         PhysicsSystem physics_system;
         ControlSystem control_system;
+        EntityCollisionSystem entity_collision_system;
 
         Keypad* keypad = nullptr;
 

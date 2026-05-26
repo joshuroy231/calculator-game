@@ -16,6 +16,7 @@ struct EntityProfile {
     const bool has_rendering;
     const bool has_physics;
     const bool has_control;
+    const bool has_collision;
     EntityProfile(
         Vec2<int> dimensions,
         Color color,
@@ -26,7 +27,8 @@ struct EntityProfile {
         Vec2<int> jumping_velocity,
         bool has_rendering,
         bool has_physics,
-        bool has_control
+        bool has_control,
+        bool has_collision
     )
     : dimensions(dimensions)
     , color(color)
@@ -37,7 +39,8 @@ struct EntityProfile {
     , jumping_velocity(jumping_velocity)
     , has_rendering(has_rendering)
     , has_physics(has_physics)
-    , has_control(has_control) {}
+    , has_control(has_control)
+    , has_collision(has_collision) {}
 };
 struct EntityState {
     Vec2<int> position;

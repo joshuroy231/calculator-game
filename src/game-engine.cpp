@@ -14,6 +14,7 @@ GameEngine::GameEngine(Game* game)
     )
     , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap, game->scene->gravity)
     , control_system(entity_manager.entity_registry, entity_manager.num_entities)
+    , entity_collision_system(entity_manager.entity_registry, entity_manager.num_entities)
     , game(game)
     {}
 
@@ -42,6 +43,7 @@ void GameEngine::playScene(Scene* scene) {
         control_system.update();
         physics_system.update();
         rendering_system.update();
+        entity_collision_system.update();
 
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;
