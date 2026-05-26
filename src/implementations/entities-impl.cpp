@@ -20,7 +20,7 @@ EntityProfile player_profile = EntityProfile(
 EntityState player_initial_state = EntityState(
     Vec2<int>(32, 32),
     Vec2<int>(0, 0),
-    Vec2<int>(0, 320)
+    Vec2<int>(0, 0)
 );
 
 EntityConfiguration player_configuration = EntityConfiguration(

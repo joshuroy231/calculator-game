@@ -1,8 +1,9 @@
 #include "physics-system.hpp"
 
-PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities, Tilemap* tilemap)
+PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities, Tilemap* tilemap, Vec2<int> gravity)
 : System(entity_registry, num_entities)
 , tilemap(tilemap)
+, gravity(gravity)
 {}
 
 void resolveXCollision(Entity& entity, bool moving_right) {
@@ -79,10 +80,10 @@ void PhysicsSystem::update() {
         if (!entity_registry[i].entity_profile->has_physics) continue;
         Entity& entity = this->entity_registry[i];
 
+        entity.velocity += this->gravity/FPS;
+
         if (entity.velocity.x < entity.target_velocity.x) entity.velocity.x += entity.entity_profile->walking_acceleration / FPS;
         else if (entity.velocity.x > entity.target_velocity.x) entity.velocity.x -= entity.entity_profile->walking_acceleration / FPS;
-        if (entity.velocity.y < entity.target_velocity.y) entity.velocity.y += 512 / FPS;
-        else if (entity.velocity.y > entity.target_velocity.y) entity.velocity.y -= 512 / FPS;
 
         entity.position.x += entity.velocity.x / FPS;
         checkXCollision(entity, tilemap);

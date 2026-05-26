@@ -12,7 +12,7 @@ GameEngine::GameEngine(Game* game)
         game->scene->background_color,
         game->scene->camera.getPosition()
     )
-    , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap)
+    , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap, game->scene->gravity)
     , control_system(entity_manager.entity_registry, entity_manager.num_entities)
     , game(game)
     {}

@@ -44,12 +44,12 @@ struct EntityState {
     , initial_target_velocity(initial_target_velocity) {}
 };
 struct EntityConfiguration {
-    EntityState state;
+    EntityState initial_state;
     const EntityProfile* profile;
     EntityConfiguration(
-        EntityState state,
+        EntityState initial_state,
         EntityProfile* profile
     )
-    : state(state)
+    : initial_state(initial_state)
     , profile(profile) {}
 };

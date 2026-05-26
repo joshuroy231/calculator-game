@@ -40,4 +40,18 @@ class Vec2 {
             this->y -= other.y;
             return *this;
         }
+        template<typename S>
+        Vec2 operator*(const S other) {
+            return Vec2(
+                this->x * other,
+                this->y * other
+            );
+        }
+        template<typename S>
+        Vec2 operator/(const S other) {
+            return Vec2(
+                this->x / other,
+                this->y / other
+            );
+        }
 };
