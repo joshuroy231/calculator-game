@@ -1,5 +1,10 @@
 #pragma once
 
+enum Component {
+    X,
+    Y
+};
+
 template <typename T>
 class Vec2 {
     public:
@@ -9,6 +14,10 @@ class Vec2 {
         Vec2(T x, T y)
         : x(x)
         , y(y) {}
+        T getComponent(Component component) {
+            if (component == X) return this->x;
+            else return this->y;
+        }
         Vec2 operator+(const Vec2& other) const {
             return Vec2(
                 this->x + other.x,

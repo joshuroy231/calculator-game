@@ -17,11 +17,14 @@ EntityProfile player_profile = EntityProfile(
     true,
     true
 );
-
-EntityConfiguration player_configuration = EntityConfiguration(
+EntityState player_initial_state = EntityState(
     Vec2<int>(32, 32),
     Vec2<int>(0, 0),
-    Vec2<int>(0, 320),
+    Vec2<int>(0, 320)
+);
+
+EntityConfiguration player_configuration = EntityConfiguration(
+    player_initial_state,
     &player_profile
 );
 

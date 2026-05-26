@@ -30,19 +30,26 @@ struct EntityProfile {
     , has_physics(has_physics)
     , has_control(has_control) {}
 };
-struct EntityConfiguration {
+struct EntityState {
     const Vec2<int> initial_position;
     const Vec2<int> initial_velocity;
     const Vec2<int> initial_target_velocity;
-    const EntityProfile* entity_profile;
-    EntityConfiguration(
+    EntityState(
         Vec2<int> initial_position,
         Vec2<int> initial_velocity,
-        Vec2<int> initial_target_velocity,
-        EntityProfile* entity_profile
+        Vec2<int> initial_target_velocity
     )
     : initial_position(initial_position)
     , initial_velocity(initial_velocity)
-    , initial_target_velocity(initial_target_velocity)
-    , entity_profile(entity_profile) {}
+    , initial_target_velocity(initial_target_velocity) {}
+};
+struct EntityConfiguration {
+    EntityState state;
+    const EntityProfile* profile;
+    EntityConfiguration(
+        EntityState state,
+        EntityProfile* profile
+    )
+    : state(state)
+    , profile(profile) {}
 };
