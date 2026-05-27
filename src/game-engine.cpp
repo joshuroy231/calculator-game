@@ -42,8 +42,8 @@ void GameEngine::playScene(Scene* scene) {
 
         control_system.update();
         physics_system.update();
-        rendering_system.update();
         entity_collision_system.update();
+        rendering_system.update();
 
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;
