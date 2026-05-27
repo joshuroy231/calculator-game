@@ -11,10 +11,6 @@ void StandardActuator::actuate(Entity& entity) {
     if (button_states[RIGHT] == HIGH || button_states[RIGHT] == RISING_EDGE) {
         x_acceleration += entity.profile->walking_acceleration;
     }
-    if (x_acceleration == 0) {
-        if (entity.state.velocity.x > 0) x_acceleration = -entity.profile->walking_acceleration;
-        else if (entity.state.velocity.x < 0) x_acceleration = entity.profile->walking_acceleration;
-    }
     if (button_states[UP] == RISING_EDGE) {
         entity.state.velocity.y = entity.profile->jumping_velocity.y;
     }

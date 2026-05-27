@@ -16,7 +16,7 @@ EntityProfile entity_profiles[] = {
         Vec2<int>(16, 16),
         Color(RED),
         Control(&keypad, &actuator),
-        512,
+        1024,
         160,
         320,
         Vec2<int>(0, -256),
@@ -41,12 +41,12 @@ EntityProfile entity_profiles[] = {
 };
 
 EntityState player_initial_state = EntityState(
-    Vec2<int>(32, 32),
+    Vec2<int>(32, 128),
     Vec2<int>(0, 0),
     Vec2<int>(0, 0)
 );
 EntityState mystery_box_initial_state = EntityState(
-    Vec2<int>(128, 128),
+    Vec2<int>(32, 32),
     Vec2<int>(),
     Vec2<int>()
 );

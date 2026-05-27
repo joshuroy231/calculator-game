@@ -83,6 +83,17 @@ void PhysicsSystem::update() {
         entity.state.velocity += this->gravity/FPS;
         entity.state.velocity += entity.state.acceleration/FPS;
 
+        int& v = entity.state.velocity.x;
+        if (v != 0) {
+            int decay = v / 5;
+
+            if (decay != 0) {
+                v -= decay;
+            } else {
+                v -= (v > 0) ? 1 : -1;
+            }
+        }
+
         if (entity.state.velocity.x > entity.profile->terminal_velocity_x) entity.state.velocity.x = entity.profile->terminal_velocity_x;
         else if (entity.state.velocity.x < -entity.profile->terminal_velocity_x) entity.state.velocity.x = -entity.profile->terminal_velocity_x;
         if (entity.state.velocity.y > entity.profile->terminal_velocity_y) entity.state.velocity.y = entity.profile->terminal_velocity_y;
