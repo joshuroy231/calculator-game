@@ -16,7 +16,7 @@ EntityProfile entity_profiles[] = {
         Vec2<int>(16, 16),
         Color(RED),
         Control(&keypad, &actuator),
-        1024,
+        1536,
         160,
         320,
         Vec2<int>(0, -256),
@@ -26,7 +26,7 @@ EntityProfile entity_profiles[] = {
         true
     ),
     EntityProfile(
-        Vec2<int>(16, 16),
+        Vec2<int>(32, 32),
         Color(YELLOW),
         Control(),
         0,

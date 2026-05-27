@@ -10,6 +10,7 @@ Keypad::Keypad() {
     keymap[UP] = kb_KeyUp;
     keymap[DOWN] = kb_KeyDown;
     keymap[QUIT] = kb_KeyClear;
+    keymap[DEBUG_KEY] = kb_KeyDecPnt;
 
     for (int i = 0; i < NUM_BUTTONS; i++) {
         this->key_states[i] = LOW;

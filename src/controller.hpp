@@ -1,12 +1,13 @@
 #pragma once
 
-#define NUM_BUTTONS 5
+#define NUM_BUTTONS 6
 enum Button {
     UP,
     DOWN,
     LEFT,
     RIGHT,
     QUIT,
+    DEBUG_KEY,
 };
 
 enum ButtonState {

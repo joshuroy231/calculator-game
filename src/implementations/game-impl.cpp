@@ -5,7 +5,7 @@
 #include "cameras/camera.hpp"
 
 Scene* scene = new Scene(
-    num_entities,
+    32,
     entities,
     num_entities,
     tilemap,

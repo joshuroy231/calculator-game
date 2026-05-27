@@ -1,15 +1,7 @@
 #include "systems/entity-collision-system.hpp"
 
-bool areColliding(const Entity& entity1, const Entity& entity2) {
-    if (entity1.state.position.x >= entity2.state.position.x + entity2.profile->dimensions.x) return false;
-    if (entity1.state.position.y >= entity2.state.position.y + entity2.profile->dimensions.y) return false;
-    if (entity1.state.position.x + entity1.profile->dimensions.x <= entity2.state.position.x) return false;
-    if (entity1.state.position.y + entity1.profile->dimensions.y <= entity2.state.position.y) return false;
-    return true;
-}
-int abs(int n) {
-    return (n < 0) ? -n : n;
-}
+#include "utilities/helpers.hpp"
+
 void EntityCollisionSystem::update() {
     for (int i = 0; i < num_entities; i++) {
         Entity& entity1 = entity_registry[i];
@@ -17,7 +9,8 @@ void EntityCollisionSystem::update() {
         for (int j = i+1; j < num_entities; j++) {
             Entity& entity2 = entity_registry[j];
             if (!entity2.profile->has_collision) continue;
-            if (!areColliding(entity1, entity2)) continue;
+            if (!areColliding(entity1.state.position, entity1.profile->dimensions,
+                entity2.state.position, entity2.profile->dimensions)) continue;
 
             Vec2<int> center1 = entity1.state.position + entity1.profile->dimensions/2;
             Vec2<int> center2 = entity2.state.position + entity2.profile->dimensions/2;

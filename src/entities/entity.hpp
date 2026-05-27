@@ -8,8 +8,8 @@ class Entity {
     friend class EntityManager;
     private:
         bool is_condemned = false;
-        int entity_id;
     public:
+        int entity_id;
         const EntityProfile* profile;
         EntityState state;
 
