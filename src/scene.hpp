@@ -13,6 +13,7 @@ class Scene {
         Color background_color;
         Camera camera;
         Vec2<int> gravity;
+        Vec2<int> dimensions_pixels;
         Scene(
             int entity_pool_size,
             EntityConfiguration* initial_entities,
@@ -29,5 +30,6 @@ class Scene {
         , background_color(background_color)
         , camera(camera)
         , gravity(gravity)
+        , dimensions_pixels(tilemap.tile_dimensions * TILE_PIXELS)
         {}
 };

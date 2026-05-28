@@ -13,3 +13,5 @@ A game engine for the TI-84 Plus CE graphing calculator
 - Create macro constants for standard values (like for velocity: `SLUGGISH`, `LEISURELY`, `UNBOTHERED`, `BRISK`, `BLISTERING`)
 - Figure out the entity collision system with `onCollision()` functions and stuff
 - Switch coordinate system (reverse y axis)
+- Resolve the dependency structure between entity and actuator
+- Make consistent the use of `this`

@@ -17,19 +17,16 @@ class TileType {
 class Tilemap {
     private:
     public:
-        const int num_cols;
-        const int num_rows;
+        const Vec2<int> tile_dimensions;
         const uint8_t* const data;
         const TileType* const tile_types;
 
         Tilemap(
-            int num_cols,
-            int num_rows,
+            const Vec2<int> tile_dimensions,
             const uint8_t* const data,
             const TileType* const tile_types
         )
-        : num_cols(num_cols)
-        , num_rows(num_rows)
+        : tile_dimensions(tile_dimensions)
         , data(data)
         , tile_types(tile_types) {}
 };

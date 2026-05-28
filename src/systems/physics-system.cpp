@@ -21,8 +21,8 @@ void checkXCollision(Entity& entity, Tilemap* tilemap) {
         return;
     }
     // check right boundary collision
-    if (entity.state.position.x + entity.profile->dimensions.x > tilemap->num_cols*TILE_PIXELS) {
-        entity.state.position.x = tilemap->num_cols*TILE_PIXELS - entity.profile->dimensions.x;
+    if (entity.state.position.x + entity.profile->dimensions.x > tilemap->tile_dimensions.x*TILE_PIXELS) {
+        entity.state.position.x = tilemap->tile_dimensions.x*TILE_PIXELS - entity.profile->dimensions.x;
         entity.state.velocity.x = 0;
         return;
     }
@@ -34,7 +34,7 @@ void checkXCollision(Entity& entity, Tilemap* tilemap) {
         ? (entity.state.position.x + entity.profile->dimensions.x) / TILE_PIXELS
         : (entity.state.position.x) / TILE_PIXELS;
     for (int i = top_row; i <= bottom_row; i++) {
-        if (tilemap->data[i*tilemap->num_cols + column] != 0) {
+        if (tilemap->data[i*tilemap->tile_dimensions.x + column] != 0) {
             resolveXCollision(entity, moving_right);
             break;
         }
@@ -56,8 +56,8 @@ void checkYCollision(Entity& entity, Tilemap* tilemap) {
         return;
     }
     // resolve bottom collision
-    if (entity.state.position.y + entity.profile->dimensions.y > tilemap->num_rows*TILE_PIXELS) {
-        entity.state.position.y = tilemap->num_rows*TILE_PIXELS - entity.profile->dimensions.y;
+    if (entity.state.position.y + entity.profile->dimensions.y > tilemap->tile_dimensions.y*TILE_PIXELS) {
+        entity.state.position.y = tilemap->tile_dimensions.y*TILE_PIXELS - entity.profile->dimensions.y;
         return;
     }
     int left_index = entity.state.position.x / TILE_PIXELS;
@@ -68,7 +68,7 @@ void checkYCollision(Entity& entity, Tilemap* tilemap) {
         ? (entity.state.position.y + entity.profile->dimensions.y) / TILE_PIXELS
         : (entity.state.position.y) / TILE_PIXELS;
     for (int i = left_index; i <= right_index; i++) {
-        if (tilemap->data[row*tilemap->num_cols + i] != 0) {
+        if (tilemap->data[row*tilemap->tile_dimensions.x + i] != 0) {
             resolveYCollision(entity, moving_down);
             break;
         }

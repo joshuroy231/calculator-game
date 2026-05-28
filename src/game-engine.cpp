@@ -10,11 +10,12 @@ GameEngine::GameEngine(Game* game)
         entity_manager.num_entities,
         &game->scene->tilemap,
         game->scene->background_color,
-        game->scene->camera.getPosition()
+        game->scene->camera.position
     )
     , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap, game->scene->gravity)
     , control_system(entity_manager.entity_registry, entity_manager.num_entities)
     , entity_collision_system(entity_manager.entity_registry, entity_manager.num_entities)
+    , camera_system(entity_manager.entity_registry, entity_manager.num_entities, game->scene->camera, game->scene->dimensions_pixels)
     , game(game)
     {}
 
@@ -30,6 +31,7 @@ void GameEngine::playScene(Scene* scene) {
         entity_manager.conceiveEntity(scene->initial_entities[i]);
     }
     timer_Enable(1, TIMER_32K, TIMER_NOINT, TIMER_UP);
+    camera_system.follow(&entity_manager.entity_registry[0]);
 
     while (true) {
         uint32_t start = timer_Get(1);
@@ -39,10 +41,19 @@ void GameEngine::playScene(Scene* scene) {
             keypad->scan();
             if (keypad->getButtonState(QUIT) == RISING_EDGE) break;
         }
+        if (keypad->getButtonState(DEBUG_KEY) == HIGH) {
+            if (keypad->getButtonState(UP) == RISING_EDGE) {
+                entity_manager.condemnEntity(0);
+            }
+            if (keypad->getButtonState(DOWN) == RISING_EDGE) {
+                entity_manager.condemnEntity(1);
+            }
+        }
 
         control_system.update();
         physics_system.update();
         entity_collision_system.update();
+        camera_system.update();
         rendering_system.update();
 
         uint32_t end = timer_Get(1);

@@ -41,9 +41,9 @@ void RenderingSystem::renderBackground() {
 }
 
 void RenderingSystem::renderTiles() {
-    for (int i = 0; i < tilemap->num_rows; i++) {
-        for (int j = 0; j < tilemap->num_cols; j++) {
-            int tile_value = tilemap->data[tilemap->num_cols*i + j];
+    for (int i = 0; i < tilemap->tile_dimensions.y; i++) {
+        for (int j = 0; j < tilemap->tile_dimensions.x; j++) {
+            int tile_value = tilemap->data[tilemap->tile_dimensions.x*i + j];
             if (tile_value != 0) {
                 gfx_SetColor(tilemap->tile_types[tile_value].color.color);
                 gfx_FillRectangle(
