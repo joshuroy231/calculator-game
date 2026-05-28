@@ -2,7 +2,7 @@
 #include <debug.h>
 #include "keypad.hpp"
 
-kb_lkey_t keymap[NUM_BUTTONS];
+kb_lkey_t keymap[Button::SIZE];
 
 Keypad::Keypad() {
     keymap[LEFT] = kb_Key4;

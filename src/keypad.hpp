@@ -4,7 +4,7 @@
 
 class Keypad : public Controller {
     private:
-        ButtonState key_states[NUM_BUTTONS];
+        ButtonState key_states[Button::SIZE];
     public:
         Keypad();
         ButtonState getButtonState(Button) override;

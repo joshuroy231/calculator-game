@@ -14,3 +14,4 @@ A game engine for the TI-84 Plus CE graphing calculator
 - Resolve the dependency structure between entity and actuator
 - Make consistent the use of `this`
 - Change entity profile to be stored as an int/enum id
+- Lock down all enum usages using enum class
