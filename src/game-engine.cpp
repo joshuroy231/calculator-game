@@ -39,13 +39,13 @@ void GameEngine::playScene(Scene* scene) {
         entity_manager.updateEntities();
         if (keypad != nullptr) {
             keypad->scan();
-            if (keypad->getButtonState(QUIT) == RISING_EDGE) break;
+            if (keypad->getButtonState(Button::QUIT) == RISING_EDGE) break;
         }
-        if (keypad->getButtonState(DEBUG_KEY) == HIGH) {
-            if (keypad->getButtonState(UP) == RISING_EDGE) {
+        if (keypad->getButtonState(Button::DEBUG) == HIGH) {
+            if (keypad->getButtonState(Button::UP) == RISING_EDGE) {
                 entity_manager.condemnEntity(0);
             }
-            if (keypad->getButtonState(DOWN) == RISING_EDGE) {
+            if (keypad->getButtonState(Button::DOWN) == RISING_EDGE) {
                 entity_manager.condemnEntity(1);
             }
         }

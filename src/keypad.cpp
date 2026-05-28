@@ -1,37 +1,38 @@
 #include <keypadc.h>
 #include <debug.h>
 #include "keypad.hpp"
+#include "utilities/enum-map.hpp"
 
-kb_lkey_t keymap[Button::SIZE];
+EnumMap<Button, kb_lkey_t> keymap;
 
 Keypad::Keypad() {
-    keymap[LEFT] = kb_Key4;
-    keymap[RIGHT] = kb_Key6;
-    keymap[UP] = kb_Key8;
-    keymap[DOWN] = kb_Key2;
-    keymap[QUIT] = kb_KeyClear;
-    keymap[DEBUG_KEY] = kb_KeyDecPnt;
+    keymap[Button::LEFT] = kb_Key4;
+    keymap[Button::RIGHT] = kb_Key6;
+    keymap[Button::UP] = kb_Key8;
+    keymap[Button::DOWN] = kb_Key2;
+    keymap[Button::QUIT] = kb_KeyClear;
+    keymap[Button::DEBUG] = kb_KeyDecPnt;
 
-    for (int i = 0; i < NUM_BUTTONS; i++) {
-        this->key_states[i] = LOW;
+    for (int i = 0; i < (int)Button::SIZE; i++) {
+        this->key_states[(Button)i] = LOW;
     }
 }
 
 ButtonState Keypad::getButtonState(Button button) {
     return key_states[button];
 }
-ButtonState* Keypad::getButtonStates() {
+EnumMap<Button, ButtonState>& Keypad::getButtonStates() {
     return key_states;
 }
 
 void Keypad::scan() {
     kb_Scan();
-    for (int i = 0; i < NUM_BUTTONS; i++) {
-        if (kb_IsDown(keymap[i])) {
-            key_states[i] = (key_states[i] == LOW) ? RISING_EDGE : HIGH;
+    for (int i = 0; i < (int)Button::SIZE; i++) {
+        if (kb_IsDown(keymap[(Button)i])) {
+            key_states[(Button)i] = (key_states[(Button)i] == LOW) ? RISING_EDGE : HIGH;
         }
         else {
-            key_states[i] = (key_states[i] == HIGH) ? FALLING_EDGE : LOW;
+            key_states[(Button)i] = (key_states[(Button)i] == HIGH) ? FALLING_EDGE : LOW;
         }
     }
 }

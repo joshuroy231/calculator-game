@@ -1,13 +1,14 @@
 #pragma once
 
 #include "controller.hpp"
+#include "utilities/enum-map.hpp"
 
 class Keypad : public Controller {
     private:
-        ButtonState key_states[Button::SIZE];
+        EnumMap<Button, ButtonState> key_states;
     public:
         Keypad();
         ButtonState getButtonState(Button) override;
-        ButtonState* getButtonStates() override;
+        EnumMap<Button, ButtonState>& getButtonStates() override;
         void scan();
 };

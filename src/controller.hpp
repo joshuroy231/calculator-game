@@ -1,6 +1,8 @@
 #pragma once
 
-enum Button {
+#include "utilities/enum-map.hpp"
+
+enum class Button {
     UP,
     DOWN,
     LEFT,
@@ -21,5 +23,5 @@ enum ButtonState {
 class Controller {
     public:
         virtual ButtonState getButtonState(Button) = 0;
-        virtual ButtonState* getButtonStates() = 0;
+        virtual EnumMap<Button, ButtonState>& getButtonStates() = 0;
 };
