@@ -8,7 +8,7 @@ PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities, T
 
 void resolveXCollision(Entity& entity, bool moving_right) {
     entity.state.position.x += (moving_right)
-        ? -entity.state.position.x%TILE_PIXELS
+        ? -(entity.state.position.x + entity.profile->dimensions.x)%TILE_PIXELS
         : TILE_PIXELS - entity.state.position.x%TILE_PIXELS;
     entity.state.velocity.x = 0;
 }
@@ -43,7 +43,7 @@ void checkXCollision(Entity& entity, Tilemap* tilemap) {
 
 void resolveYCollision(Entity& entity, bool moving_down) {
     entity.state.position.y += (moving_down)
-        ? -entity.state.position.y%TILE_PIXELS
+        ? -(entity.state.position.y + entity.profile->dimensions.y)%TILE_PIXELS
         : TILE_PIXELS - entity.state.position.y % TILE_PIXELS;
     entity.state.velocity.y = 0;
 }

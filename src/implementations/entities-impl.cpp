@@ -13,7 +13,7 @@ enum EntityProfileId {
 };
 EntityProfile entity_profiles[] = {
     EntityProfile(
-        Vec2<int>(16, 16),
+        Vec2<int>(12, 16),
         Color(RED),
         Control(&keypad, &actuator),
         1536,
