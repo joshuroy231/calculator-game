@@ -5,10 +5,10 @@
 kb_lkey_t keymap[NUM_BUTTONS];
 
 Keypad::Keypad() {
-    keymap[LEFT] = kb_KeyLeft;
-    keymap[RIGHT] = kb_KeyRight;
-    keymap[UP] = kb_KeyUp;
-    keymap[DOWN] = kb_KeyDown;
+    keymap[LEFT] = kb_Key4;
+    keymap[RIGHT] = kb_Key6;
+    keymap[UP] = kb_Key8;
+    keymap[DOWN] = kb_Key2;
     keymap[QUIT] = kb_KeyClear;
     keymap[DEBUG_KEY] = kb_KeyDecPnt;
 
