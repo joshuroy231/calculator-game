@@ -2,6 +2,7 @@
 #include <debug.h>
 #include "keypad.hpp"
 #include "utilities/enum-map.hpp"
+#include "utilities/enum-set.hpp"
 
 EnumMap<Button, kb_lkey_t> keymap;
 
@@ -13,8 +14,8 @@ Keypad::Keypad() {
     keymap[Button::QUIT] = kb_KeyClear;
     keymap[Button::DEBUG] = kb_KeyDecPnt;
 
-    for (int i = 0; i < (int)Button::SIZE; i++) {
-        this->key_states[(Button)i] = LOW;
+    for (ButtonState& state : key_states) {
+        state = LOW;
     }
 }
 
@@ -33,6 +34,14 @@ void Keypad::scan() {
         }
         else {
             key_states[(Button)i] = (key_states[(Button)i] == HIGH) ? FALLING_EDGE : LOW;
+        }
+    }
+    for (Button button : EnumRange<Button>()) {
+        if (kb_IsDown(keymap[button])) {
+            key_states[button] = (key_states[button] == LOW) ? RISING_EDGE : HIGH;
+        }
+        else {
+            key_states[button] = (key_states[button] == HIGH) ? FALLING_EDGE : LOW;
         }
     }
 }
