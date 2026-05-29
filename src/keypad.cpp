@@ -6,6 +6,8 @@
 
 EnumMap<Button, kb_lkey_t> keymap;
 
+Keypad standard_keypad = Keypad();
+
 Keypad::Keypad() {
     keymap[Button::LEFT] = kb_Key4;
     keymap[Button::RIGHT] = kb_Key6;

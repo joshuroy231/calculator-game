@@ -12,3 +12,5 @@ class Keypad : public Controller {
         EnumMap<Button, ButtonState>& getButtonStates() override;
         void scan();
 };
+
+Keypad standard_keypad;
