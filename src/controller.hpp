@@ -10,7 +10,7 @@ enum class Button {
     QUIT,
     DEBUG,
 
-    SIZE
+    COUNT
 };
 
 enum ButtonState {

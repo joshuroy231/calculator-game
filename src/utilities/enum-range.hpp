@@ -25,6 +25,6 @@ class EnumRange {
             return Iterator(0);
         }
         Iterator end() {
-            return Iterator((int)Enum::SIZE);
+            return Iterator((int)Enum::COUNT);
         }
 };

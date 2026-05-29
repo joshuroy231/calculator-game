@@ -8,15 +8,16 @@ struct EntityProfile {
     const Color color;
     const Control control;
 
-    const int walking_acceleration;
-    const int terminal_velocity_x;
-    const int terminal_velocity_y;
+    const int walking_acceleration = 0;
+    const int terminal_velocity_x = 0;
+    const int terminal_velocity_y = 0;
     const Vec2<int> jumping_velocity;
 
-    const bool has_rendering;
-    const bool has_physics;
-    const bool has_control;
-    const bool has_collision;
+    const bool has_rendering = false;
+    const bool has_physics = false;
+    const bool has_control = false;
+    const bool has_collision = false;
+    EntityProfile() = default;
     EntityProfile(
         Vec2<int> dimensions,
         Color color,

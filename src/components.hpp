@@ -30,7 +30,7 @@ class Entity;
 
 struct Control {
     Controller* controller = nullptr;
-    Actuator* actuator;
+    Actuator* actuator = nullptr;
     Control() = default;
     Control(Controller* controller, Actuator* actuator)
     : controller(controller)
