@@ -28,14 +28,6 @@ EnumMap<Button, ButtonState>& Keypad::getButtonStates() {
 
 void Keypad::scan() {
     kb_Scan();
-    for (int i = 0; i < (int)Button::COUNT; i++) {
-        if (kb_IsDown(keymap[(Button)i])) {
-            key_states[(Button)i] = (key_states[(Button)i] == LOW) ? RISING_EDGE : HIGH;
-        }
-        else {
-            key_states[(Button)i] = (key_states[(Button)i] == HIGH) ? FALLING_EDGE : LOW;
-        }
-    }
     for (Button button : EnumRange<Button>()) {
         if (kb_IsDown(keymap[button])) {
             key_states[button] = (key_states[button] == LOW) ? RISING_EDGE : HIGH;
