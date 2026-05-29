@@ -3,6 +3,6 @@
 #include "entities/entity-profile.hpp"
 
 namespace EntityProfiles {
-    const EntityProfile player;
-    const EntityProfile mystery_box;
+    extern const EntityProfile player;
+    extern const EntityProfile mystery_box;
 }
