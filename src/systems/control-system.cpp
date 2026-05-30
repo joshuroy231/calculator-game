@@ -11,6 +11,6 @@ void ControlSystem::update() {
     for (int i = 0; i < this->num_entities; i++) {
         dbg_printf("On loop %d\n", i);
         if (!this->entity_registry[i].profile->has_control) continue;
-        entity_registry[i].profile->control.actuator->actuate(entity_registry[i]);
+        entity_registry[i].actuator->actuate(entity_registry[i]);
     }
 }

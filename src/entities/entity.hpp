@@ -12,6 +12,7 @@ class Entity {
         int entity_id;
         const EntityProfile* profile;
         EntityState state;
+        Actuator* actuator;
 
         Entity() = default;
         Entity(int entity_id)

@@ -14,6 +14,7 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
     Entity new_entity = Entity(next_entity_id);
     new_entity.state = entity_configuration.initial_state;
     new_entity.profile = entity_configuration.profile;
+    new_entity.actuator = entity_configuration.actuator;
 
     entity_registry[num_entities + num_conceived_entities] = new_entity;
     num_conceived_entities++;
@@ -30,7 +31,10 @@ void EntityManager::updateEntities() {
     int write_ptr = 0;
     int read_ptr = 0;
     for (; read_ptr < num_entities + num_conceived_entities; read_ptr++) {
-        if (entity_registry[read_ptr].is_condemned) continue;
+        if (entity_registry[read_ptr].is_condemned) {
+            delete entity_registry[read_ptr].actuator;
+            continue;
+        }
         else {
             entity_registry[write_ptr] = entity_registry[read_ptr];
             write_ptr++;

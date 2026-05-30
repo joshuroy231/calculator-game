@@ -25,14 +25,3 @@ struct Color {
     Color(uint8_t color)
     : color(color) {}
 };
-
-class Entity;
-
-struct Control {
-    Controller* controller = nullptr;
-    Actuator* actuator = nullptr;
-    Control() = default;
-    Control(Controller* controller, Actuator* actuator)
-    : controller(controller)
-    , actuator(actuator) {}
-};

@@ -6,12 +6,9 @@
 struct EntityProfile {
     const Vec2<int> dimensions;
     const Color color;
-    const Control control;
 
-    const int walking_acceleration = 0;
     const int terminal_velocity_x = 0;
     const int terminal_velocity_y = 0;
-    const Vec2<int> jumping_velocity;
 
     const bool has_rendering = false;
     const bool has_physics = false;
@@ -21,11 +18,8 @@ struct EntityProfile {
     EntityProfile(
         Vec2<int> dimensions,
         Color color,
-        Control control,
-        int walking_acceleration,
         int terminal_velocity_x,
         int terminal_velocity_y,
-        Vec2<int> jumping_velocity,
         bool has_rendering,
         bool has_physics,
         bool has_control,
@@ -33,11 +27,8 @@ struct EntityProfile {
     )
     : dimensions(dimensions)
     , color(color)
-    , control(control)
-    , walking_acceleration(walking_acceleration)
     , terminal_velocity_x(terminal_velocity_x)
     , terminal_velocity_y(terminal_velocity_y)
-    , jumping_velocity(jumping_velocity)
     , has_rendering(has_rendering)
     , has_physics(has_physics)
     , has_control(has_control)
@@ -60,10 +51,13 @@ struct EntityState {
 struct EntityConfiguration {
     EntityState initial_state;
     const EntityProfile* profile;
+    Actuator* actuator;
     EntityConfiguration(
         const EntityState initial_state,
-        const EntityProfile* profile
+        const EntityProfile* profile,
+        Actuator* actuator
     )
     : initial_state(initial_state)
-    , profile(profile) {}
+    , profile(profile)
+    , actuator(actuator) {}
 };
