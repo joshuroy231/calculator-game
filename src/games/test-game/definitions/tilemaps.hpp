@@ -3,5 +3,10 @@
 #include "tilemap.hpp"
 
 namespace Tilemaps {
-    const Tilemap get();
+    enum class Id {
+        MAIN,
+
+        COUNT
+    };
+    const Tilemap get(Id id);
 }
