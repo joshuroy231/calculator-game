@@ -1,8 +1,6 @@
 #pragma once
 
 #include <stdint.h>
-#include "controller.hpp"
-#include "actuators/actuator.hpp"
 
 enum ColorType {
     BLACK = 0,

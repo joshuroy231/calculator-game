@@ -48,6 +48,7 @@ struct EntityState {
     , velocity(initial_velocity)
     , acceleration(initial_acceleration) {}
 };
+class Actuator;
 struct EntityConfiguration {
     EntityState initial_state;
     const EntityProfile* profile;
