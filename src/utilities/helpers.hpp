@@ -1,6 +1,15 @@
 #pragma once
 
 #include "utilities/vec2.hpp"
+#include "utilities/box.hpp"
+
+bool areColliding(Box<int> box1, Box<int> box2) {
+    if (box1.x_max < box2.x_min) return false;
+    if (box1.x_min > box2.x_max) return false;
+    if (box1.y_max < box2.y_min) return false;
+    if (box1.y_min > box2.y_max) return false;
+    return true;
+}
 
 bool areColliding(Vec2<int> box_1_position, Vec2<int> box_1_dimensions,
     Vec2<int> box_2_position, Vec2<int> box_2_dimensions) {
