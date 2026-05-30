@@ -8,7 +8,7 @@ enum class Button {
     LEFT,
     RIGHT,
     QUIT,
-    DEBUG,
+    DEBUGS,
 
     COUNT
 };

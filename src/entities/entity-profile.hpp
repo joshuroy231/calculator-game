@@ -61,8 +61,8 @@ struct EntityConfiguration {
     EntityState initial_state;
     const EntityProfile* profile;
     EntityConfiguration(
-        EntityState initial_state,
-        EntityProfile* profile
+        const EntityState initial_state,
+        const EntityProfile* profile
     )
     : initial_state(initial_state)
     , profile(profile) {}

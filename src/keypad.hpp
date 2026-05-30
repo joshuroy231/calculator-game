@@ -13,4 +13,4 @@ class Keypad : public Controller {
         void scan();
 };
 
-extern Keypad standard_keypad;
+Keypad* getStandardKeypad();

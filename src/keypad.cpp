@@ -2,11 +2,14 @@
 #include <debug.h>
 #include "keypad.hpp"
 #include "utilities/enum-map.hpp"
-#include "utilities/enum-set.hpp"
+#include "utilities/enum-range.hpp"
 
 EnumMap<Button, kb_lkey_t> keymap;
 
-Keypad standard_keypad = Keypad();
+Keypad* getStandardKeypad() {
+    static Keypad* standard_keypad = new Keypad();
+    return standard_keypad;
+}
 
 Keypad::Keypad() {
     keymap[Button::LEFT] = kb_Key4;
@@ -14,7 +17,7 @@ Keypad::Keypad() {
     keymap[Button::UP] = kb_Key8;
     keymap[Button::DOWN] = kb_Key2;
     keymap[Button::QUIT] = kb_KeyClear;
-    keymap[Button::DEBUG] = kb_KeyDecPnt;
+    keymap[Button::DEBUGS] = kb_KeyDecPnt;
 
     for (ButtonState& state : key_states) {
         state = LOW;

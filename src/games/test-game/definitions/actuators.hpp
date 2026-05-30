@@ -3,5 +3,5 @@
 #include "actuators/standard-actuator.hpp"
 
 namespace Actuators {
-    extern StandardActuator actuator;
+    Actuator* get();
 }

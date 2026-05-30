@@ -2,6 +2,8 @@
 
 #include <stdint.h>
 #include "device-properties.hpp"
+#include "components.hpp"
+#include "utilities/vec2.hpp"
 
 #define TILE_PIXELS 16
 

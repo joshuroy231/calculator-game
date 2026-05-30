@@ -3,5 +3,5 @@
 #include "scene.hpp"
 
 namespace Scenes {
-    Scene main;
+    Scene* get();
 }

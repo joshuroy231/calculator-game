@@ -2,7 +2,13 @@
 
 #include "entities/entity-profile.hpp"
 
+enum class EntityProfileId {
+    PLAYER,
+    MYSTERY_BOX,
+
+    COUNT
+};
+
 namespace EntityProfiles {
-    extern const EntityProfile player;
-    extern const EntityProfile mystery_box;
+    EntityProfile* get(EntityProfileId id);
 }

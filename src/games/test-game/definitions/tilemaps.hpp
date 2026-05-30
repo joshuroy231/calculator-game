@@ -3,5 +3,5 @@
 #include "tilemap.hpp"
 
 namespace Tilemaps {
-    extern Tilemap main_tilemap;
+    const Tilemap get();
 }
