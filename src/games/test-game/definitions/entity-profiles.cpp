@@ -3,9 +3,9 @@
 #include "keypad.hpp"
 
 namespace EntityProfiles {
-    EntityProfile* get(EntityProfileId id) {
+    EntityProfile* get(Id id) {
         switch (id) {
-            case EntityProfileId::PLAYER:
+            case Id::PLAYER:
                 static EntityProfile* player = new EntityProfile(
                     Vec2<int>(12, 16),
                     Color(RED),
@@ -20,7 +20,7 @@ namespace EntityProfiles {
                     true
                 );
                 return player;
-            case EntityProfileId::MYSTERY_BOX:
+            case Id::MYSTERY_BOX:
                 static EntityProfile* box = new EntityProfile(
                     Vec2<int>(32, 32),
                     Color(YELLOW),

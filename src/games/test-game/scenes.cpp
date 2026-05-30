@@ -1,4 +1,4 @@
-#include "games/test-game/scene-impl.hpp"
+#include "games/test-game/scenes.hpp"
 #include "games/test-game/definitions/tilemaps.hpp"
 #include "games/test-game/definitions/entity-profiles.hpp"
 #include "cameras/camera.hpp"
@@ -12,7 +12,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfileId::PLAYER)
+                EntityProfiles::get(EntityProfiles::Id::PLAYER)
             ),
             EntityConfiguration(
                 EntityState(
@@ -20,7 +20,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfileId::MYSTERY_BOX)
+                EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX)
             )
         };
 

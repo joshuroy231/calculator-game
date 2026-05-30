@@ -1,5 +1,5 @@
 #include "games/test-game/game-impl.hpp"
-#include "games/test-game/scene-impl.hpp"
+#include "games/test-game/scenes.hpp"
 
 namespace Games {
     Game* get() {
