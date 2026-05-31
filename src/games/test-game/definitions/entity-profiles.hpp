@@ -6,6 +6,7 @@ namespace EntityProfiles {
     enum class Id {
         PLAYER,
         MYSTERY_BOX,
+        GOOMBA,
 
         COUNT,
     };

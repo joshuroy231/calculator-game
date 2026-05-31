@@ -16,6 +16,7 @@ RenderingSystem::RenderingSystem(
 , camera_position(camera_position)
 {
     gfx_Begin();
+    gfx_SetDrawBuffer();
 }
 
 RenderingSystem::~RenderingSystem() {

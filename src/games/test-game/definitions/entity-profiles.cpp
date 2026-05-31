@@ -29,6 +29,18 @@ namespace EntityProfiles {
                     true
                 );
                 return box;
+            case Id::GOOMBA:
+                static EntityProfile* goomba = new EntityProfile(
+                    Vec2<int>(16,16),
+                    Color(BLACK),
+                    100,
+                    320,
+                    true,
+                    true,
+                    true,
+                    true
+                );
+                return goomba;
             default:
                 return nullptr;
         }
