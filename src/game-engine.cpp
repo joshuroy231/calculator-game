@@ -59,8 +59,6 @@ void GameEngine::playScene(Scene* scene) {
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;
 
-        void* ptr = nullptr;
-        dbg_printf("RAM remaining: %u\n", os_MemChk(&ptr));
         if (processing_time < 32) delay(32 - processing_time);
     }
 }

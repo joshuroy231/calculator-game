@@ -24,6 +24,24 @@ namespace Scenes {
                 ),
                 EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX),
                 nullptr
+            ),
+            EntityConfiguration(
+                EntityState(
+                    Vec2<int>(32, 90),
+                    Vec2<int>(),
+                    Vec2<int>()
+                ),
+                EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX),
+                nullptr
+            ),
+            EntityConfiguration(
+                EntityState(
+                    Vec2<int>(32, 170),
+                    Vec2<int>(),
+                    Vec2<int>()
+                ),
+                EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX),
+                nullptr
             )
         };
 
