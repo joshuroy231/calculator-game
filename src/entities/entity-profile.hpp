@@ -5,7 +5,7 @@
 
 struct EntityProfile {
     const Vec2<int> dimensions;
-    const Color color;
+    const uint8_t color = 0;
 
     const int terminal_velocity_x = 0;
     const int terminal_velocity_y = 0;
@@ -17,7 +17,7 @@ struct EntityProfile {
     EntityProfile() = default;
     EntityProfile(
         Vec2<int> dimensions,
-        Color color,
+        uint8_t color,
         int terminal_velocity_x,
         int terminal_velocity_y,
         bool has_rendering,

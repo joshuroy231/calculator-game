@@ -59,7 +59,7 @@ namespace Scenes {
             initial_entities,
             sizeof(initial_entities) / sizeof(EntityConfiguration),
             Tilemaps::get(Tilemaps::Id::MAIN),
-            Color(LIGHT_BLUE),
+            LIGHT_BLUE,
             Camera(Vec2<int>(0,0)),
             Vec2<int>(0, 512)
         );

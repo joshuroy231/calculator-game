@@ -7,14 +7,14 @@
 class RenderingSystem : System {
     private:
         Tilemap* tilemap;
-        Color background_color;
+        uint8_t background_color;
         const Vec2<int>& camera_position;
     public:
         RenderingSystem(
             Entity* entity_registry,
             int const& num_entities,
             Tilemap* tilemap,
-            Color background_color,
+            uint8_t background_color,
             const Vec2<int>& camera_position
         );
         ~RenderingSystem();

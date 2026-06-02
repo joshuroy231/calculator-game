@@ -9,9 +9,9 @@
 
 class TileType {
     public:
-        Color color;
+        uint8_t color;
         TileType(
-            Color color
+            uint8_t color
         )
         : color(color) {}
 };

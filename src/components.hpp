@@ -16,10 +16,3 @@ enum ColorType {
     GRAY =  148,
     GREY = 75,
 };
-
-struct Color {
-    uint8_t color = 0;
-    Color() = default;
-    Color(uint8_t color)
-    : color(color) {}
-};

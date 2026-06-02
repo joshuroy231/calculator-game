@@ -8,7 +8,7 @@ namespace EntityProfiles {
             case Id::PLAYER:
                 static EntityProfile* player = new EntityProfile(
                     Vec2<int>(12, 16),
-                    Color(RED),
+                    RED,
                     160,
                     320,
                     true,
@@ -20,7 +20,7 @@ namespace EntityProfiles {
             case Id::MYSTERY_BOX:
                 static EntityProfile* box = new EntityProfile(
                     Vec2<int>(32, 32),
-                    Color(YELLOW),
+                    YELLOW,
                     160,
                     320,
                     true,
@@ -32,7 +32,7 @@ namespace EntityProfiles {
             case Id::GOOMBA:
                 static EntityProfile* goomba = new EntityProfile(
                     Vec2<int>(16,16),
-                    Color(BLACK),
+                    BLACK,
                     100,
                     320,
                     true,

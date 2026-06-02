@@ -5,10 +5,10 @@
 #define IMPL_NUM_ROWS 15
 namespace Tilemaps {
     TileType tile_types[4] = {
-        TileType(Color(0)),
-        TileType(Color(GRAY)),
-        TileType(Color(GREEN)),
-        TileType(Color(PURPLE))
+        TileType(0),
+        TileType(GRAY),
+        TileType(GREEN),
+        TileType(PURPLE)
     };
     const Tilemap get(Id id) {
         static const uint8_t* main_data = new const uint8_t [IMPL_NUM_ROWS*IMPL_NUM_COLS] {

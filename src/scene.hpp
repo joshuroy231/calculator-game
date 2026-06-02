@@ -10,7 +10,7 @@ class Scene {
         EntityConfiguration* initial_entities;
         int num_initial_entities;
         Tilemap tilemap;
-        Color background_color;
+        uint8_t background_color;
         Camera camera;
         Vec2<int> gravity;
         Vec2<int> dimensions_pixels;
@@ -19,7 +19,7 @@ class Scene {
             EntityConfiguration* initial_entities,
             int num_initial_entities,
             Tilemap tilemap,
-            Color background_color,
+            uint8_t background_color,
             Camera camera,
             Vec2<int> gravity
         )
