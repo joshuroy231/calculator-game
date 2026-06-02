@@ -1,7 +1,7 @@
 #pragma once
 
-#include "entity-profile.hpp"
-#include "entity.hpp"
+#include "entities/entity.hpp"
+#include "entities/entity-configuration.hpp"
 
 class EntityManager {
     private:

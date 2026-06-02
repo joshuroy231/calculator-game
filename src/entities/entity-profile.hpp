@@ -34,31 +34,3 @@ struct EntityProfile {
     , has_control(has_control)
     , has_collision(has_collision) {}
 };
-struct EntityState {
-    Vec2<int> position;
-    Vec2<int> velocity;
-    Vec2<int> acceleration;
-    EntityState() = default;
-    EntityState(
-        Vec2<int> initial_position,
-        Vec2<int> initial_velocity,
-        Vec2<int> initial_acceleration
-    )
-    : position(initial_position)
-    , velocity(initial_velocity)
-    , acceleration(initial_acceleration) {}
-};
-class Actuator;
-struct EntityConfiguration {
-    EntityState initial_state;
-    const EntityProfile* profile;
-    Actuator* actuator;
-    EntityConfiguration(
-        const EntityState initial_state,
-        const EntityProfile* profile,
-        Actuator* actuator
-    )
-    : initial_state(initial_state)
-    , profile(profile)
-    , actuator(actuator) {}
-};

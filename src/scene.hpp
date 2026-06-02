@@ -1,6 +1,6 @@
 #pragma once
 
-#include "entities/entity-profile.hpp"
+#include "entities/entity-configuration.hpp"
 #include "tilemap.hpp"
 #include "cameras/camera.hpp"
 
