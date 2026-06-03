@@ -4,16 +4,16 @@
 #include "utilities/vec2.hpp"
 
 struct EntityProfile {
-    const Vec2<int> dimensions;
-    const uint8_t color = 0;
+    Vec2<int> dimensions;
+    uint8_t color;
 
-    const int terminal_velocity_x = 0;
-    const int terminal_velocity_y = 0;
+    int terminal_velocity_x;
+    int terminal_velocity_y;
 
-    const bool has_rendering = false;
-    const bool has_physics = false;
-    const bool has_control = false;
-    const bool has_collision = false;
+    bool has_rendering;
+    bool has_physics;
+    bool has_control;
+    bool has_collision;
     EntityProfile() = default;
     EntityProfile(
         Vec2<int> dimensions,
