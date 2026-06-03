@@ -8,6 +8,7 @@ struct EntityConfiguration {
     EntityState initial_state;
     const EntityProfile* profile;
     Actuator* actuator;
+    EntityConfiguration() = default;
     EntityConfiguration(
         const EntityState initial_state,
         const EntityProfile* profile,

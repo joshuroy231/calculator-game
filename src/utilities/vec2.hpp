@@ -8,8 +8,8 @@ enum Component {
 template <typename T>
 class Vec2 {
     public:
-        T x = 0;
-        T y = 0;
+        T x;
+        T y;
         Vec2() = default;
         Vec2(T x, T y)
         : x(x)
