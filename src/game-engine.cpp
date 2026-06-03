@@ -17,6 +17,7 @@ GameEngine::GameEngine(Game* game)
     , control_system(entity_manager.entity_registry, entity_manager.num_entities)
     , entity_collision_system(entity_manager.entity_registry, entity_manager.num_entities)
     , camera_system(entity_manager.entity_registry, entity_manager.num_entities, game->scene->camera, game->scene->dimensions_pixels)
+    , event_queue(64)
     , game(game)
     {}
 

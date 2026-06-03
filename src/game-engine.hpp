@@ -7,6 +7,8 @@
 #include "systems/entity-collision-system.hpp"
 #include "systems/camera-system.hpp"
 #include "keypad.hpp"
+#include "utilities/queue.hpp"
+#include "events/event.hpp"
 #include "game.hpp"
 
 class GameEngine {
@@ -20,6 +22,8 @@ class GameEngine {
         CameraSystem camera_system;
 
         Keypad* keypad = nullptr;
+
+        Queue<Event> event_queue;
 
         Game* game;
 

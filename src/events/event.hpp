@@ -9,11 +9,13 @@ enum class EventType {
 
 struct CondemnEntityEvent {
     int entity_id;
+    CondemnEntityEvent() = default;
     CondemnEntityEvent(int entity_id)
     : entity_id(entity_id) {}
 };
 struct ConceiveEntityEvent {
     EntityConfiguration entity_configuration;
+    ConceiveEntityEvent() = default;
     ConceiveEntityEvent(const EntityConfiguration& entity_configuration)
     : entity_configuration(entity_configuration) {}
 };
@@ -22,6 +24,7 @@ union EventData {
     CondemnEntityEvent condemn_entity;
     ConceiveEntityEvent conceive_entity;
 
+    EventData() = default;
     EventData(CondemnEntityEvent event)
     : condemn_entity(event) {}
     EventData(ConceiveEntityEvent event)
@@ -34,10 +37,11 @@ class Event {
     public:
         EventData event_data;
 
+        Event() = default;
         Event(CondemnEntityEvent event)
         : event_type(EventType::CONDEMN_ENTITY)
         , event_data(event) {}
-        Event(CondemnEntityEvent event)
+        Event(ConceiveEntityEvent event)
         : event_type(EventType::CONCEIVE_ENTITY)
         , event_data(event) {}
 
