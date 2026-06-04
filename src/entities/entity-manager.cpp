@@ -14,6 +14,7 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
     if (num_entities + num_conceived_entities == num_entity_registers) return -1;
 
     Entity new_entity = Entity(next_entity_id);
+    new_entity.profile_id = entity_configuration.profile_id;
     new_entity.state = entity_configuration.initial_state;
     new_entity.profile = &entity_profiles[entity_configuration.profile_id];
     new_entity.actuator = entity_configuration.actuator;

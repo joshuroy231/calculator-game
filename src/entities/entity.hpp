@@ -13,6 +13,7 @@ class Entity {
         bool is_condemned = false;
     public:
         int entity_id;
+        int profile_id;
         EntityProfile* profile;
         EntityState state;
         Actuator* actuator;
