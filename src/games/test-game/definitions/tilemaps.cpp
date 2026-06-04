@@ -17,7 +17,7 @@ namespace Tilemaps {
     }
 
     Tilemap* init() {
-        static uint8_t* main_data = new uint8_t [IMPL_NUM_ROWS*IMPL_NUM_COLS] {
+        static const uint8_t* main_data = new const uint8_t [IMPL_NUM_ROWS*IMPL_NUM_COLS] {
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
