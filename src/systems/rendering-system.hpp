@@ -8,14 +8,14 @@ class RenderingSystem : System {
     private:
         Tilemap* tilemap;
         uint8_t background_color;
-        const Vec2<int>& camera_position;
+        Vec2<int>& camera_position;
     public:
         RenderingSystem(
             Entity* entity_registry,
-            int const& num_entities,
+            int& num_entities,
             Tilemap* tilemap,
             uint8_t background_color,
-            const Vec2<int>& camera_position
+            Vec2<int>& camera_position
         );
         ~RenderingSystem();
         void update() override;

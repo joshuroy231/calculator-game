@@ -6,12 +6,12 @@
 class Actuator;
 struct EntityConfiguration {
     EntityState initial_state;
-    const EntityProfile* profile;
+    EntityProfile* profile;
     Actuator* actuator;
     EntityConfiguration() = default;
     EntityConfiguration(
-        const EntityState initial_state,
-        const EntityProfile* profile,
+        EntityState initial_state,
+        EntityProfile* profile,
         Actuator* actuator
     )
     : initial_state(initial_state)

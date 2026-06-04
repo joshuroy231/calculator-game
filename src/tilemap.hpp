@@ -19,14 +19,14 @@ class TileType {
 class Tilemap {
     private:
     public:
-        const Vec2<int> tile_dimensions;
-        const uint8_t* const data;
-        const TileType* const tile_types;
+        Vec2<int> tile_dimensions;
+        uint8_t* data;
+        TileType* tile_types;
 
         Tilemap(
-            const Vec2<int> tile_dimensions,
-            const uint8_t* const data,
-            const TileType* const tile_types
+            Vec2<int> tile_dimensions,
+            uint8_t* data,
+            TileType* tile_types
         )
         : tile_dimensions(tile_dimensions)
         , data(data)

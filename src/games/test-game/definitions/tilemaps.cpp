@@ -10,8 +10,8 @@ namespace Tilemaps {
         TileType(GREEN),
         TileType(PURPLE)
     };
-    const Tilemap get(Id id) {
-        static const uint8_t* main_data = new const uint8_t [IMPL_NUM_ROWS*IMPL_NUM_COLS] {
+    Tilemap get(Id id) {
+        static uint8_t* main_data = new uint8_t [IMPL_NUM_ROWS*IMPL_NUM_COLS] {
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -29,7 +29,7 @@ namespace Tilemaps {
             1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
         };
 
-        Tilemap* const tilemaps = new Tilemap[(int)Id::COUNT] {
+        Tilemap* tilemaps = new Tilemap[(int)Id::COUNT] {
             [(int)Id::MAIN] = Tilemap(Vec2<int>(IMPL_NUM_COLS, IMPL_NUM_ROWS), main_data, tile_types)
         };
 

@@ -4,13 +4,14 @@ template<typename T>
 class Queue {
     private:
         int size;
-        int num_elements = 0;
+        int num_elements;
         T* data;
 
     public:
         Queue(int size) {
             this->size = size;
 
+            num_elements = 0;
             data = new T[size];
         };
         void push(T element) {

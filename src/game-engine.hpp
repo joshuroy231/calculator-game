@@ -21,7 +21,7 @@ class GameEngine {
         EntityCollisionSystem entity_collision_system;
         CameraSystem camera_system;
 
-        Keypad* keypad = nullptr;
+        Keypad* keypad;
 
         Queue<Event> event_queue;
 

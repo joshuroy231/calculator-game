@@ -8,5 +8,5 @@ namespace Tilemaps {
 
         COUNT
     };
-    const Tilemap get(Id id);
+    Tilemap get(Id id);
 }
