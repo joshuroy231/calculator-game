@@ -2,7 +2,6 @@
 
 #include "entities/entity-profile.hpp"
 #include "entities/entity-state.hpp"
-#include "components.hpp"
 #include "utilities/vec2.hpp"
 
 class Actuator;

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "components.hpp"
+#include <stdint.h>
 #include "utilities/vec2.hpp"
 
 struct EntityProfile {

@@ -1,6 +1,7 @@
 #include "games/test-game/definitions/entity-profiles.hpp"
 #include "games/test-game/definitions/actuators.hpp"
 #include "keypad.hpp"
+#include "device-properties.hpp"
 
 namespace EntityProfiles {
     EntityProfile* init();

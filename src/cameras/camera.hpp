@@ -1,6 +1,5 @@
 #pragma once
 
-#include "components.hpp"
 #include "device-properties.hpp"
 
 class Camera {
