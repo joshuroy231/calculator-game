@@ -12,13 +12,13 @@ class Entity {
     private:
         bool is_condemned = false;
     public:
-        int entity_id;
+        int id;
         int profile_id;
         EntityProfile* profile;
         EntityState state;
         Actuator* actuator;
 
         Entity() = default;
-        Entity(int entity_id)
-        : entity_id(entity_id) {}
+        Entity(int id)
+        : id(id) {}
 };

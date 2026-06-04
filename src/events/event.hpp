@@ -8,10 +8,10 @@ enum class EventType {
 };
 
 struct CondemnEntityEvent {
-    int entity_id;
+    int id;
     CondemnEntityEvent() = default;
-    CondemnEntityEvent(int entity_id)
-    : entity_id(entity_id) {}
+    CondemnEntityEvent(int id)
+    : id(id) {}
 };
 struct ConceiveEntityEvent {
     EntityConfiguration entity_configuration;

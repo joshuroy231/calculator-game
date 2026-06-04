@@ -13,7 +13,7 @@ EntityManager::~EntityManager() {
 int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration) {
     if (num_entities + num_conceived_entities == num_entity_registers) return -1;
 
-    Entity new_entity = Entity(next_entity_id);
+    Entity new_entity = Entity(next_id);
     new_entity.profile_id = entity_configuration.profile_id;
     new_entity.state = entity_configuration.initial_state;
     new_entity.profile = &entity_profiles[entity_configuration.profile_id];
@@ -21,11 +21,11 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
 
     entity_registry[num_entities + num_conceived_entities] = new_entity;
     num_conceived_entities++;
-    return next_entity_id++;
+    return next_id++;
 }
-void EntityManager::condemnEntity(int entity_id) {
+void EntityManager::condemnEntity(int id) {
     for (int i = 0; i < num_entities + num_conceived_entities; i++) {
-        if (entity_registry[i].entity_id == entity_id) {
+        if (entity_registry[i].id == id) {
             entity_registry[i].is_condemned = true;
         }
     }

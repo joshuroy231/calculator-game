@@ -6,7 +6,7 @@
 class EntityManager {
     private:
         int num_conceived_entities = 0;
-        int next_entity_id = 0;
+        int next_id = 0;
     public:
         Entity* entity_registry;
         EntityProfile* entity_profiles;
@@ -17,6 +17,6 @@ class EntityManager {
         ~EntityManager();
 
         int conceiveEntity(const EntityConfiguration entity_configuration);
-        void condemnEntity(int entity_id);
+        void condemnEntity(int id);
         void updateEntities();
 };
