@@ -5,7 +5,7 @@
 #include "game-engine.hpp"
 
 GameEngine::GameEngine(Game* game)
-    : entity_manager(game->scene->entity_pool_size, game->entity_profiles)
+    : entity_manager(game->entity_pool_size, game->entity_profiles)
     , rendering_system(
         entity_manager.entity_registry,
         entity_manager.num_entities,

@@ -6,7 +6,6 @@
 
 class Scene {
     public:
-        int entity_pool_size;
         EntityConfiguration* initial_entities;
         int num_initial_entities;
         Tilemap tilemap;
@@ -15,7 +14,6 @@ class Scene {
         Vec2<int> gravity;
         Vec2<int> dimensions_pixels;
         Scene(
-            int entity_pool_size,
             EntityConfiguration* initial_entities,
             int num_initial_entities,
             Tilemap tilemap,
@@ -23,8 +21,7 @@ class Scene {
             Camera camera,
             Vec2<int> gravity
         )
-        : entity_pool_size(entity_pool_size)
-        , initial_entities(initial_entities)
+        : initial_entities(initial_entities)
         , num_initial_entities(num_initial_entities)
         , tilemap(tilemap)
         , background_color(background_color)

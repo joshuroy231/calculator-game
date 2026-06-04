@@ -55,7 +55,6 @@ namespace Scenes {
         };
 
         static Scene* main_scene = new Scene(
-            32,
             initial_entities,
             sizeof(initial_entities) / sizeof(EntityConfiguration),
             Tilemaps::get()[Tilemaps::Id::MAIN],
