@@ -2,9 +2,10 @@
 #include "entity.hpp"
 #include "actuators/actuator.hpp"
 
-EntityManager::EntityManager(int num_entity_registers) {
+EntityManager::EntityManager(int num_entity_registers, EntityProfile* entity_profiles) {
     this->num_entity_registers = num_entity_registers;
     this->entity_registry = new Entity[num_entity_registers];
+    this->entity_profiles = entity_profiles;
 }
 EntityManager::~EntityManager() {
     delete[] entity_registry;
@@ -14,7 +15,7 @@ int EntityManager::conceiveEntity(const EntityConfiguration entity_configuration
 
     Entity new_entity = Entity(next_entity_id);
     new_entity.state = entity_configuration.initial_state;
-    new_entity.profile = entity_configuration.profile;
+    new_entity.profile = &entity_profiles[entity_configuration.profile_id];
     new_entity.actuator = entity_configuration.actuator;
 
     entity_registry[num_entities + num_conceived_entities] = new_entity;

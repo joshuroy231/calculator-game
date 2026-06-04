@@ -13,7 +13,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                &EntityProfiles::get()[EntityProfiles::Id::PLAYER],
+                EntityProfiles::Id::PLAYER,
                 Actuators::get()
             ),
             EntityConfiguration(
@@ -22,7 +22,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                &EntityProfiles::get()[EntityProfiles::Id::MYSTERY_BOX],
+                EntityProfiles::Id::MYSTERY_BOX,
                 nullptr
             ),
             EntityConfiguration(
@@ -31,7 +31,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                &EntityProfiles::get()[EntityProfiles::Id::MYSTERY_BOX],
+                EntityProfiles::Id::MYSTERY_BOX,
                 nullptr
             ),
             EntityConfiguration(
@@ -40,7 +40,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                &EntityProfiles::get()[EntityProfiles::Id::MYSTERY_BOX],
+                EntityProfiles::Id::MYSTERY_BOX,
                 nullptr
             ),
             EntityConfiguration(
@@ -49,7 +49,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                &EntityProfiles::get()[EntityProfiles::Id::GOOMBA],
+                EntityProfiles::Id::GOOMBA,
                 Actuators::get()
             )
         };
@@ -67,4 +67,3 @@ namespace Scenes {
         return main_scene;
     }
 }
-

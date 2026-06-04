@@ -5,6 +5,11 @@
 class Game {
     public:
         Scene* scene;
-        Game(Scene* scene)
-        : scene(scene) {}
+        EntityProfile* entity_profiles;
+        Game(
+            Scene* scene,
+            EntityProfile* entity_profiles
+        )
+        : scene(scene)
+        , entity_profiles(entity_profiles) {}
 };
