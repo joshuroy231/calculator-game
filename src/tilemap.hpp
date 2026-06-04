@@ -23,6 +23,7 @@ class Tilemap {
         uint8_t* data;
         TileType* tile_types;
 
+        Tilemap() = default;
         Tilemap(
             Vec2<int> tile_dimensions,
             uint8_t* data,

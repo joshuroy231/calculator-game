@@ -3,12 +3,12 @@
 #include "entities/entity-profile.hpp"
 
 namespace EntityProfiles {
-    enum class Id {
+    enum Id {
         PLAYER,
         MYSTERY_BOX,
         GOOMBA,
 
         COUNT,
     };
-    EntityProfile* get(Id id);
+    EntityProfile* get();
 }

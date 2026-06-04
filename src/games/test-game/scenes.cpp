@@ -13,7 +13,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfiles::Id::PLAYER),
+                &EntityProfiles::get()[EntityProfiles::Id::PLAYER],
                 Actuators::get()
             ),
             EntityConfiguration(
@@ -22,7 +22,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX),
+                &EntityProfiles::get()[EntityProfiles::Id::MYSTERY_BOX],
                 nullptr
             ),
             EntityConfiguration(
@@ -31,7 +31,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX),
+                &EntityProfiles::get()[EntityProfiles::Id::MYSTERY_BOX],
                 nullptr
             ),
             EntityConfiguration(
@@ -40,7 +40,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfiles::Id::MYSTERY_BOX),
+                &EntityProfiles::get()[EntityProfiles::Id::MYSTERY_BOX],
                 nullptr
             ),
             EntityConfiguration(
@@ -49,7 +49,7 @@ namespace Scenes {
                     Vec2<int>(),
                     Vec2<int>()
                 ),
-                EntityProfiles::get(EntityProfiles::Id::GOOMBA),
+                &EntityProfiles::get()[EntityProfiles::Id::GOOMBA],
                 Actuators::get()
             )
         };
@@ -58,7 +58,7 @@ namespace Scenes {
             32,
             initial_entities,
             sizeof(initial_entities) / sizeof(EntityConfiguration),
-            Tilemaps::get(Tilemaps::Id::MAIN),
+            Tilemaps::get()[Tilemaps::Id::MAIN],
             LIGHT_BLUE,
             Camera(Vec2<int>(0,0)),
             Vec2<int>(0, 512)

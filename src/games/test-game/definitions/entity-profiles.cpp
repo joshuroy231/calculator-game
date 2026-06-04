@@ -3,46 +3,45 @@
 #include "keypad.hpp"
 
 namespace EntityProfiles {
-    EntityProfile* get(Id id) {
-        switch (id) {
-            case Id::PLAYER:
-                static EntityProfile* player = new EntityProfile(
-                    Vec2<int>(12, 16),
-                    RED,
-                    160,
-                    320,
-                    true,
-                    true,
-                    true,
-                    true
-                );
-                return player;
-            case Id::MYSTERY_BOX:
-                static EntityProfile* box = new EntityProfile(
-                    Vec2<int>(32, 32),
-                    YELLOW,
-                    160,
-                    320,
-                    true,
-                    true,
-                    false,
-                    true
-                );
-                return box;
-            case Id::GOOMBA:
-                static EntityProfile* goomba = new EntityProfile(
-                    Vec2<int>(16,16),
-                    BLACK,
-                    100,
-                    320,
-                    true,
-                    true,
-                    true,
-                    true
-                );
-                return goomba;
-            default:
-                return nullptr;
-        }
+    EntityProfile* init();
+
+    EntityProfile* get() {
+        static EntityProfile* profiles = init();
+        return profiles;
+    }
+
+    EntityProfile* init() {
+        static EntityProfile profiles[Id::COUNT];
+        profiles[Id::PLAYER] = EntityProfile(
+            Vec2<int>(12, 16),
+            RED,
+            160,
+            320,
+            true,
+            true,
+            true,
+            true
+        );
+        profiles[Id::MYSTERY_BOX] = EntityProfile(
+            Vec2<int>(32, 32),
+            YELLOW,
+            160,
+            320,
+            true,
+            true,
+            false,
+            true
+        );
+        profiles[Id::GOOMBA] = EntityProfile(
+            Vec2<int>(16,16),
+            BLACK,
+            100,
+            320,
+            true,
+            true,
+            true,
+            true
+        );
+        return profiles;
     }
 }

@@ -10,7 +10,13 @@ namespace Tilemaps {
         TileType(GREEN),
         TileType(PURPLE)
     };
-    Tilemap get(Id id) {
+    Tilemap* init();
+    Tilemap* get() {
+        static Tilemap* tilemaps = init();
+        return tilemaps;
+    }
+
+    Tilemap* init() {
         static uint8_t* main_data = new uint8_t [IMPL_NUM_ROWS*IMPL_NUM_COLS] {
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
             0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -29,10 +35,9 @@ namespace Tilemaps {
             1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
         };
 
-        Tilemap* tilemaps = new Tilemap[(int)Id::COUNT] {
-            [(int)Id::MAIN] = Tilemap(Vec2<int>(IMPL_NUM_COLS, IMPL_NUM_ROWS), main_data, tile_types)
-        };
+        static Tilemap tilemaps[Id::COUNT];
+        tilemaps[Id::MAIN] = Tilemap(Vec2<int>(IMPL_NUM_COLS, IMPL_NUM_ROWS), main_data, tile_types);
 
-        return tilemaps[(int)id];
+        return tilemaps;
     }
 }
