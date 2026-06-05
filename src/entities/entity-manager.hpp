@@ -26,4 +26,5 @@ class EntityManager {
         int conceiveEntity(const EntityConfiguration entity_configuration);
         void condemnEntity(int id);
         void updateEntities();
+        void consumeEvents();
 };

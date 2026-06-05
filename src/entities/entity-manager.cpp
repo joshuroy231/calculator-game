@@ -52,3 +52,17 @@ void EntityManager::updateEntities() {
     num_entities = write_ptr;
     num_conceived_entities = 0;
 }
+void EntityManager::consumeEvents() {
+    for (Event& e : event_queue) {
+        switch (e.getEventType()) {
+            case EventType::CONDEMN_ENTITY:
+                condemnEntity(e.event_data.condemn_entity.id);
+                return;
+            case EventType::CONCEIVE_ENTITY:
+                conceiveEntity(e.event_data.conceive_entity.entity_configuration);
+                return;
+            default:
+                return;
+        }
+    }
+}

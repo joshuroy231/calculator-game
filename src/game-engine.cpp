@@ -84,6 +84,8 @@ void GameEngine::playScene(Scene* scene) {
         camera_system.update();
         rendering_system.update();
 
+        entity_manager.consumeEvents();
+
         event_queue.flush();
 
         uint32_t end = timer_Get(1);
