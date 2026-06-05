@@ -2,10 +2,16 @@
 #include "entity.hpp"
 #include "actuators/actuator.hpp"
 
-EntityManager::EntityManager(int num_entity_registers, EntityProfile* entity_profiles) {
-    this->num_entity_registers = num_entity_registers;
+EntityManager::EntityManager(
+    int num_entity_registers,
+    EntityProfile* entity_profiles,
+    Queue<Event>& event_queue
+) 
+: num_entity_registers(num_entity_registers)
+, entity_profiles(entity_profiles)
+, event_queue(event_queue)
+{
     this->entity_registry = new Entity[num_entity_registers];
-    this->entity_profiles = entity_profiles;
 }
 EntityManager::~EntityManager() {
     delete[] entity_registry;

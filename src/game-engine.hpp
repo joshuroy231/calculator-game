@@ -13,9 +13,9 @@
 
 class GameEngine {
     private:
-        EntityManager entity_manager;
-
         Queue<Event> event_queue;
+
+        EntityManager entity_manager;
 
         RenderingSystem rendering_system;
         PhysicsSystem physics_system;

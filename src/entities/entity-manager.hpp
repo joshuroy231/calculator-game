@@ -2,18 +2,25 @@
 
 #include "entities/entity.hpp"
 #include "entities/entity-configuration.hpp"
+#include "utilities/queue.hpp"
+#include "events/event.hpp"
 
 class EntityManager {
     private:
+        int num_entity_registers;
+        EntityProfile* entity_profiles;
+        Queue<Event>& event_queue;
         int num_conceived_entities = 0;
         int next_id = 0;
     public:
         Entity* entity_registry;
-        EntityProfile* entity_profiles;
         int num_entities = 0;
-        int num_entity_registers;
 
-        EntityManager(int num_entity_registers, EntityProfile* entity_profiles);
+        EntityManager(
+            int num_entity_registers,
+            EntityProfile* entity_profiles,
+            Queue<Event>& event_queue
+        );
         ~EntityManager();
 
         int conceiveEntity(const EntityConfiguration entity_configuration);

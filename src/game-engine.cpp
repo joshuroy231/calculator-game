@@ -5,8 +5,12 @@
 #include "game-engine.hpp"
 
 GameEngine::GameEngine(Game* game)
-    : entity_manager(game->entity_pool_size, game->entity_profiles)
-    , event_queue(64)
+    : event_queue(64)
+    , entity_manager(
+        game->entity_pool_size,
+        game->entity_profiles,
+        event_queue
+    )
     , rendering_system(
         entity_manager.entity_registry,
         entity_manager.num_entities,
