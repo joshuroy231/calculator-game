@@ -83,10 +83,12 @@ void GameEngine::playScene(Scene* scene) {
         entity_collision_system.update();
         camera_system.update();
         rendering_system.update();
+
+        event_queue.flush();
+
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;
 
-        event_queue.flush();
 
         if (processing_time < 32) delay(32 - processing_time);
     }
