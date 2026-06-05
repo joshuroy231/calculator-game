@@ -19,5 +19,5 @@ class System {
         , event_queue(event_queue) {}
     public:
         virtual void update() = 0;
-        virtual void consume_events() {};
+        virtual void consumeEvents() {};
 };
