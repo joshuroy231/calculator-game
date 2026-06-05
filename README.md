@@ -16,3 +16,14 @@ A game engine for the TI-84 Plus CE graphing calculator
 - Change entity profile to be stored as an int/enum id
 - Lock down all enum usages using enum class
 - Work out a proper implementation template
+
+### Implementation Game
+- This will help guide my design decisions. Will just try to make mario or something
+#### Entity Ideas
+- Player
+- Mystery Box
+- Goomba
+- Mushroom
+- Fire Flower
+- Flag pole
+- Hammer bro
