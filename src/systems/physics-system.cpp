@@ -1,7 +1,13 @@
 #include "physics-system.hpp"
 
-PhysicsSystem::PhysicsSystem(Entity* entity_registry, int const& num_entities, Tilemap* tilemap, Vec2<int> gravity)
-: System(entity_registry, num_entities)
+PhysicsSystem::PhysicsSystem(
+    Entity* entity_registry,
+    int const& num_entities,
+    Queue<Event>& event_queue,
+    Tilemap* tilemap,
+    Vec2<int> gravity
+)
+: System(entity_registry, num_entities, event_queue)
 , tilemap(tilemap)
 , gravity(gravity)
 {}

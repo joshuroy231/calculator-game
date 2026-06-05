@@ -10,16 +10,14 @@
 class EntityCollisionSystem : public System {
     private:
         Matrix<OnCollisionFunction>& collision_matrix;
-        Queue<Event>& event_queue;
     public:
         EntityCollisionSystem(
             Entity* entity_registry,
-            Matrix<OnCollisionFunction>& collision_matrix,
+            const int& num_entities,
             Queue<Event>& event_queue,
-            const int& num_entities
+            Matrix<OnCollisionFunction>& collision_matrix
         )
-        : System(entity_registry, num_entities)
-        , collision_matrix(collision_matrix)
-        , event_queue(event_queue) {}
+        : System(entity_registry, num_entities, event_queue)
+        , collision_matrix(collision_matrix) {}
         void update() override;
 };

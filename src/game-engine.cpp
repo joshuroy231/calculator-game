@@ -6,18 +6,40 @@
 
 GameEngine::GameEngine(Game* game)
     : entity_manager(game->entity_pool_size, game->entity_profiles)
+    , event_queue(64)
     , rendering_system(
         entity_manager.entity_registry,
         entity_manager.num_entities,
+        event_queue,
         &game->scene->tilemap,
         game->scene->background_color,
         game->scene->camera.position
     )
-    , physics_system(entity_manager.entity_registry, entity_manager.num_entities, &game->scene->tilemap, game->scene->gravity)
-    , control_system(entity_manager.entity_registry, entity_manager.num_entities)
-    , entity_collision_system(entity_manager.entity_registry, game->collision_matrix, event_queue, entity_manager.num_entities)
-    , camera_system(entity_manager.entity_registry, entity_manager.num_entities, game->scene->camera, game->scene->dimensions_pixels)
-    , event_queue(64)
+    , physics_system(
+        entity_manager.entity_registry,
+        entity_manager.num_entities,
+        event_queue,
+        &game->scene->tilemap,
+        game->scene->gravity
+    )
+    , control_system(
+        entity_manager.entity_registry,
+        entity_manager.num_entities,
+        event_queue
+    )
+    , entity_collision_system(
+        entity_manager.entity_registry,
+        entity_manager.num_entities,
+        event_queue,
+        game->collision_matrix
+    )
+    , camera_system(
+        entity_manager.entity_registry,
+        entity_manager.num_entities,
+        event_queue,
+        game->scene->camera,
+        game->scene->dimensions_pixels
+    )
     , game(game)
     {}
 
