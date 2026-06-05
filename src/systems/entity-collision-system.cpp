@@ -42,6 +42,8 @@ void EntityCollisionSystem::update() {
                 entity2.state.position.x -= overlap.x/2;
                 entity1.state.velocity.x = entity2.state.velocity.x = (entity1.state.velocity.x + entity2.state.velocity.x)/2;
             }
+
+            collision_matrix[entity1.id][entity2.id](entity1, entity2, event_queue);
         }
     }
 }
