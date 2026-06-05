@@ -1,6 +1,7 @@
 #pragma once
 
 #include "entities/entity-profile.hpp"
+#include "entities/entity-configuration.hpp"
 
 enum class EventType {
     CONDEMN_ENTITY,

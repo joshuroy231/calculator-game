@@ -3,19 +3,23 @@
 #include "games/test-game/definitions/entity-profiles.hpp"
 
 namespace OnCollisionFunctions {
-    OnCollisionFunction* get() {
+    CollisionMatrix& init();
+    CollisionMatrix& get() {
+        static CollisionMatrix& collision_matrix = init();
+        return collision_matrix;
     }
-    OnCollisionFunction[EntityProfiles::Id::COUNT][EntityProfiles::Id::COUNT]& init() {
-        static OnCollisionFunction matrix[EntityProfiles::Id::COUNT][EntityProfiles::Id::COUNT];
+    CollisionMatrix& init() {
+        static CollisionMatrix collision_matrix;
         for (int i = 0; i < EntityProfiles::Id::COUNT; i++) {
             for (int j = 0; j < EntityProfiles::Id::COUNT; j++) {
-                matrix[i][j] = nullptr;
+                collision_matrix[i][j] = nullptr;
             }
         }
 
-        matrix[EntityProfiles::Id::PLAYER][EntityProfiles::Id::GOOMBA] = [](Entity& player, const Entity& goomba) -> void {
-
+        collision_matrix[EntityProfiles::Id::PLAYER][EntityProfiles::Id::GOOMBA] = 
+        [](Entity& player, const Entity& goomba, Queue<Event>& event_queue) -> void {
+            event_queue.push(Event(CondemnEntityEvent(player.id)));
         };
-        return matrix;
+        return collision_matrix;
     }
 }
