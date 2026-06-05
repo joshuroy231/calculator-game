@@ -15,6 +15,8 @@ class GameEngine {
     private:
         EntityManager entity_manager;
 
+        Queue<Event> event_queue;
+
         RenderingSystem rendering_system;
         PhysicsSystem physics_system;
         ControlSystem control_system;
@@ -22,8 +24,6 @@ class GameEngine {
         CameraSystem camera_system;
 
         Keypad* keypad;
-
-        Queue<Event> event_queue;
 
         Game* game;
 
