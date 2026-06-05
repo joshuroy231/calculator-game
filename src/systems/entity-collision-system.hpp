@@ -4,7 +4,6 @@
 #include "events/event.hpp"
 #include "utilities/queue.hpp"
 
-using OnCollisionFunction = void(*)(Entity&, const Entity&, Queue<Event>&);
 
 class EntityCollisionSystem : public System {
     public:

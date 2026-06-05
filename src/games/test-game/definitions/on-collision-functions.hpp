@@ -2,7 +2,7 @@
 
 #include "entities/entity.hpp"
 #include "utilities/matrix.hpp"
-#include "systems/entity-collision-system.hpp"
+#include "on-collision-function.hpp"
 
 namespace OnCollisionFunctions {
     Matrix<OnCollisionFunction>& get();
