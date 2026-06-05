@@ -1,5 +1,7 @@
 #include "systems/entity-collision-system.hpp"
 
+#include <debug.h>
+
 #include "utilities/helpers.hpp"
 
 void EntityCollisionSystem::update() {
@@ -43,7 +45,11 @@ void EntityCollisionSystem::update() {
                 entity1.state.velocity.x = entity2.state.velocity.x = (entity1.state.velocity.x + entity2.state.velocity.x)/2;
             }
 
-            collision_matrix[entity1.id][entity2.id](entity1, entity2, event_queue);
+            OnCollisionFunction on_collision = collision_matrix[entity1.profile_id][entity2.profile_id];
+            if (on_collision != nullptr) {
+                dbg_printf("Called on collision between %d and %d\n", entity1.id, entity2.id);
+                on_collision(entity1, entity2, event_queue);
+            }
         }
     }
 }
