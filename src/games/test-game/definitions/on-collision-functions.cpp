@@ -1,15 +1,17 @@
 #include "games/test-game/definitions/on-collision-functions.hpp"
 
 #include "games/test-game/definitions/entity-profiles.hpp"
+#include "events/event.hpp"
+#include "utilities/queue.hpp"
 
 namespace OnCollisionFunctions {
-    CollisionMatrix& init();
-    CollisionMatrix& get() {
-        static CollisionMatrix& collision_matrix = init();
+    Matrix<OnCollisionFunction>& init();
+    Matrix<OnCollisionFunction>& get() {
+        static Matrix<OnCollisionFunction>& collision_matrix = init();
         return collision_matrix;
     }
-    CollisionMatrix& init() {
-        static CollisionMatrix collision_matrix;
+    Matrix<OnCollisionFunction>& init() {
+        static Matrix<OnCollisionFunction> collision_matrix(EntityProfiles::Id::COUNT, EntityProfiles::Id::COUNT);
         for (int i = 0; i < EntityProfiles::Id::COUNT; i++) {
             for (int j = 0; j < EntityProfiles::Id::COUNT; j++) {
                 collision_matrix[i][j] = nullptr;
