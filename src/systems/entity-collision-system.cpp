@@ -15,34 +15,15 @@ void EntityCollisionSystem::update() {
             Box<int> box2 = Box(entity2.state.position, entity2.profile->dimensions);
             if (!areColliding(box1, box2)) continue;
 
-            Vec2<int> center1 = entity1.state.position + entity1.profile->dimensions/2;
-            Vec2<int> center2 = entity2.state.position + entity2.profile->dimensions/2;
-            Vec2<int> difference = center2 - center1;
-            Vec2<int> overlap;
-            if (difference.x > 0)
-                overlap.x = box2.x_min - box1.x_max;
-            else
-                overlap.x = box2.x_max - box1.x_min;
-            if (difference.y > 0)
-                overlap.y = box2.y_min - box1.y_max;
-            else
-                overlap.y = box2.y_max - box1.y_min;
-            
-            Vec2<int> relative_velocity = entity2.state.velocity - entity1.state.velocity;
-            int adjusted_y_overlap = overlap.y * relative_velocity.x;
-            int adjusted_y_velocity = relative_velocity.y * overlap.x;
+            Vec2<int> collision = getCollision(box1, entity1.state.velocity, box2, entity2.state.velocity);
 
-            if (abs(adjusted_y_velocity) > abs(adjusted_y_overlap)) {
-                if (difference.y*relative_velocity.y > 0) return;
-                entity1.state.position.y += overlap.y - overlap.y/2;
-                entity2.state.position.y -= overlap.y/2;
-                entity1.state.velocity.y = entity2.state.velocity.y = (entity1.state.velocity.y + entity2.state.velocity.y)/2;
-            }
-            else {
-                if (difference.x*relative_velocity.x > 0) return;
-                entity1.state.position.x += overlap.x - overlap.x/2;
-                entity2.state.position.x -= overlap.x/2;
+            entity1.state.position += collision - collision/2;
+            entity2.state.position -= collision/2;
+            if (collision.x != 0) {
                 entity1.state.velocity.x = entity2.state.velocity.x = (entity1.state.velocity.x + entity2.state.velocity.x)/2;
+            }
+            else if (collision.y != 0) {
+                entity1.state.velocity.y = entity2.state.velocity.y = (entity1.state.velocity.y + entity2.state.velocity.y)/2;
             }
 
             OnCollisionFunction on_collision = collision_matrix[entity1.profile_id][entity2.profile_id];
