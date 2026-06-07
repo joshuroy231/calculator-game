@@ -70,12 +70,6 @@ void GameEngine::playScene(Scene* scene) {
             if (keypad->getButtonState(Button::QUIT) == RISING_EDGE) break;
         }
         if (keypad->getButtonState(Button::DEBUGS) == HIGH) {
-            if (keypad->getButtonState(Button::UP) == RISING_EDGE) {
-                entity_manager.condemnEntity(0);
-            }
-            if (keypad->getButtonState(Button::DOWN) == RISING_EDGE) {
-                entity_manager.condemnEntity(1);
-            }
         }
 
         control_system.update();
