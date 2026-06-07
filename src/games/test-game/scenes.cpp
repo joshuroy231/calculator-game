@@ -18,40 +18,22 @@ namespace Scenes {
             ),
             EntityConfiguration(
                 EntityState(
-                    Vec2<int>(32, 128),
-                    Vec2<int>(),
-                    Vec2<int>()
-                ),
-                EntityProfiles::Id::MYSTERY_BOX,
-                nullptr
-            ),
-            EntityConfiguration(
-                EntityState(
-                    Vec2<int>(32, 90),
-                    Vec2<int>(),
-                    Vec2<int>()
-                ),
-                EntityProfiles::Id::MYSTERY_BOX,
-                nullptr
-            ),
-            EntityConfiguration(
-                EntityState(
                     Vec2<int>(32, 170),
                     Vec2<int>(),
                     Vec2<int>()
                 ),
                 EntityProfiles::Id::MYSTERY_BOX,
                 nullptr
-            ),
-            EntityConfiguration(
-                EntityState(
-                    Vec2<int>(128, 32),
-                    Vec2<int>(),
-                    Vec2<int>()
-                ),
-                EntityProfiles::Id::GOOMBA,
-                Actuators::get()
             )
+            // EntityConfiguration(
+            //     EntityState(
+            //         Vec2<int>(128, 32),
+            //         Vec2<int>(),
+            //         Vec2<int>()
+            //     ),
+            //     EntityProfiles::Id::GOOMBA,
+            //     Actuators::get()
+            // )
         };
 
         static Scene* main_scene = new Scene(
