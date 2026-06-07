@@ -24,16 +24,16 @@ namespace Scenes {
                 ),
                 EntityProfiles::Id::MYSTERY_BOX,
                 nullptr
+            ),
+            EntityConfiguration(
+                EntityState(
+                    Vec2<int>(128, 32),
+                    Vec2<int>(),
+                    Vec2<int>()
+                ),
+                EntityProfiles::Id::GOOMBA,
+                Actuators::get()
             )
-            // EntityConfiguration(
-            //     EntityState(
-            //         Vec2<int>(128, 32),
-            //         Vec2<int>(),
-            //         Vec2<int>()
-            //     ),
-            //     EntityProfiles::Id::GOOMBA,
-            //     Actuators::get()
-            // )
         };
 
         static Scene* main_scene = new Scene(
