@@ -41,11 +41,16 @@ Vec2<int> getCollision(Box<int> box1, Vec2<int> v1, Box<int> box2, Vec2<int> v2)
     int x_weight = abs(overlap.y * relative_velocity.x);
     int y_weight = abs(overlap.x * relative_velocity.y);
 
-    if (y_weight > x_weight && overlap.y*relative_velocity.y >= 0) {
-        return Vec2(0, overlap.y);
+    Vec2<bool> is_head_on = Vec2<bool>(
+        overlap.x*relative_velocity.x >= 0,
+        overlap.y*relative_velocity.y >= 0,
+    );
+    if (is_head_on.x && is_head_on.y) {
+        return (x_weight > y_weight)
+        ? Vec2<int>(overlap.x, 0)
+        : Vec2<int>(0, overlap.y);
     }
-    else if (overlap.x*relative_velocity.x >= 0) {
-        return Vec2(overlap.x, 0);
-    }
-    else return Vec2<int>(0,0);
+    else if (is_head_on.x) return Vec2<int>(overlap.x, 0);
+    else if (is_head_on.y) return Vec2<int>(0, overlap.y);
+    else return Vec2<int>(0, 0);
 }
