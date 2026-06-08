@@ -1,5 +1,7 @@
 #pragma once
 
+#include <debug.h>
+
 #include "utilities/vec2.hpp"
 #include "utilities/box.hpp"
 
@@ -32,6 +34,8 @@ Vec2<int> getCollision(Box<int> box1, Vec2<int> v1, Box<int> box2, Vec2<int> v2)
     overlap.y = (box2.y_min + box2.y_max - box1.y_min - box1.y_max > 0)
     ? box2.y_min - box1.y_max
     : box2.y_max - box1.y_min;
+
+    dbg_printf("Collision overlap: <%d, %d>\n", overlap.x, overlap.y);
     
     Vec2<int> relative_velocity = v2 - v1;
     int x_weight = abs(overlap.y * relative_velocity.x);

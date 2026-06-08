@@ -16,6 +16,7 @@ void EntityCollisionSystem::update() {
             if (!areColliding(box1, box2)) continue;
 
             Vec2<int> collision = getCollision(box1, entity1.state.velocity, box2, entity2.state.velocity);
+            dbg_printf("Collision resolution vector: <%d, %d>\n", collision.x, collision.y);
 
             entity1.state.position += collision - collision/2;
             entity2.state.position -= collision/2;
