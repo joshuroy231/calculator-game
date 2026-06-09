@@ -6,10 +6,10 @@
 #include "utilities/box.hpp"
 
 bool areColliding(Box<int> box1, Box<int> box2) {
-    if (box1.x_max < box2.x_min) return false;
-    if (box1.x_min > box2.x_max) return false;
-    if (box1.y_max < box2.y_min) return false;
-    if (box1.y_min > box2.y_max) return false;
+    if (box1.x_max <= box2.x_min) return false;
+    if (box1.x_min >= box2.x_max) return false;
+    if (box1.y_max <= box2.y_min) return false;
+    if (box1.y_min >= box2.y_max) return false;
     return true;
 }
 
@@ -49,8 +49,8 @@ Vec2<int> getCollision(Box<int> box1, Vec2<int> v1, Box<int> box2, Vec2<int> v2)
     );
 
     Vec2<bool> is_head_on = Vec2<bool>(
-        overlap.x*relative_velocity.x > 0,
-        overlap.y*relative_velocity.y > 0
+        overlap.x*relative_velocity.x >= 0,
+        overlap.y*relative_velocity.y >= 0
     );
     if (is_head_on.x && is_head_on.y) {
         return (weight.x > weight.y)
