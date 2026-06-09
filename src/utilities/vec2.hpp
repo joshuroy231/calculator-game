@@ -44,6 +44,12 @@ class Vec2 {
             this->y -= other.y;
             return *this;
         }
+        bool operator==(const Vec2& other) const {
+            return (this->x == other.x && this->y == other.y);
+        }
+        bool operator!=(const Vec2& other) const {
+            return (this->x != other.x || this->y != other.y);
+        }
         template<typename S>
         Vec2 operator*(const S other) const {
             return Vec2(
