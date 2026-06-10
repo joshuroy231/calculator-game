@@ -41,16 +41,17 @@ void PhysicsSystem::update() {
 
         p += v / FPS;
 
-        Box<int> entity_box = Box<int>(p, entity.profile->dimensions);
 
+        Box<int> entity_box = Box<int>(p, entity.profile->dimensions);
         for (int i = entity_box.x_min / TILE_PIXELS; i <= entity_box.x_max / TILE_PIXELS; i++) {
-            for (int j = entity_box.y_min / TILE_PIXELS; i <= entity_box.y_max / TILE_PIXELS; i++) {
+            for (int j = entity_box.y_min / TILE_PIXELS; j <= entity_box.y_max / TILE_PIXELS; j++) {
                 Box<int> tile_box = Box<int>(i*TILE_PIXELS, j*TILE_PIXELS, (i+1)*TILE_PIXELS, (j+1)*TILE_PIXELS);
-                if (tilemap->data[j*TILE_PIXELS + i] == 0) continue;
+                if (tilemap->data[j*tilemap->tile_dimensions.x + i] == 0) continue;
                 Vec2<int> collision = getCollision(entity_box, v, tile_box, Vec2<int>(0, 0));
-                entity.state.position += collision;
-                if (collision.x != 0) entity.state.velocity.x = 0;
-                if (collision.y != 0) entity.state.velocity.y = 0;
+                p += collision;
+                if (collision.x != 0) v.x = 0;
+                if (collision.y != 0) v.y = 0;
+                break;
             }
         }
 
