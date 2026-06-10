@@ -60,6 +60,7 @@ void GameEngine::playScene(Scene* scene) {
     }
     timer_Enable(1, TIMER_32K, TIMER_NOINT, TIMER_UP);
     camera_system.follow(&entity_manager.entity_registry[0]);
+    frame_counter = 0;
 
     while (true) {
         uint32_t start = timer_Get(1);
@@ -81,6 +82,7 @@ void GameEngine::playScene(Scene* scene) {
         entity_manager.consumeEvents();
 
         event_queue.flush();
+        frame_counter++;
 
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;

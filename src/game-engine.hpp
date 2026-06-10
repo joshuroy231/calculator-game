@@ -13,6 +13,8 @@
 
 class GameEngine {
     private:
+        size_t frame_counter = 0;
+
         Queue<Event> event_queue;
 
         EntityManager entity_manager;
