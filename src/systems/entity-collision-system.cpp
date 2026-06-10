@@ -34,7 +34,7 @@ void EntityCollisionSystem::update() {
                     if (collision.x > 0) direction = Direction::RIGHT;
                     else direction = Direction::LEFT;
                 }
-                else if (collision.y != 0) {
+                else {
                     if (collision.y > 0) direction = Direction::DOWN;
                     else direction = Direction::UP;
                 }

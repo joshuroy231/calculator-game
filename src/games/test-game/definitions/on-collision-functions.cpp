@@ -20,13 +20,21 @@ namespace OnCollisionFunctions {
 
         collision_matrix[EntityProfiles::Id::PLAYER][EntityProfiles::Id::GOOMBA] = 
         [](Entity& player, const Entity& goomba, Direction direction, Queue<Event>& event_queue) -> void {
-            if (direction == Direction::DOWN) {
-                event_queue.push(Event(CondemnEntityEvent(goomba.id)));
+            if (direction != Direction::DOWN) {
+                event_queue.push(Event(CondemnEntityEvent(player.id)));
             }
             else {
                 event_queue.push(Event(CondemnEntityEvent(player.id)));
             }
         };
+        collision_matrix[EntityProfiles::Id::PLAYER][EntityProfiles::Id::MYSTERY_BOX] = 
+        [](Entity& player, const Entity& box, Direction direction, Queue<Event>& event_queue) -> void {
+            if (direction == Direction::UP) {
+                event_queue.push(Event(CondemnEntityEvent(box.id)));
+            }
+        };
+        
+
         return collision_matrix;
     }
 }
