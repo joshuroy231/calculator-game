@@ -27,11 +27,8 @@ void PhysicsSystem::update() {
         if (v.x != 0) {
             int decay = v.x / 5;
 
-            if (decay != 0) {
-                v.x -= decay;
-            } else {
-                v.x -= (v.x > 0) ? 1 : -1;
-            }
+            if (decay != 0) v.x -= decay;
+            else v.x -= (v.x > 0) ? 1 : -1;
         }
 
         if (v.x > entity.profile->terminal_velocity_x) v.x = entity.profile->terminal_velocity_x;
@@ -40,7 +37,6 @@ void PhysicsSystem::update() {
         else if (v.y < -entity.profile->terminal_velocity_y) v.y = -entity.profile->terminal_velocity_y;
 
         p += v / FPS;
-
 
         Box<int> entity_box = Box<int>(p, entity.profile->dimensions);
         for (int i = entity_box.x_min / TILE_PIXELS; i <= entity_box.x_max / TILE_PIXELS; i++) {
@@ -54,6 +50,5 @@ void PhysicsSystem::update() {
                 goto collision_resolved;
             }
         } collision_resolved:
-
     }
 }
