@@ -16,6 +16,9 @@ A game engine for the TI-84 Plus CE graphing calculator
 - Change entity profile to be stored as an int/enum id
 - Lock down all enum usages using enum class
 - Work out a proper implementation template
+- Add an execution frame to event object
+  - Need to actually add a frame counter to the game engine
+  - Event queue should probably be quite big in this case
 
 ### Implementation Game
 - This will help guide my design decisions. Will just try to make mario or something
