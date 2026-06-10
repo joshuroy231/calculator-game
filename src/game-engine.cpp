@@ -70,8 +70,6 @@ void GameEngine::playScene(Scene* scene) {
             keypad->scan();
             if (keypad->getButtonState(Button::QUIT) == RISING_EDGE) break;
         }
-        if (keypad->getButtonState(Button::DEBUGS) == HIGH) {
-        }
 
         control_system.update();
         physics_system.update();
