@@ -19,8 +19,13 @@ namespace OnCollisionFunctions {
         }
 
         collision_matrix[EntityProfiles::Id::PLAYER][EntityProfiles::Id::GOOMBA] = 
-        [](Entity& player, const Entity& goomba, Queue<Event>& event_queue) -> void {
-            event_queue.push(Event(CondemnEntityEvent(player.id)));
+        [](Entity& player, const Entity& goomba, Direction direction, Queue<Event>& event_queue) -> void {
+            if (direction == Direction::DOWN) {
+                event_queue.push(Event(CondemnEntityEvent(goomba.id)));
+            }
+            else {
+                event_queue.push(Event(CondemnEntityEvent(player.id)));
+            }
         };
         return collision_matrix;
     }

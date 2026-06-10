@@ -4,4 +4,11 @@
 #include "utilities/queue.hpp"
 #include "events/event.hpp"
 
-using OnCollisionFunction = void(*)(Entity&, const Entity&, Queue<Event>&);
+enum class Direction {
+    UP,
+    DOWN,
+    RIGHT,
+    LEFT,
+};
+
+using OnCollisionFunction = void(*)(Entity&, const Entity&, Direction direction, Queue<Event>&);
