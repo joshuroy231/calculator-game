@@ -10,6 +10,10 @@ namespace OnCollisionFunctions {
         static Matrix<OnCollisionFunction>& collision_matrix = init();
         return collision_matrix;
     }
+
+    #pragma GCC diagnostic push
+    #pragma GCC diagnostic ignored "-Wunused-parameter"
+
     Matrix<OnCollisionFunction>& init() {
         static Matrix<OnCollisionFunction> collision_matrix(EntityProfiles::Id::COUNT, EntityProfiles::Id::COUNT);
         for (int i = 0; i < EntityProfiles::Id::COUNT; i++) {
@@ -37,4 +41,6 @@ namespace OnCollisionFunctions {
 
         return collision_matrix;
     }
+
+    #pragma GCC diagnostic pop
 }

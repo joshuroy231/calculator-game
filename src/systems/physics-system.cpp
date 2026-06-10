@@ -49,6 +49,7 @@ void PhysicsSystem::update() {
                 if (collision.y != 0) v.y = 0;
                 goto collision_resolved;
             }
-        } collision_resolved:
+        }
+        collision_resolved:;
     }
 }
