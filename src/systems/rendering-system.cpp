@@ -6,7 +6,7 @@
 RenderingSystem::RenderingSystem(
     Tilemap* tilemap,
     uint8_t background_color,
-    Vec2<int>& camera_position
+    Vec2<int>* camera_position
 )
 : tilemap(tilemap)
 , background_color(background_color)
