@@ -57,12 +57,12 @@ void EntityManager::consumeEvents() {
         switch (e.getEventType()) {
             case EventType::CONDEMN_ENTITY:
                 condemnEntity(e.event_data.condemn_entity.id);
-                return;
+                continue;
             case EventType::CONCEIVE_ENTITY:
                 conceiveEntity(e.event_data.conceive_entity.entity_configuration);
-                return;
+                continue;
             default:
-                return;
+                continue;
         }
     }
 }
