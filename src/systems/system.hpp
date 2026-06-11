@@ -4,6 +4,9 @@
 #include "utilities/queue.hpp"
 #include "events/event.hpp"
 
+class Game;
+class Scene;
+
 class System {
     protected:
         Entity* entity_registry = nullptr;
@@ -18,4 +21,6 @@ class System {
         }
         virtual void update() = 0;
         virtual void consumeEvents() {};
+        virtual void initGame(Game* game) {};
+        virtual void initScene(Scene* scene) {};
 };
