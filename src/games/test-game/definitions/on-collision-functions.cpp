@@ -35,6 +35,15 @@ namespace OnCollisionFunctions {
         [](Entity& player, const Entity& box, Direction direction, Queue<Event>& event_queue) -> void {
             if (direction == Direction::UP) {
                 event_queue.push(Event(CondemnEntityEvent(box.id)));
+                event_queue.push(Event(ConceiveEntityEvent(EntityConfiguration(
+                    EntityState(
+                        box.state.position,
+                        Vec2<int>(0, -240),
+                        Vec2<int>(0, 0)
+                    ),
+                    (int)EntityProfiles::Id::MUSHROOM,
+                    nullptr
+                ))));
             }
         };
         
