@@ -2,8 +2,13 @@
 
 #include "scene.hpp"
 
-void CameraSystem::follow(Entity* entity) {
-    this->entity = entity;
+void CameraSystem::follow(int entity_id) {
+    for (int i = 0; i < *num_entities; i++) {
+        if (entity_registry[i].id == entity_id) {
+            entity = &entity_registry[i];
+            break;
+        }
+    }
 }
 void CameraSystem::update() {
     if (entity == nullptr) return;
@@ -18,6 +23,18 @@ void CameraSystem::update() {
     else if (c.x + camera->dimensions.x > scene_dimensions.x) c.x = scene_dimensions.x - camera->dimensions.x;
     if (c.y < 0) c.y = 0;
     else if (c.y + camera->dimensions.y > scene_dimensions.y) c.y = scene_dimensions.y - camera->dimensions.y;
+}
+
+void CameraSystem::consumeEvents() {
+    for (Event& e : *event_queue) {
+        switch (e.getEventType()) {
+            case EventType::MAIN_ENTITY:
+                follow(e.event_data.main_entity.id);
+                continue;
+            default:
+                continue;
+        }
+    }
 }
 
 void CameraSystem::initScene(Scene* scene) {

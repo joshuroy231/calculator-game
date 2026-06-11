@@ -9,8 +9,9 @@ class CameraSystem : public System {
         Camera* camera = nullptr;
         Entity* entity = nullptr;
         Vec2<int> scene_dimensions;
+        void follow(int entity_id);
     public:
-        void follow(Entity* entity);
         void update() override;
+        void consumeEvents() override;
         void initScene(Scene* scene) override;
 };

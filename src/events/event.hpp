@@ -15,6 +15,9 @@ class Event {
         Event(ConceiveEntityEvent event)
         : event_type(EventType::CONCEIVE_ENTITY)
         , event_data(event) {}
+        Event(MainEntityEvent event)
+        : event_type(EventType::MAIN_ENTITY)
+        , event_data(event) {}
 
         EventType getEventType() {
             return event_type;

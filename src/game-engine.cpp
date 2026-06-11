@@ -41,7 +41,7 @@ void GameEngine::playScene(Scene* scene) {
         entity_manager.conceiveEntity(scene->initial_entities[i]);
     }
     timer_Enable(1, TIMER_32K, TIMER_NOINT, TIMER_UP);
-    ((CameraSystem*)systems[3])->follow(&entity_manager.entity_registry[0]);
+    event_queue.push(Event(MainEntityEvent(entity_manager.entity_registry[0].id)));
     frame_counter = 0;
 
     while (true) {
