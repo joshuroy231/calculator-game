@@ -3,7 +3,7 @@
 #include "system.hpp"
 #include "entities/entity.hpp"
 
-class ControlSystem : System {
+class ControlSystem : public System {
     public:
         ControlSystem(
             Entity* entity_registry,

@@ -4,7 +4,7 @@
 #include "entities/entity.hpp"
 #include "tilemap.hpp"
 
-class PhysicsSystem : System {
+class PhysicsSystem : public System {
     private:
         Tilemap* tilemap;
         Vec2<int> gravity;

@@ -4,7 +4,7 @@
 #include "entities/entity.hpp"
 #include "cameras/camera.hpp"
 
-class CameraSystem : System {
+class CameraSystem : public System {
     private:
         Camera& camera;
         Entity* entity;

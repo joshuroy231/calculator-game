@@ -4,7 +4,7 @@
 #include "entities/entity.hpp"
 #include "tilemap.hpp"
 
-class RenderingSystem : System {
+class RenderingSystem : public System {
     private:
         Tilemap* tilemap;
         uint8_t background_color;
