@@ -60,8 +60,6 @@ void GameEngine::playScene(Scene* scene) {
         entity_manager.conceiveEntity(scene->initial_entities[i]);
     }
     timer_Enable(1, TIMER_32K, TIMER_NOINT, TIMER_UP);
-    // TODO: This sucks. Need to change this to an event based action.
-    // Will potentially add an initial event object for the user to pass in
     ((CameraSystem*)systems[4])->follow(&entity_manager.entity_registry[0]);
     frame_counter = 0;
 
