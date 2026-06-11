@@ -43,7 +43,7 @@ namespace OnCollisionFunctions {
                         Vec2<int>(0, -240),
                         Vec2<int>(0, 0)
                     ),
-                    (int)EntityProfiles::Id::MUSHROOM,
+                    EntityProfiles::Id::MUSHROOM,
                     nullptr
                 ))));
             }
