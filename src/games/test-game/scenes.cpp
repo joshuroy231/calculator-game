@@ -18,7 +18,7 @@ namespace Scenes {
             ),
             EntityConfiguration(
                 EntityState(
-                    Vec2<int>(32, 170),
+                    Vec2<int>(32, 100),
                     Vec2<int>(),
                     Vec2<int>()
                 ),

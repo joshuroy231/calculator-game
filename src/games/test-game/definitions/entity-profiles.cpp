@@ -29,7 +29,7 @@ namespace EntityProfiles {
             160,
             320,
             true,
-            true,
+            false,
             false,
             true
         );
