@@ -7,6 +7,7 @@ namespace EntityProfiles {
         PLAYER,
         MYSTERY_BOX,
         GOOMBA,
+        MUSHROOM,
 
         COUNT,
     };

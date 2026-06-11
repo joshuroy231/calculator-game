@@ -43,6 +43,16 @@ namespace EntityProfiles {
             true,
             CollisionBehavior::MATERIAL
         );
+        profiles[Id::MUSHROOM] = EntityProfile(
+            Vec2<int>(12, 12),
+            ORANGE,
+            100,
+            320,
+            true,
+            true,
+            false,
+            CollisionBehavior::INVISIBLE
+        );
         return profiles;
     }
 }
