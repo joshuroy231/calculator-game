@@ -31,12 +31,12 @@ void EntityCollisionSystem::update() {
             if (on_collision != nullptr) {
                 Direction direction;
                 if (collision.x != 0) {
-                    if (collision.x > 0) direction = Direction::RIGHT;
-                    else direction = Direction::LEFT;
+                    if (collision.x > 0) direction = Direction::LEFT;
+                    else direction = Direction::RIGHT;
                 }
                 else {
-                    if (collision.y > 0) direction = Direction::DOWN;
-                    else direction = Direction::UP;
+                    if (collision.y > 0) direction = Direction::UP;
+                    else direction = Direction::DOWN;
                 }
                 on_collision(entity1, entity2, direction, event_queue);
             }
