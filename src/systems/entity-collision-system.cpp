@@ -49,7 +49,7 @@ void EntityCollisionSystem::update() {
                 }
             }
 
-            OnCollisionFunction on_collision = collision_matrix[entity1.profile_id][entity2.profile_id];
+            OnCollisionFunction on_collision = (*collision_matrix)[entity1.profile_id][entity2.profile_id];
             if (on_collision != nullptr) {
                 Direction direction;
                 if (collision.x != 0) {

@@ -6,12 +6,12 @@
 
 class CameraSystem : public System {
     private:
-        Camera& camera;
+        Camera* camera;
         Entity* entity;
         Vec2<int> scene_dimensions;
     public:
         CameraSystem(
-            Camera& camera,
+            Camera* camera,
             const Vec2<int> scene_dimensions
         )
         : camera(camera)

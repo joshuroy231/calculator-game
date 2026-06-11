@@ -19,16 +19,16 @@ GameEngine::GameEngine(Game* game)
             game->scene->gravity
         );
         systems[2] = new EntityCollisionSystem(
-            game->collision_matrix
+            &game->collision_matrix
         );
         systems[3] = new CameraSystem(
-            game->scene->camera,
+            &game->scene->camera,
             game->scene->dimensions_pixels
         );
         systems[4] = new RenderingSystem(
             &game->scene->tilemap,
             game->scene->background_color,
-            game->scene->camera.position
+            &game->scene->camera.position
         );
         for (System* system : systems) {
             system->init(
