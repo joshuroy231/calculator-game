@@ -37,7 +37,9 @@ namespace OnCollisionFunctions {
                 event_queue.push(Event(CondemnEntityEvent(box.id)));
                 event_queue.push(Event(ConceiveEntityEvent(EntityConfiguration(
                     EntityState(
-                        box.state.position,
+                        box.state.position
+                            + box.profile->dimensions/2
+                            - EntityProfiles::get()[EntityProfiles::Id::MUSHROOM].dimensions/2,
                         Vec2<int>(0, -240),
                         Vec2<int>(0, 0)
                     ),
