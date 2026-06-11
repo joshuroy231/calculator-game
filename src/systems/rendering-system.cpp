@@ -5,8 +5,8 @@
 
 RenderingSystem::RenderingSystem(
     Entity* entity_registry,
-    int& num_entities,
-    Queue<Event>& event_queue,
+    int* num_entities,
+    Queue<Event>* event_queue,
     Tilemap* tilemap,
     uint8_t background_color,
     Vec2<int>& camera_position
@@ -25,7 +25,7 @@ RenderingSystem::~RenderingSystem() {
 }
 
 void RenderingSystem::renderEntities() {
-    for (int i = 0; i < this->num_entities; i++) {
+    for (int i = 0; i < *this->num_entities; i++) {
         if (!entity_registry[i].profile->has_rendering) continue;
         Entity& entity = this->entity_registry[i];
         gfx_SetColor(entity.profile->color);

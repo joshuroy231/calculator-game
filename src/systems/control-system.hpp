@@ -7,8 +7,8 @@ class ControlSystem : public System {
     public:
         ControlSystem(
             Entity* entity_registry,
-            int const& num_entities,
-            Queue<Event>& event_queue
+            int* num_entities,
+            Queue<Event>* event_queue
         );
         void update() override;
 };

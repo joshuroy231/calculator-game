@@ -2,8 +2,8 @@
 
 PhysicsSystem::PhysicsSystem(
     Entity* entity_registry,
-    int const& num_entities,
-    Queue<Event>& event_queue,
+    int* num_entities,
+    Queue<Event>* event_queue,
     Tilemap* tilemap,
     Vec2<int> gravity
 )
@@ -82,7 +82,7 @@ void checkYCollision(Entity& entity, Tilemap* tilemap) {
 }
 
 void PhysicsSystem::update() {
-    for (int i = 0; i < this->num_entities; i++) {
+    for (int i = 0; i < *this->num_entities; i++) {
         if (!entity_registry[i].profile->has_physics) continue;
         Entity& entity = this->entity_registry[i];
 

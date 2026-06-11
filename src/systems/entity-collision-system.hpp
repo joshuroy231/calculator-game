@@ -13,8 +13,8 @@ class EntityCollisionSystem : public System {
     public:
         EntityCollisionSystem(
             Entity* entity_registry,
-            const int& num_entities,
-            Queue<Event>& event_queue,
+            int* num_entities,
+            Queue<Event>* event_queue,
             Matrix<OnCollisionFunction>& collision_matrix
         )
         : System(entity_registry, num_entities, event_queue)

@@ -15,33 +15,33 @@ GameEngine::GameEngine(Game* game)
     {
         systems[0] = new ControlSystem(
             entity_manager.entity_registry,
-            entity_manager.num_entities,
-            event_queue
+            &entity_manager.num_entities,
+            &event_queue
         );
         systems[1] = new PhysicsSystem(
             entity_manager.entity_registry,
-            entity_manager.num_entities,
-            event_queue,
+            &entity_manager.num_entities,
+            &event_queue,
             &game->scene->tilemap,
             game->scene->gravity
         );
         systems[2] = new EntityCollisionSystem(
             entity_manager.entity_registry,
-            entity_manager.num_entities,
-            event_queue,
+            &entity_manager.num_entities,
+            &event_queue,
             game->collision_matrix
         );
         systems[3] = new CameraSystem(
             entity_manager.entity_registry,
-            entity_manager.num_entities,
-            event_queue,
+            &entity_manager.num_entities,
+            &event_queue,
             game->scene->camera,
             game->scene->dimensions_pixels
         );
         systems[4] = new RenderingSystem(
             entity_manager.entity_registry,
-            entity_manager.num_entities,
-            event_queue,
+            &entity_manager.num_entities,
+            &event_queue,
             &game->scene->tilemap,
             game->scene->background_color,
             game->scene->camera.position

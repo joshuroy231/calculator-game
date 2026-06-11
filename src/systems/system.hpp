@@ -7,12 +7,12 @@
 class System {
     protected:
         Entity* entity_registry;
-        int const& num_entities;
-        Queue<Event>& event_queue;
+        int* num_entities;
+        Queue<Event>* event_queue;
         System(
             Entity* entity_registry,
-            int const& num_entities,
-            Queue<Event>& event_queue
+            int* num_entities,
+            Queue<Event>* event_queue
         )
         : entity_registry(entity_registry)
         , num_entities(num_entities)

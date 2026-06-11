@@ -12,8 +12,8 @@ class CameraSystem : public System {
     public:
         CameraSystem(
             Entity* entity_registry,
-            const int& num_entities,
-            Queue<Event>& event_queue,
+            int* num_entities,
+            Queue<Event>* event_queue,
             Camera& camera,
             const Vec2<int> scene_dimensions
         )

@@ -5,13 +5,13 @@
 
 ControlSystem::ControlSystem(
     Entity* entity_registry,
-    int const& num_entities,
-    Queue<Event>& event_queue
+    int* num_entities,
+    Queue<Event>* event_queue
 )
 : System(entity_registry, num_entities, event_queue) {}
 
 void ControlSystem::update() {
-    for (int i = 0; i < this->num_entities; i++) {
+    for (int i = 0; i < *this->num_entities; i++) {
         if (!this->entity_registry[i].profile->has_control) continue;
         entity_registry[i].actuator->actuate(entity_registry[i]);
     }

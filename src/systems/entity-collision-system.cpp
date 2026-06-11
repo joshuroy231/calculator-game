@@ -5,10 +5,10 @@
 #include "utilities/helpers.hpp"
 
 void EntityCollisionSystem::update() {
-    for (int i = 0; i < num_entities; i++) {
+    for (int i = 0; i < *num_entities; i++) {
         Entity& entity1 = entity_registry[i];
         if (entity1.profile->collision_behavior == CollisionBehavior::NONE) continue;
-        for (int j = i+1; j < num_entities; j++) {
+        for (int j = i+1; j < *num_entities; j++) {
             Entity& entity2 = entity_registry[j];
             if (entity2.profile->collision_behavior == CollisionBehavior::NONE) continue;
             if (entity1.profile->collision_behavior == CollisionBehavior::SOLID && entity2.profile->collision_behavior == CollisionBehavior::SOLID) continue;
@@ -60,7 +60,7 @@ void EntityCollisionSystem::update() {
                     if (collision.y > 0) direction = Direction::UP;
                     else direction = Direction::DOWN;
                 }
-                on_collision(entity1, entity2, direction, event_queue);
+                on_collision(entity1, entity2, direction, *event_queue);
             }
         }
     }

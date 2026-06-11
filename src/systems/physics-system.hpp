@@ -11,8 +11,8 @@ class PhysicsSystem : public System {
     public:
         PhysicsSystem(
             Entity* entity_registry,
-            int const& num_entities,
-            Queue<Event>& event_queue,
+            int* num_entities,
+            Queue<Event>* event_queue,
             Tilemap* tilemap,
             Vec2<int> gravity
         );
