@@ -19,15 +19,11 @@ class GameEngine {
 
         EntityManager entity_manager;
 
-        RenderingSystem rendering_system;
-        PhysicsSystem physics_system;
-        ControlSystem control_system;
-        EntityCollisionSystem entity_collision_system;
-        CameraSystem camera_system;
+        Game* game;
+
+        System* systems[5];
 
         Keypad* keypad;
-
-        Game* game;
 
         void playScene(Scene* scene);
     public:
