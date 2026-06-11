@@ -6,18 +6,15 @@
 
 class RenderingSystem : public System {
     private:
-        Tilemap* tilemap;
+        Tilemap* tilemap = nullptr;
         uint8_t background_color;
-        Vec2<int>* camera_position;
+        Vec2<int>* camera_position = nullptr;
     public:
-        RenderingSystem(
-            Tilemap* tilemap,
-            uint8_t background_color,
-            Vec2<int>* camera_position
-        );
+        RenderingSystem() = default;
         ~RenderingSystem();
         void update() override;
         void initScene(Scene* scene) override;
+        void initGame(Game* game) override;
         void renderBackground();
         void renderTiles();
         void renderEntities();

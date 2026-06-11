@@ -4,7 +4,7 @@
 
 #include "game-engine.hpp"
 
-GameEngine::GameEngine(Game* game)
+GameEngine::GameEngine(Game* game, FixedVector<System*> systems)
     : event_queue(256)
     , entity_manager(
         game->entity_pool_size,
@@ -12,26 +12,10 @@ GameEngine::GameEngine(Game* game)
         event_queue
     )
     , game(game)
+    , systems(systems)
     {
-        systems[0] = new ControlSystem();
-        systems[1] = new PhysicsSystem(
-            &game->scene->tilemap,
-            game->scene->gravity
-        );
-        systems[2] = new EntityCollisionSystem(
-            &game->collision_matrix
-        );
-        systems[3] = new CameraSystem(
-            &game->scene->camera,
-            game->scene->dimensions_pixels
-        );
-        systems[4] = new RenderingSystem(
-            &game->scene->tilemap,
-            game->scene->background_color,
-            &game->scene->camera.position
-        );
-        for (System* system : systems) {
-            system->init(
+        for (System* s : systems) {
+            s->init(
                 entity_manager.entity_registry,
                 &entity_manager.num_entities,
                 &event_queue
@@ -44,9 +28,15 @@ void GameEngine::registerKeypad(Keypad* keypad) {
 }
 
 void GameEngine::playGame() {
+    for (System* system : systems) {
+        system->initGame(game);
+    }
     playScene(game->scene);
 }
 void GameEngine::playScene(Scene* scene) {
+    for (System* system : systems) {
+        system->initScene(scene);
+    }
     for (int i = 0; i < scene->num_initial_entities; i++) {
         entity_manager.conceiveEntity(scene->initial_entities[i]);
     }

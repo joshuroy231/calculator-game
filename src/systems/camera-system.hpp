@@ -6,17 +6,10 @@
 
 class CameraSystem : public System {
     private:
-        Camera* camera;
-        Entity* entity;
+        Camera* camera = nullptr;
+        Entity* entity = nullptr;
         Vec2<int> scene_dimensions;
     public:
-        CameraSystem(
-            Camera* camera,
-            const Vec2<int> scene_dimensions
-        )
-        : camera(camera)
-        , entity(nullptr)
-        , scene_dimensions(scene_dimensions) {}
         void follow(Entity* entity);
         void update() override;
         void initScene(Scene* scene) override;

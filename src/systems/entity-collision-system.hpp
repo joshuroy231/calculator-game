@@ -9,12 +9,8 @@
 
 class EntityCollisionSystem : public System {
     private:
-        Matrix<OnCollisionFunction>* collision_matrix;
+        Matrix<OnCollisionFunction>* collision_matrix = nullptr;
     public:
-        EntityCollisionSystem(
-            Matrix<OnCollisionFunction>* collision_matrix
-        )
-        : collision_matrix(collision_matrix) {}
         void update() override;
         void initGame(Game* game) override;
 };

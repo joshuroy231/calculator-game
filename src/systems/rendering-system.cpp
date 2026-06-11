@@ -5,19 +5,6 @@
 
 #include "scene.hpp"
 
-RenderingSystem::RenderingSystem(
-    Tilemap* tilemap,
-    uint8_t background_color,
-    Vec2<int>* camera_position
-)
-: tilemap(tilemap)
-, background_color(background_color)
-, camera_position(camera_position)
-{
-    gfx_Begin();
-    gfx_SetDrawBuffer();
-}
-
 RenderingSystem::~RenderingSystem() {
     gfx_End();
 }
@@ -67,4 +54,9 @@ void RenderingSystem::initScene(Scene* scene) {
     this->tilemap = &scene->tilemap;
     this->background_color = scene->background_color;
     this->camera_position = &scene->camera.position;
+}
+
+void RenderingSystem::initGame(Game* game) {
+    gfx_Begin();
+    gfx_SetDrawBuffer();
 }

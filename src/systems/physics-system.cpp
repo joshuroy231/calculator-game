@@ -2,14 +2,6 @@
 
 #include "scene.hpp"
 
-PhysicsSystem::PhysicsSystem(
-    Tilemap* tilemap,
-    Vec2<int> gravity
-)
-: tilemap(tilemap)
-, gravity(gravity)
-{}
-
 void resolveXCollision(Entity& entity, bool moving_right) {
     entity.state.position.x += (moving_right)
         ? -(entity.state.position.x + entity.profile->dimensions.x)%TILE_PIXELS

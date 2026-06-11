@@ -21,6 +21,10 @@ class System {
         }
         virtual void update() = 0;
         virtual void consumeEvents() {};
+
+        #pragma GCC diagnostic push
+        #pragma GCC diagnostic ignored "-Wunused-parameter"
         virtual void initGame(Game* game) {};
         virtual void initScene(Scene* scene) {};
+        #pragma GCC diagnostic pop
 };

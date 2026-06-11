@@ -6,13 +6,10 @@
 
 class PhysicsSystem : public System {
     private:
-        Tilemap* tilemap;
+        Tilemap* tilemap = nullptr;
         Vec2<int> gravity;
     public:
-        PhysicsSystem(
-            Tilemap* tilemap,
-            Vec2<int> gravity
-        );
+        PhysicsSystem() = default;
         void update() override;
         void initScene(Scene* scene) override;
 };
