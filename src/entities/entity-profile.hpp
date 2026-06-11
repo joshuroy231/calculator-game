@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include "utilities/vec2.hpp"
+#include "collision-behavior.hpp"
 
 struct EntityProfile {
     Vec2<int> dimensions;
@@ -13,7 +14,7 @@ struct EntityProfile {
     bool has_rendering;
     bool has_physics;
     bool has_control;
-    bool has_collision;
+    CollisionBehavior collision_behavior;
     EntityProfile() = default;
     EntityProfile(
         Vec2<int> dimensions,
@@ -23,7 +24,7 @@ struct EntityProfile {
         bool has_rendering,
         bool has_physics,
         bool has_control,
-        bool has_collision
+        CollisionBehavior collision_behavior
     )
     : dimensions(dimensions)
     , color(color)
@@ -32,5 +33,5 @@ struct EntityProfile {
     , has_rendering(has_rendering)
     , has_physics(has_physics)
     , has_control(has_control)
-    , has_collision(has_collision) {}
+    , collision_behavior(collision_behavior) {}
 };

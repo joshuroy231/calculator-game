@@ -21,7 +21,7 @@ namespace EntityProfiles {
             true,
             true,
             true,
-            true
+            CollisionBehavior::MATERIAL
         );
         profiles[Id::MYSTERY_BOX] = EntityProfile(
             Vec2<int>(32, 32),
@@ -31,7 +31,7 @@ namespace EntityProfiles {
             true,
             false,
             false,
-            true
+            CollisionBehavior::SOLID
         );
         profiles[Id::GOOMBA] = EntityProfile(
             Vec2<int>(16,16),
@@ -41,7 +41,7 @@ namespace EntityProfiles {
             true,
             true,
             true,
-            true
+            CollisionBehavior::MATERIAL
         );
         return profiles;
     }
