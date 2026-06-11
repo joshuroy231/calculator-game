@@ -30,8 +30,6 @@ Vec2<int> getCollision(Box<int> box1, Vec2<int> v1, Box<int> box2, Vec2<int> v2)
     ? box2.y_min - box1.y_max
     : box2.y_max - box1.y_min;
 
-    dbg_printf("Collision overlap: <%d, %d>\n", overlap.x, overlap.y);
-    
     Vec2<int> relative_velocity = v2 - v1;
     Vec2<int> weight = (relative_velocity != Vec2<int>(0, 0))
     ? Vec2<int>(
