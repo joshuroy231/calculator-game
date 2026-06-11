@@ -5,10 +5,6 @@
 
 class ControlSystem : public System {
     public:
-        ControlSystem(
-            Entity* entity_registry,
-            int* num_entities,
-            Queue<Event>* event_queue
-        );
+        ControlSystem() = default;
         void update() override;
 };

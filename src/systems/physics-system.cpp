@@ -1,14 +1,10 @@
 #include "physics-system.hpp"
 
 PhysicsSystem::PhysicsSystem(
-    Entity* entity_registry,
-    int* num_entities,
-    Queue<Event>* event_queue,
     Tilemap* tilemap,
     Vec2<int> gravity
 )
-: System(entity_registry, num_entities, event_queue)
-, tilemap(tilemap)
+: tilemap(tilemap)
 , gravity(gravity)
 {}
 

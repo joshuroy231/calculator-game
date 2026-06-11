@@ -10,9 +10,6 @@ class PhysicsSystem : public System {
         Vec2<int> gravity;
     public:
         PhysicsSystem(
-            Entity* entity_registry,
-            int* num_entities,
-            Queue<Event>* event_queue,
             Tilemap* tilemap,
             Vec2<int> gravity
         );

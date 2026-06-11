@@ -6,18 +6,16 @@
 
 class System {
     protected:
-        Entity* entity_registry;
-        int* num_entities;
-        Queue<Event>* event_queue;
-        System(
-            Entity* entity_registry,
-            int* num_entities,
-            Queue<Event>* event_queue
-        )
-        : entity_registry(entity_registry)
-        , num_entities(num_entities)
-        , event_queue(event_queue) {}
+        Entity* entity_registry = nullptr;
+        int* num_entities = nullptr;
+        Queue<Event>* event_queue = nullptr;
+        System() = default;
     public:
+        void init(Entity* entity_registry, int* num_entities, Queue<Event>* event_queue) {
+            this->entity_registry = entity_registry;
+            this->num_entities = num_entities;
+            this->event_queue = event_queue;
+        }
         virtual void update() = 0;
         virtual void consumeEvents() {};
 };

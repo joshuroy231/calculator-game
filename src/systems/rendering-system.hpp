@@ -11,9 +11,6 @@ class RenderingSystem : public System {
         Vec2<int>& camera_position;
     public:
         RenderingSystem(
-            Entity* entity_registry,
-            int* num_entities,
-            Queue<Event>* event_queue,
             Tilemap* tilemap,
             uint8_t background_color,
             Vec2<int>& camera_position

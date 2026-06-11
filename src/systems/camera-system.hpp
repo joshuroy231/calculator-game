@@ -11,14 +11,10 @@ class CameraSystem : public System {
         Vec2<int> scene_dimensions;
     public:
         CameraSystem(
-            Entity* entity_registry,
-            int* num_entities,
-            Queue<Event>* event_queue,
             Camera& camera,
             const Vec2<int> scene_dimensions
         )
-        : System(entity_registry, num_entities, event_queue)
-        , camera(camera)
+        : camera(camera)
         , entity(nullptr)
         , scene_dimensions(scene_dimensions) {}
         void follow(Entity* entity);

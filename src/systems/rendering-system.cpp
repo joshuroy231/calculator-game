@@ -4,15 +4,11 @@
 #include "rendering-system.hpp"
 
 RenderingSystem::RenderingSystem(
-    Entity* entity_registry,
-    int* num_entities,
-    Queue<Event>* event_queue,
     Tilemap* tilemap,
     uint8_t background_color,
     Vec2<int>& camera_position
 )
-: System(entity_registry, num_entities, event_queue)
-, tilemap(tilemap)
+: tilemap(tilemap)
 , background_color(background_color)
 , camera_position(camera_position)
 {
