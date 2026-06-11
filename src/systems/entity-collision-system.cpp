@@ -18,32 +18,34 @@ void EntityCollisionSystem::update() {
 
             Vec2<int> collision = getCollision(box1, entity1.state.velocity, box2, entity2.state.velocity);
 
-            if (entity1.profile->collision_behavior == CollisionBehavior::MATERIAL && entity2.profile->collision_behavior == CollisionBehavior::MATERIAL) {
-                entity1.state.position += collision - collision/2;
-                entity2.state.position -= collision/2;
-                if (collision.x != 0) {
-                    entity1.state.velocity.x = entity2.state.velocity.x = (entity1.state.velocity.x + entity2.state.velocity.x)/2;
+            if (!(entity1.profile->collision_behavior == CollisionBehavior::INVISIBLE) && !(entity2.profile->collision_behavior == CollisionBehavior::INVISIBLE)) {
+                if (entity1.profile->collision_behavior == CollisionBehavior::MATERIAL && entity2.profile->collision_behavior == CollisionBehavior::MATERIAL) {
+                    entity1.state.position += collision - collision/2;
+                    entity2.state.position -= collision/2;
+                    if (collision.x != 0) {
+                        entity1.state.velocity.x = entity2.state.velocity.x = (entity1.state.velocity.x + entity2.state.velocity.x)/2;
+                    }
+                    else if (collision.y != 0) {
+                        entity1.state.velocity.y = entity2.state.velocity.y = (entity1.state.velocity.y + entity2.state.velocity.y)/2;
+                    }
                 }
-                else if (collision.y != 0) {
-                    entity1.state.velocity.y = entity2.state.velocity.y = (entity1.state.velocity.y + entity2.state.velocity.y)/2;
+                else if (entity1.profile->collision_behavior == CollisionBehavior::MATERIAL && entity2.profile->collision_behavior == CollisionBehavior::SOLID) {
+                    entity1.state.position += collision;
+                    if (collision.x != 0) {
+                        entity1.state.velocity.x = 0;
+                    }
+                    else if (collision.y != 0) {
+                        entity1.state.velocity.y = 0;
+                    }
                 }
-            }
-            else if (entity1.profile->collision_behavior == CollisionBehavior::MATERIAL && entity2.profile->collision_behavior == CollisionBehavior::SOLID) {
-                entity1.state.position += collision;
-                if (collision.x != 0) {
-                    entity1.state.velocity.x = 0;
-                }
-                else if (collision.y != 0) {
-                    entity1.state.velocity.y = 0;
-                }
-            }
-            else if (entity1.profile->collision_behavior == CollisionBehavior::SOLID && entity2.profile->collision_behavior == CollisionBehavior::MATERIAL) {
-                entity2.state.position -= collision;
-                if (collision.x != 0) {
-                    entity2.state.velocity.x = 0;
-                }
-                else if (collision.y != 0) {
-                    entity2.state.velocity.y = 0;
+                else if (entity1.profile->collision_behavior == CollisionBehavior::SOLID && entity2.profile->collision_behavior == CollisionBehavior::MATERIAL) {
+                    entity2.state.position -= collision;
+                    if (collision.x != 0) {
+                        entity2.state.velocity.x = 0;
+                    }
+                    else if (collision.y != 0) {
+                        entity2.state.velocity.y = 0;
+                    }
                 }
             }
 
