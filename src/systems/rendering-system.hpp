@@ -17,6 +17,7 @@ class RenderingSystem : public System {
         );
         ~RenderingSystem();
         void update() override;
+        void initScene(Scene* scene) override;
         void renderBackground();
         void renderTiles();
         void renderEntities();

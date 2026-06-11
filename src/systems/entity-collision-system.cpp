@@ -3,6 +3,7 @@
 #include <debug.h>
 
 #include "utilities/helpers.hpp"
+#include "game.hpp"
 
 void EntityCollisionSystem::update() {
     for (int i = 0; i < *num_entities; i++) {
@@ -64,4 +65,8 @@ void EntityCollisionSystem::update() {
             }
         }
     }
+}
+
+void EntityCollisionSystem::initGame(Game* game) {
+    this->collision_matrix = &game->collision_matrix;
 }

@@ -19,4 +19,5 @@ class CameraSystem : public System {
         , scene_dimensions(scene_dimensions) {}
         void follow(Entity* entity);
         void update() override;
+        void initScene(Scene* scene) override;
 };

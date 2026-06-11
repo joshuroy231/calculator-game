@@ -14,4 +14,5 @@ class PhysicsSystem : public System {
             Vec2<int> gravity
         );
         void update() override;
+        void initScene(Scene* scene) override;
 };

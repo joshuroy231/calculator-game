@@ -3,6 +3,8 @@
 
 #include "rendering-system.hpp"
 
+#include "scene.hpp"
+
 RenderingSystem::RenderingSystem(
     Tilemap* tilemap,
     uint8_t background_color,
@@ -59,4 +61,10 @@ void RenderingSystem::update() {
     this->renderTiles();
     this->renderEntities();
     gfx_SwapDraw();
+}
+
+void RenderingSystem::initScene(Scene* scene) {
+    this->tilemap = &scene->tilemap;
+    this->background_color = scene->background_color;
+    this->camera_position = &scene->camera.position;
 }

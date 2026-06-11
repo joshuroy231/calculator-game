@@ -1,5 +1,7 @@
 #include "physics-system.hpp"
 
+#include "scene.hpp"
+
 PhysicsSystem::PhysicsSystem(
     Tilemap* tilemap,
     Vec2<int> gravity
@@ -106,4 +108,9 @@ void PhysicsSystem::update() {
         entity.state.position.y += entity.state.velocity.y / FPS;
         checkYCollision(entity, tilemap);
     }
+}
+
+void PhysicsSystem::initScene(Scene* scene) {
+    this->tilemap = &scene->tilemap;
+    this->gravity = scene->gravity;
 }

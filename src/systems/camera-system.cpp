@@ -1,5 +1,7 @@
 #include "systems/camera-system.hpp"
 
+#include "scene.hpp"
+
 void CameraSystem::follow(Entity* entity) {
     this->entity = entity;
 }
@@ -16,4 +18,9 @@ void CameraSystem::update() {
     else if (c.x + camera->dimensions.x > scene_dimensions.x) c.x = scene_dimensions.x - camera->dimensions.x;
     if (c.y < 0) c.y = 0;
     else if (c.y + camera->dimensions.y > scene_dimensions.y) c.y = scene_dimensions.y - camera->dimensions.y;
+}
+
+void CameraSystem::initScene(Scene* scene) {
+    this->camera = &scene->camera;
+    this->scene_dimensions = scene->dimensions_pixels;
 }

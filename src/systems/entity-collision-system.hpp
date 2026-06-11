@@ -16,4 +16,5 @@ class EntityCollisionSystem : public System {
         )
         : collision_matrix(collision_matrix) {}
         void update() override;
+        void initGame(Game* game) override;
 };
