@@ -1,11 +1,7 @@
 #pragma once
 
 #include "entities/entity-manager.hpp"
-#include "systems/rendering-system.hpp"
-#include "systems/physics-system.hpp"
-#include "systems/control-system.hpp"
-#include "systems/entity-collision-system.hpp"
-#include "systems/camera-system.hpp"
+#include "systems/system.hpp"
 #include "keypad.hpp"
 #include "utilities/queue.hpp"
 #include "utilities/fixed-vector.hpp"
