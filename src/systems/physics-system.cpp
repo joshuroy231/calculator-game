@@ -21,15 +21,15 @@ void checkCollision(Entity& entity, Tilemap* tilemap, Component c) {
         entity.state.position[c] = tilemap->tile_dimensions[c]*TILE_PIXELS - entity.profile->dimensions[c];
         return;
     }
-    int left_index = entity.state.position.x / TILE_PIXELS;
-    int right_coord = entity.state.position.x + entity.profile->dimensions.x;
-    int right_index = (right_coord % TILE_PIXELS == 0) ? (right_coord / TILE_PIXELS - 1) : (right_coord / TILE_PIXELS);
+    int min_index = entity.state.position[!c] / TILE_PIXELS;
+    int max_coord = entity.state.position[!c] + entity.profile->dimensions[!c];
+    int max_index = (max_coord % TILE_PIXELS == 0) ? (max_coord / TILE_PIXELS - 1) : (max_coord / TILE_PIXELS);
     bool moving_down = (entity.state.velocity[c] > 0);
-    int row = (moving_down)
+    int line = (moving_down)
         ? (entity.state.position[c] + entity.profile->dimensions[c]) / TILE_PIXELS
         : (entity.state.position[c]) / TILE_PIXELS;
-    for (int i = left_index; i <= right_index; i++) {
-        if (tilemap->data[row*tilemap->tile_dimensions.x + i] != 0) {
+    for (int i = min_index; i <= max_index; i++) {
+        if (tilemap->data[line*tilemap->tile_dimensions[!c] + i] != 0) {
             resolveCollision(entity, moving_down, c);
             break;
         }
