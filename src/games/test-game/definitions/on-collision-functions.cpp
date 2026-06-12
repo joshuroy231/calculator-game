@@ -41,12 +41,16 @@ namespace OnCollisionFunctions {
                             + box.profile->dimensions/2
                             - EntityProfiles::get()[EntityProfiles::Id::MUSHROOM].dimensions/2,
                         Vec2<int>(0, -240),
-                        Vec2<int>(0, 0)
+                        Vec2<int>(1000, 0)
                     ),
                     EntityProfiles::Id::MUSHROOM,
                     nullptr
                 ))));
             }
+        };
+        collision_matrix[EntityProfiles::Id::PLAYER][EntityProfiles::Id::MUSHROOM] = 
+        [](Entity& player, const Entity& mushroom, Direction direction, Queue<Event>& event_queue) -> void {
+                event_queue.push(Event(CondemnEntityEvent(mushroom.id)));
         };
         
 
