@@ -16,6 +16,9 @@ class Queue {
             num_elements = 0;
             data = new T[size];
         };
+        Queue(const Queue&) = delete;
+        Queue& operator=(const Queue&) = delete;
+
         ~Queue() {
             delete [] data;
         }

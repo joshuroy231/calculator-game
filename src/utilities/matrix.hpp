@@ -27,6 +27,8 @@ class Matrix {
             this->height = height;
             data = new T[width*height];
         }
+        Matrix(const Matrix&) = delete;
+        Matrix& operator=(const Matrix&) = delete;
         ~Matrix() {
             delete [] data;
         }

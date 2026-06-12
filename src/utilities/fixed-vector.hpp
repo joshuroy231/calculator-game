@@ -10,6 +10,8 @@ class FixedVector {
             data = new T[size];
             this->size = size;
         }
+        FixedVector(const FixedVector&) = delete;
+        FixedVector& operator=(const FixedVector&) = delete;
         ~FixedVector() {
             delete [] data;
         }
