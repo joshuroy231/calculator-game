@@ -32,7 +32,6 @@ void GameEngine::playGame() {
         system->initGame(game);
     }
     playScene(game->scene);
-    dbg_printf("Exiting playGame...\n");
 }
 void GameEngine::playScene(Scene* scene) {
     for (System* system : systems) {
@@ -69,5 +68,4 @@ void GameEngine::playScene(Scene* scene) {
         if (processing_time < 32) delay(32 - processing_time);
     }
     timer_Disable(1);
-    dbg_printf("Exiting playScene...\n");
 }

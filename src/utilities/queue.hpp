@@ -17,9 +17,7 @@ class Queue {
             data = new T[size];
         };
         ~Queue() {
-            dbg_printf("Destructing queue\n");
             delete [] data;
-            dbg_printf("Destructed queue\n");
         }
         void push(T element) {
             if (num_elements == size) return;
