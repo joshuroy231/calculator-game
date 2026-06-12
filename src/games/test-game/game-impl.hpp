@@ -4,4 +4,5 @@
 
 namespace Games {
     Game* get();
+    void free();
 }

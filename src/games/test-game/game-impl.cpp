@@ -13,4 +13,8 @@ namespace Games {
         );
         return test_game;
     }
+    void free() {
+        Game* game = get();
+        delete game;
+    }
 }

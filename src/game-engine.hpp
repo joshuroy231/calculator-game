@@ -18,13 +18,13 @@ class GameEngine {
 
         Game* game;
 
-        FixedVector<System*> systems;
+        FixedVector<System*>& systems;
 
         Keypad* keypad;
 
         void playScene(Scene* scene);
     public:
-        GameEngine(Game* game, FixedVector<System*> systems);
+        GameEngine(Game* game, FixedVector<System*>& systems);
         void registerKeypad(Keypad* keypad);
         void playGame();
 };

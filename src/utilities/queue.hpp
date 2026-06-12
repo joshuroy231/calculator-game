@@ -1,5 +1,7 @@
 #pragma once
 
+#include <debug.h>
+
 template<typename T>
 class Queue {
     private:
@@ -14,6 +16,11 @@ class Queue {
             num_elements = 0;
             data = new T[size];
         };
+        ~Queue() {
+            dbg_printf("Destructing queue\n");
+            delete [] data;
+            dbg_printf("Destructed queue\n");
+        }
         void push(T element) {
             if (num_elements == size) return;
             data[num_elements++] = element;

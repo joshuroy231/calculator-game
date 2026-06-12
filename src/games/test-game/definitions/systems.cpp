@@ -9,7 +9,7 @@
 #include "utilities/enum-map.hpp"
 
 namespace Systems {
-    FixedVector<System*> init() {
+    FixedVector<System*>& init() {
         static FixedVector<System*> systems(Id::COUNT);
         systems[Id::CONTROL] = new ControlSystem();
         systems[Id::PHYSICS] = new PhysicsSystem();
@@ -18,8 +18,14 @@ namespace Systems {
         systems[Id::RENDERING] = new RenderingSystem();
         return systems;
     }
-    FixedVector<System*> get() {
-        static FixedVector<System*> systems = init();
+    FixedVector<System*>& get() {
+        static FixedVector<System*>& systems = init();
         return systems;
+    }
+    void free() {
+        FixedVector<System*>& systems = get();
+        for (System* s : systems) {
+            delete s;
+        }
     }
 }

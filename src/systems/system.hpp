@@ -14,6 +14,7 @@ class System {
         Queue<Event>* event_queue = nullptr;
         System() = default;
     public:
+        virtual ~System() = default;
         void init(Entity* entity_registry, int* num_entities, Queue<Event>* event_queue) {
             this->entity_registry = entity_registry;
             this->num_entities = num_entities;

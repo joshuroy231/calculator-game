@@ -13,5 +13,6 @@ namespace Systems {
 
         COUNT
     };
-    FixedVector<System*> get();
+    FixedVector<System*>& get();
+    void free();
 }
