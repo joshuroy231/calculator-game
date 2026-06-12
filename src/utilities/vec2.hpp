@@ -1,6 +1,6 @@
 #pragma once
 
-enum Component {
+enum class Component {
     X,
     Y
 };
@@ -14,13 +14,11 @@ class Vec2 {
         Vec2(T x, T y)
         : x(x)
         , y(y) {}
-        T getComponent(Component component) const {
-            if (component == X) return this->x;
-            else return this->y;
+        T& operator[](Component c) {
+            return (c == Component::X) ? x : y;
         }
-        void setComponent(Component component, T value) {
-            if (component == X) this->x = value;
-            else this->y = value;
+        const T& operator[](Component c) const {
+            return (c == Component::X) ? x : y;
         }
         Vec2 operator+(const Vec2& other) const {
             return Vec2(
