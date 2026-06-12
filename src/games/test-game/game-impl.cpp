@@ -14,6 +14,7 @@ namespace Games {
         return test_game;
     }
     void free() {
+        Scenes::free();
         Game* game = get();
         delete game;
     }

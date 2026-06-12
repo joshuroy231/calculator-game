@@ -16,6 +16,7 @@ int main() {
     engine.playGame();
 
     Systems::free();
+    Games::free();
 
     return 0;
 }

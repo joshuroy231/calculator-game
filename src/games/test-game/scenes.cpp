@@ -47,4 +47,8 @@ namespace Scenes {
 
         return main_scene;
     }
+    void free() {
+        Scene* main_scene = get();
+        delete main_scene;
+    }
 }

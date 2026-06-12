@@ -4,4 +4,5 @@
 
 namespace Scenes {
     Scene* get();
+    void free();
 }
