@@ -2,8 +2,8 @@
 
 #include "scene.hpp"
 
-void resolveCollision(Entity& entity, bool moving_down, Component c) {
-    entity.state.position[c] += (moving_down)
+void resolveCollision(Entity& entity, bool moving_positive, Component c) {
+    entity.state.position[c] += (moving_positive)
         ? -(entity.state.position[c] + entity.profile->dimensions[c])%TILE_PIXELS
         : TILE_PIXELS - entity.state.position[c] % TILE_PIXELS;
     entity.state.velocity[c] = 0;
@@ -24,14 +24,24 @@ void checkCollision(Entity& entity, Tilemap* tilemap, Component c) {
     int min_index = entity.state.position[!c] / TILE_PIXELS;
     int max_coord = entity.state.position[!c] + entity.profile->dimensions[!c];
     int max_index = (max_coord % TILE_PIXELS == 0) ? (max_coord / TILE_PIXELS - 1) : (max_coord / TILE_PIXELS);
-    bool moving_down = (entity.state.velocity[c] > 0);
-    int line = (moving_down)
+    bool moving_positive = (entity.state.velocity[c] > 0);
+    int line = (moving_positive)
         ? (entity.state.position[c] + entity.profile->dimensions[c]) / TILE_PIXELS
         : (entity.state.position[c]) / TILE_PIXELS;
-    for (int i = min_index; i <= max_index; i++) {
-        if (tilemap->data[line*tilemap->tile_dimensions[!c] + i] != 0) {
-            resolveCollision(entity, moving_down, c);
-            break;
+    if (c == Component::X) {
+        for (int i = min_index; i <= max_index; i++) {
+            if (tilemap->data[i*tilemap->tile_dimensions.x + line] != 0) {
+                resolveCollision(entity, moving_positive, c);
+                break;
+            }
+        }
+    }
+    else {
+        for (int i = min_index; i <= max_index; i++) {
+            if (tilemap->data[line*tilemap->tile_dimensions.x + i] != 0) {
+                resolveCollision(entity, moving_positive, c);
+                break;
+            }
         }
     }
 }
