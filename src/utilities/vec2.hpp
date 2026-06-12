@@ -1,9 +1,24 @@
 #pragma once
 
-enum class Component {
-    X,
-    Y
+class Component {
+    private:
+        bool is_x;
+        Component(bool is_x)
+        : is_x(is_x) {}
+    public:
+        bool operator==(Component other) {
+            return this->is_x == other.is_x;
+        }
+        Component operator!() {
+            return Component(!this->is_x);
+        }
+
+        static const Component X;
+        static const Component Y;
 };
+
+const Component Component::X(true);
+const Component Component::Y(false);
 
 template <typename T>
 class Vec2 {
