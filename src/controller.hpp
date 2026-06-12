@@ -14,10 +14,12 @@ enum class Button {
 };
 
 enum ButtonState {
-    LOW,
-    HIGH,
-    RISING_EDGE,
-    FALLING_EDGE,
+    IS_HIGH = (1 << 0),
+    IS_EDGE = (1 << 1),
+    RISING_EDGE = IS_HIGH|IS_EDGE,
+    FALLING_EDGE = IS_EDGE&(~IS_HIGH),
+    STABLE_HIGH = IS_HIGH&~(IS_EDGE),
+    STABLE_LOW = 0&~(IS_HIGH)&~(IS_EDGE),
 };
 
 class Controller {

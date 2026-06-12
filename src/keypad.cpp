@@ -20,7 +20,7 @@ Keypad::Keypad() {
     keymap[Button::DEBUGS] = kb_KeyDecPnt;
 
     for (ButtonState& state : key_states) {
-        state = LOW;
+        state = ButtonState::STABLE_LOW;
     }
 }
 
@@ -35,10 +35,10 @@ void Keypad::scan() {
     kb_Scan();
     for (Button button : EnumRange<Button>()) {
         if (kb_IsDown(keymap[button])) {
-            key_states[button] = (key_states[button] == LOW) ? RISING_EDGE : HIGH;
+            key_states[button] = (key_states[button] == ButtonState::STABLE_LOW) ? ButtonState::RISING_EDGE : ButtonState::STABLE_HIGH;
         }
         else {
-            key_states[button] = (key_states[button] == HIGH) ? FALLING_EDGE : LOW;
+            key_states[button] = (key_states[button] == ButtonState::STABLE_HIGH) ? ButtonState::FALLING_EDGE : ButtonState::STABLE_LOW;
         }
     }
 }
