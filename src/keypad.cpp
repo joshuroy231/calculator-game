@@ -7,8 +7,8 @@
 EnumMap<Button, kb_lkey_t> keymap;
 
 Keypad* getStandardKeypad() {
-    static Keypad* standard_keypad = new Keypad();
-    return standard_keypad;
+    static Keypad standard_keypad = Keypad();
+    return &standard_keypad;
 }
 
 Keypad::Keypad() {
