@@ -39,8 +39,10 @@ void GameEngine::playScene(Scene* scene) {
         system->initScene(scene);
     }
     for (int i = 0; i < scene->num_initial_entities; i++) {
-        entity_manager.conceiveEntity(scene->initial_entities[i]);
+        event_queue.push(Event(ConceiveEntityEvent(scene->initial_entities[i])));
     }
+    entity_manager.consumeEvents();
+    event_queue.flush();
     timer_Enable(1, TIMER_32K, TIMER_NOINT, TIMER_UP);
     event_queue.push(Event(MainEntityEvent(entity_manager.entity_registry[0].id)));
     frame_counter = 0;
