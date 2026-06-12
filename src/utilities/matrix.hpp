@@ -27,6 +27,9 @@ class Matrix {
             this->height = height;
             data = new T[width*height];
         }
+        ~Matrix() {
+            delete [] data;
+        }
         MatrixRow<T> operator[](int i) {
             return MatrixRow<T>(data + i*width);
         }
