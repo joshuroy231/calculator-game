@@ -4,6 +4,10 @@
 
 #include "game-engine.hpp"
 
+#include "systems/rendering-system.hpp"
+
+const int FRAME_TIME = 1000/FPS;
+
 GameEngine::GameEngine(Game* game, FixedVector<System*>& systems)
     : event_queue(256)
     , entity_manager(
@@ -65,7 +69,7 @@ void GameEngine::playScene(Scene* scene) {
         uint32_t end = timer_Get(1);
         uint32_t processing_time = (end - start)/32;
 
-        if (processing_time < 32) delay(32 - processing_time);
+        if (processing_time < FRAME_TIME) delay(FRAME_TIME - processing_time);
     }
     timer_Disable(1);
 }
