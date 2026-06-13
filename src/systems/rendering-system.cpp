@@ -29,7 +29,7 @@ void RenderingSystem::renderBackground() {
 
 void RenderingSystem::renderTiles() {
     for (int i = 0; i < tilemap->tile_dimensions.y; i++) {
-        for (int j = camera_position->x/TILE_PIXELS; j < (camera_position->x + 336)/TILE_PIXELS; j++) {
+        for (int j = camera_position->x/TILE_PIXELS; j <= (camera_position->x + 320)/TILE_PIXELS; j++) {
             int tile_value = tilemap->data[tilemap->tile_dimensions.x*i + j];
             if (tile_value == 0) continue;
             gfx_SetColor(tilemap->tile_types[tile_value].color);
